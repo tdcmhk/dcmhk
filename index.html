@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guía de Oración — Turquía</title>
-        <!-- Meta etiquetas para vista previa en WhatsApp y Facebook -->
-       <!-- Etiquetas Open Graph para vista previa en redes sociales / WhatsApp -->
-        <meta property="og:title" content="Guía de Oración — Turquía" />
-        <meta property="og:description" content="Día Mundial de las Misiones" />
-        <meta property="og:image" content="https://tdcmhk.b-cdn.net/coverlink.jpg" />
-        <meta property="og:url" content="https://tdcmhk.github.io/guiadeoracion/" />
-        <meta property="og:type" content="website" />
+
+    <!-- Etiquetas Open Graph para vista previa en redes sociales / WhatsApp -->
+    <meta property="og:title" content="Guía de Oración — Turquía" />
+    <meta property="og:description" content="Día Mundial de las Misiones" />
+    <meta property="og:image" content="https://tdcmhk.b-cdn.net/coverlink.jpg" />
+    <meta property="og:url" content="https://misionturquia.site/" />
+    <meta property="og:type" content="website" />
 
     <!-- Google Material Symbols (Iconos seleccionados) -->
     <!-- Carga de la fuente Google Material Symbols con TODOS los iconos del sitio -->
@@ -959,6 +959,124 @@
             }
 
 
+        
+
+            
+
+    /* BANNER DE COMPARTIR */
+            .cta-banner-share {
+                background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+                color: #ffffff;
+                border-radius: 12px;
+                padding: 20px 15px;
+                text-align: center;
+                margin: 30px 0;
+                border: 1px solid var(--secondary-color, #cbd5e0);
+            }
+
+            .cta-banner-share h3 { margin: 0 0 8px 0; font-size: 1.1rem; color: #ffffff; }
+            .cta-banner-share p { margin: 0 0 16px 0; font-size: 0.9rem; color: #e2e8f0; }
+
+            /* CONTENEDOR DEL DESPLEGABLE */
+            .share-dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* BOTÓN PRINCIPAL */
+            .btn-share-trigger {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                background-color: #3182ce;
+                color: #ffffff;
+                padding: 12px 20px;
+                border-radius: 30px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .btn-share-trigger:hover {
+                background-color: #2b6cb0;
+            }
+
+            /* Asegura que el texto y los iconos dentro del botón sean blancos */
+            .btn-share-trigger, 
+            .btn-share-trigger .material-symbols-outlined {
+                color: #ffffff !important;
+            }
+
+            /* MENÚ OCULTO/DESPLEGABLE */
+            .share-menu {
+                display: none; /* Oculto por defecto */
+                position: absolute;
+                bottom: 110%; /* Se despliega hacia arriba (o usa top: 110% si prefieres abajo) */
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #ffffff;
+                min-width: 180px;
+                box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+                border-radius: 10px;
+                overflow: hidden;
+                z-index: 100;
+            }
+
+            .share-menu.show {
+                display: block; /* Muestra el menú cuando se activa */
+            }
+
+            /* OPCIONES DEL MENÚ */
+            .share-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                width: 100%;
+                padding: 10px 16px;
+                color: #2d3748 !important;
+                text-decoration: none !important;
+                font-size: 0.9rem;
+                font-weight: 600;
+                border: none;
+                background: none;
+                cursor: pointer;
+                text-align: left;
+                transition: background-color 0.2s ease;
+            }
+
+            .share-item:hover {
+                background-color: #f7fafc;
+            }
+
+            .share-item.wa i { color: #25d366; }
+            .share-item.fb i { color: #1877f2; }
+            .share-item.copy span { color: #4a5568; font-size: 18px; }
+
+            .btn-share-block {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                background-color: #3182ce; /* Azul para destacar el botón de compartir */
+                color: #ffffff !important;
+                padding: 12px 20px;
+                border-radius: 30px;
+                text-decoration: none !important;
+                font-weight: 700;
+                font-size: 0.9rem;
+                max-width: 100%;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .btn-share-block:hover {
+                background-color: #2b6cb0;
+                transform: translateY(-2px);
+            }
             
 
     </style>
@@ -1016,12 +1134,12 @@
                     <span class="material-symbols-outlined">share</span> Compartir ▾
                 </a>
                 <div class="dropdown-menu">
-                    <a href="https://api.whatsapp.com/send?text=Te%20invito%20a%20unirte%20a%20la%20Gu%C3%ADa%20de%20Oraci%C3%B3n%20por%20la%20Misi%C3%B3n%20en%20Turqu%C3%ADa:%20https://dcmhk.netlify.app/" 
+                    <a href="https://api.whatsapp.com/send?text=Te%20invito%20a%20unirte%20a%20la%20Gu%C3%ADa%20de%20Oraci%C3%B3n%20por%20la%20Misi%C3%B3n%20en%20Turqu%C3%ADa:%20https://misionturquia.site/" 
                     target="_blank" 
                     class="share-item share-wa">
                         <img src="whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
                     </a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dcmhk.netlify.app/" 
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://misionturquia.site/" 
                     target="_blank" 
                     class="share-item share-fb">
                         <img src="facebookicon.png" alt="WhatsApp Icon" class="flaticon-icon"> Facebook
@@ -1141,7 +1259,7 @@
                         </h3>
                     </div>
 
-                    <!-- Reproductor Nativo MP4 en Alta Definición desde Netlify -->
+                    <!-- Reproductor Nativo MP4 en Alta Definición desde bunnynet -->
                     <div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/763408/55ff2b4c-8cb8-410d-bb23-b6d7128f71e2?autoplay=false&loop=false&muted=false&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen="true"></iframe></div>
 
                     <!-- Pie de Video / Pie de foto -->
@@ -1223,6 +1341,32 @@
         </div>
     </div>
         
+<!-- BANNER O SECCIÓN DE COMPARTIR -->
+<div class="cta-banner-share">
+    <h3>¡Ayúdanos a difundir esta buena causa!</h3>
+    <p>Comparte esta guía de intercesión con tus amigos, iglesia o grupos.</p>
+    
+    <!-- CONTENEDOR DESPLEGABLE -->
+    <div class="share-dropdown">
+        <button type="button" class="btn-share-trigger" onclick="toggleShareMenu(this, event)">
+            <span class="material-symbols-outlined" style="color: #ffffff;">share</span>
+            <span>Compartir esta Guía</span>
+            <span class="material-symbols-outlined arrow-icon" style="color: #ffffff;">expand_more</span>
+        </button>
+
+        <!-- Se quitó el ID="shareMenu" para poder usarlo varias veces -->
+        <div class="share-menu">
+            <a href="javascript:void(0)" onclick="shareToWhatsApp()" class="share-item wa">
+                <img src="whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
+            </a>
+            <a href="javascript:void(0)" onclick="shareToFacebook()" class="share-item fb">
+                 <img src="facebookicon.png" alt="WhatsApp Icon" class="flaticon-icon"> Facebook
+            </a>
+           
+        </div>
+    </div>
+</div>  
+
 
     <!-- SECCIÓN 2 -->
     <div id="seccion-2" class="day-card">
@@ -1323,6 +1467,8 @@
     </div>
 
    
+
+
     <!-- SECCIÓN 4 -->
     <div id="seccion-4" class="day-card">
         <div class="day-header">
@@ -1371,18 +1517,31 @@
         </div>
     </div>
 
-      <!-- BLOQUE DE LLAMADO A LA ACCIÓN A WHATSAPP (938204456) -->
-        <div class="cta-banner">
-            <h3>¿Deseas respaldar la obra en Turquía?</h3>
-            <p>Únete a nuestro grupo oficial de WhatsApp para recibir motivos de oración actualizados y avisos de intercesión.</p>
-            <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
-            target="_blank" 
-            rel="noopener" 
-            class="btn-whatsapp-block">
-                <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">folded_hands</span>
-                <span>Unirme al Grupo de Intercesión</span>
+    <!-- BANNER O SECCIÓN DE COMPARTIR -->
+<div class="cta-banner-share">
+    <h3>¡Ayúdanos a difundir esta buena causa!</h3>
+    <p>Comparte esta guía de intercesión con tus amigos, iglesia o grupos.</p>
+    
+    <!-- CONTENEDOR DESPLEGABLE -->
+    <div class="share-dropdown">
+        <button type="button" class="btn-share-trigger" onclick="toggleShareMenu(this, event)">
+            <span class="material-symbols-outlined" style="color: #ffffff;">share</span>
+            <span>Compartir esta Guía</span>
+            <span class="material-symbols-outlined arrow-icon" style="color: #ffffff;">expand_more</span>
+        </button>
+
+        <!-- Se quitó el ID="shareMenu" para poder usarlo varias veces -->
+        <div class="share-menu">
+            <a href="javascript:void(0)" onclick="shareToWhatsApp()" class="share-item wa">
+                <img src="whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
             </a>
+            <a href="javascript:void(0)" onclick="shareToFacebook()" class="share-item fb">
+                 <img src="facebookicon.png" alt="WhatsApp Icon" class="flaticon-icon"> Facebook
+            </a>
+            
         </div>
+    </div>
+</div>  
 
     <!-- SECCIÓN 5 -->
     <div id="seccion-5" class="day-card">
@@ -1639,179 +1798,179 @@
 
       
         // CONFIGURACIÓN DE CONTENIDOS POR CADA SLIDE
-      // CONFIGURACIÓN DE CONTENIDOS Y SU BOTÓN RESPECTIVO POR CADA SLIDE
-const slidesData = [
-  {
-    category: "",
-    title: "Guía de Oración por la Obra Misionera en Turquía",
-    description: "En el Día Mundial de las Misiones ",
-    subtag: "",
-    button: {
-      text: "🙏 Unirse a la Intercesión",
-      link: "#contexto-general" // Te desplaza a la guía
-    }
-  },
-  {
-    category: "",
-    title: "Video Informativo de la Obra Misionera en Turquía",
-    description: "Periodo 2025 - 2026",
-    subtag: "",
-    button: {
-      text: "▶ Ver Video",
-      link: "#video-seccion" // Te desplaza al video
-    }
-  },
-   {
-    category: "",
-    title: "Involúcrate en las Misiones en Turquía",
-    description: "Desde tu lugar",
-    subtag: "",
-    button: {
-      text: "🙏 Unirse a la Intercesión",
-      link: "https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" // Enlace a WhatsApp
-    }
-  }
-  
- 
-];
-
-let currentSlide = 0;
-let carouselTimer = null;
-const SLIDE_INTERVAL = 10000; // 10 segundos
-
-function showSlide(index) {
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.dot');
-  const textContainer = document.getElementById('carouselTextContainer');
-  const buttonsContainer = document.querySelector('.hero-buttons');
-  const totalSlides = slides.length;
-
-  if (totalSlides === 0) return;
-
-  currentSlide = (index + totalSlides) % totalSlides;
-
-  // 1. Iniciar animación de salida (fade-out) para texto y botones
-  if (textContainer) textContainer.classList.add('fade-out');
-  if (buttonsContainer) buttonsContainer.classList.add('fade-out');
-
-  // 2. Transición de imágenes y puntos
-  slides.forEach(slide => slide.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
-
-  slides[currentSlide].classList.add('active');
-  if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-
-  // 3. Cambiar contenido y hacer fade-in a los 400ms
-  setTimeout(() => {
-    const data = slidesData[currentSlide];
-    if (data) {
-      // Textos
-      const titleEl = document.getElementById('carouselTitle');
-      const descEl = document.getElementById('carouselDescription');
-      const catEl = document.getElementById('carouselCategory');
-
-      if (titleEl && data.title) titleEl.textContent = data.title;
-      if (descEl && data.description) descEl.textContent = data.description;
-      if (catEl && data.category) catEl.textContent = data.category;
-
-      // Actualización dinámica del botón activo según el slide
-      const btn1 = document.getElementById('btnGuia');
-      const btn2 = document.getElementById('btnVideo');
-      const btn3 = document.getElementById('btnIntercesion');
-
-      // Array con los 3 elementos del DOM para manipularlos según el índice
-      const buttons = [btn1, btn2, btn3];
-
-      // 1. Ocultar todos los botones primero
-      buttons.forEach(btn => {
-        if (btn) btn.style.display = 'none';
-      });
-
-      // 2. Mostrar y configurar únicamente el botón correspondiente al slide actual
-      const activeBtn = buttons[currentSlide];
-      if (activeBtn && data.button) {
-        activeBtn.textContent = data.button.text;
-        activeBtn.href = data.button.link;
-        activeBtn.style.display = 'inline-flex'; // Muestra solo este botón
-        
-        // Si es el botón de WhatsApp, abre en nueva pestaña
-        if (currentSlide === 2) {
-          activeBtn.target = "_blank";
-        } else {
-          activeBtn.removeAttribute("target");
+            // CONFIGURACIÓN DE CONTENIDOS Y SU BOTÓN RESPECTIVO POR CADA SLIDE
+        const slidesData = [
+        {
+            category: "",
+            title: "Guía de Oración por la Obra Misionera en Turquía",
+            description: "En el Día Mundial de las Misiones ",
+            subtag: "",
+            button: {
+            text: "🙏 Unirse a la Intercesión",
+            link: "#contexto-general" // Te desplaza a la guía
+            }
+        },
+        {
+            category: "",
+            title: "Video Informativo de la Obra Misionera en Turquía",
+            description: "Periodo 2025 - 2026",
+            subtag: "",
+            button: {
+            text: "▶ Ver Video",
+            link: "#video-seccion" // Te desplaza al video
+            }
+        },
+        {
+            category: "",
+            title: "Involúcrate en las Misiones en Turquía",
+            description: "Desde tu lugar",
+            subtag: "",
+            button: {
+            text: "🙏 Unirse a la Intercesión",
+            link: "https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" // Enlace a WhatsApp
+            }
         }
-      }
-    }
+        
+        
+        ];
 
-    // Reactivar la visibilidad suave
-    if (textContainer) textContainer.classList.remove('fade-out');
-    if (buttonsContainer) buttonsContainer.classList.remove('fade-out');
-  }, 400);
-}
+        let currentSlide = 0;
+        let carouselTimer = null;
+        const SLIDE_INTERVAL = 10000; // 10 segundos
 
-window.setSlide = function(index) {
-  showSlide(index);
-  resetCarouselTimer();
-};
+        function showSlide(index) {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const textContainer = document.getElementById('carouselTextContainer');
+        const buttonsContainer = document.querySelector('.hero-buttons');
+        const totalSlides = slides.length;
 
-function startCarouselTimer() {
-  stopCarouselTimer(); // Detiene cualquier timer previo para evitar aceleraciones
-  carouselTimer = setInterval(() => {
-    showSlide(currentSlide + 1);
-  }, SLIDE_INTERVAL);
-}
+        if (totalSlides === 0) return;
 
-function stopCarouselTimer() {
-  if (carouselTimer) {
-    clearInterval(carouselTimer);
-    carouselTimer = null;
-  }
-}
+        currentSlide = (index + totalSlides) % totalSlides;
 
-function resetCarouselTimer() {
-  stopCarouselTimer();
-  startCarouselTimer();
-}
+        // 1. Iniciar animación de salida (fade-out) para texto y botones
+        if (textContainer) textContainer.classList.add('fade-out');
+        if (buttonsContainer) buttonsContainer.classList.add('fade-out');
 
-// --- Soporte para Deslizar con el Dedo (Swipe Táctil) ---
-let touchStartX = 0;
-let touchEndX = 0;
+        // 2. Transición de imágenes y puntos
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
 
-function initSwipeSupport() {
-  const heroHeader = document.querySelector('.hero-header');
-  if (!heroHeader) return;
+        slides[currentSlide].classList.add('active');
+        if (dots[currentSlide]) dots[currentSlide].classList.add('active');
 
-  heroHeader.addEventListener('touchstart', (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-    stopCarouselTimer(); // Pausa el tiempo al tocar la pantalla
-  }, { passive: true });
+        // 3. Cambiar contenido y hacer fade-in a los 400ms
+        setTimeout(() => {
+            const data = slidesData[currentSlide];
+            if (data) {
+            // Textos
+            const titleEl = document.getElementById('carouselTitle');
+            const descEl = document.getElementById('carouselDescription');
+            const catEl = document.getElementById('carouselCategory');
 
-  heroHeader.addEventListener('touchend', (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-    startCarouselTimer(); // Reinicia el temporizador de 10 segundos al soltar
-  }, { passive: true });
-}
+            if (titleEl && data.title) titleEl.textContent = data.title;
+            if (descEl && data.description) descEl.textContent = data.description;
+            if (catEl && data.category) catEl.textContent = data.category;
 
-function handleSwipe() {
-  const minSwipeDistance = 40; // Distancia mínima en píxeles para considerar un swipe
-  const swipeDistance = touchEndX - touchStartX;
+            // Actualización dinámica del botón activo según el slide
+            const btn1 = document.getElementById('btnGuia');
+            const btn2 = document.getElementById('btnVideo');
+            const btn3 = document.getElementById('btnIntercesion');
 
-  if (swipeDistance < -minSwipeDistance) {
-    showSlide(currentSlide + 1); // Deslizar hacia la izquierda (Siguiente)
-  } else if (swipeDistance > minSwipeDistance) {
-    showSlide(currentSlide - 1); // Deslizar hacia la derecha (Anterior)
-  }
-}
+            // Array con los 3 elementos del DOM para manipularlos según el índice
+            const buttons = [btn1, btn2, btn3];
 
-// Inicialización
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.querySelectorAll('.carousel-slide').length > 0) {
-    showSlide(0);
-    startCarouselTimer();
-    initSwipeSupport();
-  }
-});
+            // 1. Ocultar todos los botones primero
+            buttons.forEach(btn => {
+                if (btn) btn.style.display = 'none';
+            });
+
+            // 2. Mostrar y configurar únicamente el botón correspondiente al slide actual
+            const activeBtn = buttons[currentSlide];
+            if (activeBtn && data.button) {
+                activeBtn.textContent = data.button.text;
+                activeBtn.href = data.button.link;
+                activeBtn.style.display = 'inline-flex'; // Muestra solo este botón
+                
+                // Si es el botón de WhatsApp, abre en nueva pestaña
+                if (currentSlide === 2) {
+                activeBtn.target = "_blank";
+                } else {
+                activeBtn.removeAttribute("target");
+                }
+            }
+            }
+
+            // Reactivar la visibilidad suave
+            if (textContainer) textContainer.classList.remove('fade-out');
+            if (buttonsContainer) buttonsContainer.classList.remove('fade-out');
+        }, 400);
+        }
+
+        window.setSlide = function(index) {
+        showSlide(index);
+        resetCarouselTimer();
+        };
+
+        function startCarouselTimer() {
+        stopCarouselTimer(); // Detiene cualquier timer previo para evitar aceleraciones
+        carouselTimer = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, SLIDE_INTERVAL);
+        }
+
+        function stopCarouselTimer() {
+        if (carouselTimer) {
+            clearInterval(carouselTimer);
+            carouselTimer = null;
+        }
+        }
+
+        function resetCarouselTimer() {
+        stopCarouselTimer();
+        startCarouselTimer();
+        }
+
+        // --- Soporte para Deslizar con el Dedo (Swipe Táctil) ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        function initSwipeSupport() {
+        const heroHeader = document.querySelector('.hero-header');
+        if (!heroHeader) return;
+
+        heroHeader.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            stopCarouselTimer(); // Pausa el tiempo al tocar la pantalla
+        }, { passive: true });
+
+        heroHeader.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startCarouselTimer(); // Reinicia el temporizador de 10 segundos al soltar
+        }, { passive: true });
+        }
+
+        function handleSwipe() {
+        const minSwipeDistance = 40; // Distancia mínima en píxeles para considerar un swipe
+        const swipeDistance = touchEndX - touchStartX;
+
+        if (swipeDistance < -minSwipeDistance) {
+            showSlide(currentSlide + 1); // Deslizar hacia la izquierda (Siguiente)
+        } else if (swipeDistance > minSwipeDistance) {
+            showSlide(currentSlide - 1); // Deslizar hacia la derecha (Anterior)
+        }
+        }
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', () => {
+        if (document.querySelectorAll('.carousel-slide').length > 0) {
+            showSlide(0);
+            startCarouselTimer();
+            initSwipeSupport();
+        }
+        });
 
         const themeToggleBtn = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
@@ -1840,6 +1999,57 @@ document.addEventListener('DOMContentLoaded', () => {
 
        
 
+
+        // Abrir y cerrar el menú desplegable
+        // Función para abrir/cerrar el menú desplegable actual
+        function toggleShareMenu(btnElement, event) {
+            event.stopPropagation();
+            
+            // Busca el menú que está justo al lado del botón presionado
+            const parentContainer = btnElement.closest('.share-dropdown');
+            const menu = parentContainer.querySelector('.share-menu');
+
+            // Cierra cualquier otro menú que pudiera estar abierto en la página
+            document.querySelectorAll('.share-menu.show').forEach(openMenu => {
+                if (openMenu !== menu) {
+                    openMenu.classList.remove('show');
+                }
+            });
+
+            // Alterna el menú actual
+            menu.classList.toggle('show');
+        }
+
+        // Cierra cualquier menú abierto si el usuario hace clic fuera de él
+        window.addEventListener('click', function() {
+            document.querySelectorAll('.share-menu.show').forEach(openMenu => {
+                openMenu.classList.remove('show');
+            });
+        });
+
+      
+
+        // Compartir en WhatsApp
+        function shareToWhatsApp() {
+            const text = "Únete a nosotros en oración y apoya la obra en Turquía: ";
+            const url = window.location.href;
+            window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text + url)}`, '_blank');
+        }
+
+        // Compartir en Facebook
+        function shareToFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        // Copiar enlace al portapapeles
+        function copyPageLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert("¡Enlace copiado al portapapeles!");
+            }).catch(err => {
+                console.error("Error al copiar: ", err);
+            });
+        }
 
 
         
