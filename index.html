@@ -600,10 +600,13 @@
 
            /* 5. Indicadores del Carrusel (Dots) */
             .carousel-dots {
+                position: absolute;
+                bottom: 15px; /* Controla qué tan abajo se posicionan los puntos */
+                left: 50%;
+                transform: translateX(-50%); /* Centra los puntos horizontalmente */
                 display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin-top: 20px;
+                gap: 10px; /* Espacio entre los puntos */
+                z-index: 10; /* Asegura que queden sobre las imágenes o diapositivas */
             }
 
             .dot {
@@ -656,6 +659,7 @@
         align-items: center;
     }
         }
+
 
         
       /* Pantallas pequeñas (Móviles) - CENTRADO PERFECTO */
@@ -954,6 +958,8 @@
             }
 
 
+            
+
     </style>
 
         
@@ -1068,8 +1074,8 @@
             <!-- Botones de acción (quedan estables) -->
         <div class="hero-buttons">
             <!-- Botón 1: Guía de Oración -->
-            <a href="#" id="btnIntercesion" class="btn-hero btn-secondary">🙏 Unirse a la Intercesión</a>
-            
+           <a href="#" id="btnGuia" class="btn-hero btn-secondary">🙏 Unirse a la Intercesión</a>
+                       
             <!-- Botón 2: Ver Video -->
             <a href="#" id="btnVideo" class="btn-hero btn-secondary">▶ Ver Video</a>
             
@@ -1090,7 +1096,7 @@
 </section>
 
 
-    <div class="container">
+   
 
     <div class="container">
 
@@ -1135,12 +1141,7 @@
                     </div>
 
                     <!-- Reproductor Nativo MP4 en Alta Definición desde Netlify -->
-                    <video controls 
-                        preload="metadata" 
-                        playsinline style="width: 100%; height: auto; display: block; background-color: #000000;">
-                        <source src="https://youtu.be/NLaSiTZZ37E" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video HTML5.
-                    </video>
+                    <div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/763408/55ff2b4c-8cb8-410d-bb23-b6d7128f71e2?autoplay=true&loop=false&muted=true&preload=true&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen="true"></iframe></div>
 
                     <!-- Pie de Video / Pie de foto -->
                     <p style="text-align: center; font-size: 0.88rem; color: #4a5568; padding: 12px 20px; margin: 0; font-style: italic; background-color: #ffffff;">
@@ -1535,6 +1536,7 @@
                 </li>
             </ul>
         </div>
+    </div>
 
        <!-- BLOQUE DE LLAMADO A LA ACCIÓN A WHATSAPP (938204456) -->
         <div class="cta-banner">
@@ -1553,7 +1555,7 @@
         <p>© 2026 Ministerio Misionero — Boletín para la Movilización e Intercesión Transcultural.</p>
     </footer>
 
-    </div>
+    
   
   
   
@@ -1644,11 +1646,11 @@ const slidesData = [
     description: "Unidos en un solo clamor por el Día Mundial de las Misiones",
     subtag: "",
     button: {
-      text: "📖 Guía de Oración",
+      text: "🙏 Unirse a la Intercesión",
       link: "#contexto-general" // Te desplaza a la guía
     }
   },
-   {
+  {
     category: "",
     title: "Video Informativo Turquía 2026",
     description: "La Obra de Dios avanza",
@@ -1658,7 +1660,7 @@ const slidesData = [
       link: "#video-seccion" // Te desplaza al video
     }
   },
-    {
+   {
     category: "",
     title: "Involúcrate en las Misiones",
     description: "Preparando a la próxima generación de obreros.",
@@ -1668,6 +1670,7 @@ const slidesData = [
       link: "https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" // Enlace a WhatsApp
     }
   }
+  
  
 ];
 
