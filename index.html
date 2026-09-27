@@ -8,7 +8,7 @@
     <!-- Etiquetas Open Graph para vista previa en redes sociales / WhatsApp -->
     <meta property="og:title" content="Guía de Oración — Turquía" />
     <meta property="og:description" content="Día Mundial de las Misiones" />
-    <meta property="og:image" content="https://tdcmhk.b-cdn.net/coverlink.jpg" />
+    <meta property="og:image" content="https://github.com/tdcmhk/guiadeoracion/blob/327a1ba7e71f60b0b2d4db89c4e04e605d1cb3b3/coverlink.jpg" />
     <meta property="og:url" content="https://misionturquia.site/" />
     <meta property="og:type" content="website" />
 
@@ -1078,6 +1078,7 @@
                 transform: translateY(-2px);
             }
             
+            
             /* Asegura que tanto las imágenes como los videos ocupen todo el slide de forma uniforme */
             .carousel-slide img,
             .carousel-slide video,
@@ -1086,6 +1087,43 @@
                 height: 100%;
                 object-fit: cover; /* Recorta y llena el contenedor manteniendo la proporción */
                 display: block;
+            }
+
+            /* Asegura que la diapositiva iframe responda al tamaño del carrusel */
+            .carousel-slide.iframe-slide {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+            /* Fuerza al iframe a cubrir todo el contenedor */
+            .slide-iframe {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100vw;
+                height: 100vh;
+                min-width: 100%;
+                min-height: 100%;
+                transform: translate(-50%, -50%);
+                border: none;
+                pointer-events: none; /* Desactiva la interacción directa con el player para que el carrusel responda bien */
+            }
+
+            /* Capa transparente por encima para proteger la navegación del carrusel */
+            .iframe-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+
+            /* Los textos y botones deben quedar por encima de la capa transparente */
+            .slide-caption, .hero-content {
+                z-index: 2;
             }
 
     </style>
@@ -1169,29 +1207,24 @@
     <!-- Contenedor del Carrusel -->
     <div class="carousel-container" id="heroCarousel">
 
+      <!-- Imagen 1 con su propio texto -->
         <div class="carousel-slide active">
-            <video autoplay loop muted playsinline class="slide-video">
-                <source src="videohead3.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
+            <img src="imageweb0.1.jpg" alt="Estambul">
+            </div>
            
         </div>
 
-       <div class="carousel-slide active">
-            <video autoplay loop muted playsinline class="slide-video">
-                <source src="videohead6.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
+     <!-- Imagen 2 con su propio texto -->
+        <div class="carousel-slide active">
+            <img src="imageweb0.2.jpg" alt="Estambul">
+            </div>
            
         </div>
 
+       <!-- Imagen 3 con su propio texto -->
         <div class="carousel-slide active">
-            <video autoplay loop muted playsinline class="slide-video">
-                <source src="videohead2.mp4" type="video/mp4">
-                Tu navegador no soporta la reproducción de video.
-            </video>
-           
-        </div>
+            <img src="imageweb0.3.jpg" alt="Estambul">
+            </div>
     </div>
 
     <!-- Filtro oscuro para legibilidad del texto -->
