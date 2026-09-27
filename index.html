@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Oración — Turquía</title>
+        <!-- Meta etiquetas para vista previa en WhatsApp y Facebook -->
+        <meta property="og:title" content="Guía de Oración — Turquía" />
+        <meta property="og:description" content="Día Mundial de las Misiones" />
+        <meta property="og:image" content="https://dcmhk.netlify.app/imageweb1.jpg" />
+        <meta property="og:url" content="https://dcmhk.netlify.app/" />
+        <meta property="og:type" content="website" />
+
+    <!-- Google Material Symbols (Iconos seleccionados) -->
+    <!-- Carga de la fuente Google Material Symbols con TODOS los iconos del sitio -->
+   
+    <!-- Carga universal de Google Material Symbols (Soporta todos los iconos) -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #c53030;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --text-color: #2d3748;
+            --light-gray: #e2e8f0;
+            --dark-border: #cbd5e0;
+        }
+
+        /* Smooth Scroll y reajuste de caja para evitar desbordamientos */
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* BARRA DE NAVEGACIÓN STICKY */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--light-gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 10px 0;
+            margin-bottom: 0px;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 10px;
+            gap: 10px;
+        }
+
+        .nav-brand-text {
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-brand-text span.brand-accent { color: var(--secondary-color); }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 10px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #ebf8ff;
+            color: var(--primary-color);
+        }
+
+        /* MENÚ DESPLEGABLE */
+        .dropdown { position: relative; display: inline-block; }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 240px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 8px 0;
+            z-index: 1100;
+            margin-top: 5px;
+        }
+
+        .dropdown-menu a {
+            color: var(--text-color);
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #ebf8ff;
+            color: var(--secondary-color);
+        }
+
+        .dropdown:hover .dropdown-menu { display: block; }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+
+        header p { margin: 4px 0; font-size: 0.95rem; opacity: 0.95; }
+
+        .verse-box {
+            background-color: #ebf8ff;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .day-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 14px 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .day-header span.day-title {
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+
+        .day-content { padding: 20px; }
+
+        /* FOTOS ADAPTABLES SIN ALTURA FIJA */
+        .photo-container {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            overflow: hidden;
+            background-color: #edf2f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            max-height: 350px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #edf2f7;
+            padding-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .material-symbols-outlined {
+            color: var(--secondary-color);
+            font-size: 20px;
+            vertical-align: middle;
+        }
+
+        .prayer-list { list-style: none; padding: 0; margin-top: 15px; }
+
+        .prayer-item {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--secondary-color);
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            border-radius: 0 6px 6px 0;
+            border-top: 1px solid #edf2f7;
+            border-right: 1px solid #edf2f7;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .prayer-item strong {
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+        }
+
+        /* BANNER WHATSAPP ADAPTABLE */
+        .cta-banner {
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 20px 15px;
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid var(--secondary-color);
+        }
+
+        .cta-banner h3 { margin: 0 0 8px 0; font-size: 1.1rem; color: #ffffff; }
+        .cta-banner p { margin: 0 0 16px 0; font-size: 0.9rem; color: #e2e8f0; }
+
+        .btn-whatsapp-block {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #25d366;
+            color: #ffffff !important;
+            padding: 12px 20px;
+            border-radius: 30px;
+            text-decoration: none !important;
+            font-weight: 700;
+            font-size: 0.9rem;
+            max-width: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 15px;
+            color: #718096;
+            font-size: 0.85rem;
+            margin-top: 30px;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        /* AJUSTES ESPECÍFICOS PARA CELULARES (PANTALLAS MENORES A 600PX) */
+        @media (max-width: 600px) {
+            .nav-container {
+                justify-content: center;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .nav-links { justify-content: center; width: 100%; }
+            header h1 { font-size: 1.25rem; }
+            .day-header { flex-direction: column; align-items: flex-start; }
+            .day-content { padding: 15px; }
+            .photo-container, .photo-container img { max-height: 220px; }
+            .dropdown-menu { position: fixed; left: 5%; right: 5%; width: 90%; }
+        }
+
+        /* Botón hamburguesa oculto por defecto en computadoras */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-toggle span {
+            font-size: 28px;
+        }
+
+        /* REGLAS RESPONSIVE PARA EL MENÚ EN CELULARES */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: row; /* Mantiene logo y botón en la misma línea */
+                justify-content: space-between;
+                align-items: center;
+          }
+
+            .nav-toggle {
+                display: block; /* Muestra el botón hamburguesa */
+            }
+
+           /* Estilos del menú desplegado en celular */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+                padding: 15px;
+                flex-direction: column;
+                z-index: 2001;
+            }
+
+                    /* Clase activa que expande el menú al hacer clic */
+                .nav-links.nav-active {
+                display: flex !important;
+            }
+
+            .nav-link {
+                text-align: center;
+                padding: 10px;
+                background-color: #f8fafc;
+            }
+
+            .dropdown-menu {
+                position: static; /* Ajusta el desplegable dentro del menú colapsado */
+                box-shadow: none;
+                border: none;
+                background-color: #edf2f7;
+                width: 100%;
+            }
+             }
+            /* Transición suave para ocultar y mostrar la barra */
+            .sticky-nav {
+                position: sticky;
+                top: 0;
+                z-index: 2000;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            /* Oculta la barra hacia arriba */
+            .sticky-nav.nav-hidden {
+                transform: translateY(-100%);
+            }
+
+            /* Estilos para los enlaces dentro del desplegable de compartir */
+            .share-item {
+                display: flex !important;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                text-decoration: none;
+                transition: background-color 0.2s ease;
+            }
+
+            /* Color distintivo suave para WhatsApp al pasar el mouse */
+            .share-wa {
+                color: #2d3748;
+            }
+            .share-wa:hover {
+                background-color: #e8fadf !important;
+                color: #25D366 !important;
+            }
+
+            /* Color distintivo suave para Facebook al pasar el mouse */
+            .share-fb {
+                color: #2d3748;
+            }
+            .share-fb:hover {
+                background-color: #e7f1ff !important;
+                color: #1877F2 !important;
+            }
+
+            /* Compatibilidad con Modo Nocturno */
+            body.dark-mode .share-item {
+                color: #e0e0e0 !important;
+            }
+            body.dark-mode .share-wa:hover {
+                background-color: #1b3823 !important;
+                color: #25D366 !important;
+            }
+            body.dark-mode .share-fb:hover {
+                background-color: #102a45 !important;
+                color: #1877F2 !important;
+            }
+
+            /* Ajuste de tamaño para iconos de Flaticon en el menú */
+            .flaticon-icon {
+                width: 20px;
+                height: 20px;
+                object-fit: contain;
+                vertical-align: middle;
+            }
+
+            /* Mantener el contenedor flex perfectamente alineado */
+            .share-item {
+                display: flex !important;
+                align-items: center;
+                gap: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            /* Layout del Hero Header */
+            .hero-header {
+                position: relative;
+                width: 100%;
+                min-height: 80vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                overflow: hidden;
+                padding: 60px 20px;
+                box-sizing: border-box;
+            }
+
+            /* Contenedor de las imágenes de fondo */
+            .carousel-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .carousel-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 0; /* Por defecto atrás */
+                transition: opacity 1.2s ease-in-out; /* Transición suave de 1.2 segundos */
+            }
+
+            .carousel-slide.active {
+                opacity: 1;
+                z-index: 1; /* Pasa al frente al activarse */
+            }
+            .carousel-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            /* Overlay para oscurecer el fondo y resaltar el texto */
+            .hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.55) 100%);
+                z-index: 1;
+            }
+
+    
+
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Mantiene el texto y botones por encima de la capa */
+            text-align: center;
+            color: #ffffff;
+            padding: 2rem 1rem;
+        }
+
+        /* 2. Jerarquía de Textos */
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #f0f0f0;
+        }
+
+                /* 3. Estilo de Botones (Visibilidad y Contraste Mejorados) */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+            /* Botón Principal (Destacado en Blanco/Sólido) */
+            .btn-primary {
+                background-color: #ffffff;
+                color: #1a1a1a;
+                padding: 12px 24px;
+                border-radius: 30px;
+                font-weight: 600;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            }
+
+            .btn-primary:hover {
+                background-color: #f0f0f0;
+                transform: translateY(-2px);
+            }
+
+            /* Botón Secundario (Borde Blanco Transparente) */
+            .btn-secondary {
+                background-color: rgba(255, 255, 255, 0.15);
+                color: #ffffff;
+                border: 2px solid #ffffff;
+                padding: 10px 22px;
+                border-radius: 30px;
+                font-weight: 600;
+                text-decoration: none;
+                backdrop-filter: blur(5px);
+                transition: all 0.3s ease;
+            }
+
+            .btn-secondary:hover {
+                background-color: #ffffff;
+                color: #1a1a1a;
+                transform: translateY(-2px);
+            }
+
+           /* 5. Indicadores del Carrusel (Dots) */
+            .carousel-dots {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+
+            .dot {
+                width: 12px;
+                height: 12px;
+                background-color: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .dot.active {
+                background-color: #ff6b00; /* Naranja destacado para el activo */
+                transform: scale(1.2);
+            }
+
+           /* ==========================================
+   REGLAS RESPONSIVE PARA EL HEADER / HERO
+   ========================================== */
+
+        /* Pantallas medianas (Tabletas / Laptops pequeñas) */
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem; /* Reduce el tamaño del título */
+                line-height: 1.2;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+        flex-direction: column; /* Apila los botones si hay más de uno */
+        align-items: center; /* Centra el botón en la pantalla */
+        gap: 12px;
+        margin-top: 2rem; /* Mayor espacio de separación con el subtítulo en móviles */
+    }
+
+            .btn-primary, .btn-secondary, .btn-hero {
+        width: 100%;
+        max-width: 280px;
+        text-align: center; /* Centra el texto del botón en móviles */
+        display: inline-flex;
+        justify-content: center; /* Centra el icono y el texto horizontalmente */
+        align-items: center;
+    }
+        }
+
+        
+      /* Pantallas pequeñas (Móviles) - CENTRADO PERFECTO */
+        @media screen and (max-width: 480px) {
+            /* 1. La sección principal ocupa todo el ancho y centra su contenido */
+            .hero-header {
+                min-height: 75vh;
+                padding: 40px 15px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+                box-sizing: border-box !important;
+            }
+
+            /* 2. El contenedor azul punteado ocupa el 100% y se centra de borde a borde */
+            .hero-content {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 0 !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            /* 3. Textos centrados y ajustados al ancho del teléfono */
+            #carouselTextContainer {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .hero-content h1 {
+                font-size: 1.6rem !important;
+                line-height: 1.25 !important;
+                text-align: center !important;
+                margin: 0 0 10px 0 !important;
+                width: 100% !important;
+            }
+
+            .hero-content p {
+                font-size: 0.95rem !important;
+                text-align: center !important;
+                margin: 0 0 15px 0 !important;
+                width: 100% !important;
+            }
+
+            /* 4. Corrección de botones: quita el margen grande de 4rem que desalineaba */
+            .hero-buttons {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin-top: 15px !important;
+                gap: 0 !important;
+            }
+
+            .btn-hero, .btn-secondary, .btn-primary {
+                width: 100% !important;
+                max-width: 250px !important;
+                margin: 0 auto !important;
+                text-align: center !important;
+            }
+
+            /* 5. Puntos de navegación abajo al centro */
+            .carousel-dots {
+                position: absolute !important;
+                bottom: 15px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                margin: 0 !important;
+            }
+        }
+
+            /* Transición suave para los textos del carrusel */
+            .carousel-text-fade {
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+            }
+
+            /* Clase que se activa temporalmente durante el cambio */
+            .carousel-text-fade.fade-out {
+                opacity: 0;
+                transform: translateY(-8px); /* Pequeño desplazamiento hacia arriba al ocultar */
+            }
+
+            /* Estilos del botón de conmutación */
+            .theme-toggle-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #4a5568;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 6px;
+                border-radius: 50%;
+                transition: color 0.3s ease, background-color 0.3s ease;
+            }
+
+            .theme-toggle-btn:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            /* ==========================================
+            ESTILOS GENERALES DEL MODO NOCTURNO
+            ========================================== */
+           /* Estilos para activar el Modo Nocturno */
+            body.dark-mode {
+                background-color: #121212 !important;
+                color: #e0e0e0 !important;
+            }
+
+            /* Tarjetas e Intro */
+            body.dark-mode .intro-card,
+            body.dark-mode .day-card {
+                background-color: #1e1e1e !important;
+                border-color: #2d2d2d !important;
+            }
+
+            /* Caja del Versículo (Verse Box) */
+            body.dark-mode .verse-box {
+                background-color: #2a2a2a !important;
+                border-left-color: #4299e1 !important;
+                color: #f0f0f0 !important;
+            }
+
+            /* Textos, títulos y párrafos */
+            body.dark-mode p, 
+            body.dark-mode h3, 
+            body.dark-mode li,
+            body.dark-mode .motivo-texto {
+                color: #e0e0e0 !important;
+            }
+
+            /* Títulos con color azul en modo claro */
+            body.dark-mode h3[style*="color: var(--primary-color)"],
+            body.dark-mode .section-title {
+                color: #63b3ed !important; /* Azul más claro para buen contraste en fondo oscuro */
+            }
+
+            /* Elementos de listas de oración */
+            body.dark-mode .prayer-item {
+                background-color: #262626 !important;
+                border-color: #333333 !important;
+                border-left-color: #4299e1 !important;
+            }
+
+            body.dark-mode .prayer-item strong {
+                color: #90cdf4 !important;
+            }
+
+            /* Corrección de Modo Nocturno para la Sección de Video */
+            body.dark-mode #video-seccion {
+                background-color: #121212 !important;
+            }
+
+            /* Contenedor de la tarjeta del video */
+            body.dark-mode #video-seccion > div > div {
+                background-color: #1e1e1e !important;
+                border-color: #2d2d2d !important;
+            }
+
+            /* Encabezado del video */
+            body.dark-mode #video-seccion div[style*="background-color: #ffffff"] {
+                background-color: #1e1e1e !important;
+                border-bottom-color: #2d2d2d !important;
+            }
+
+            /* Título del video */
+            body.dark-mode #video-seccion h3 {
+                color: #e0e0e0 !important;
+            }
+
+            /* Icono del video */
+            body.dark-mode #video-seccion .material-symbols-outlined {
+                color: #63b3ed !important;
+            }
+
+            /* Pie de video (texto inferior) */
+            body.dark-mode #video-seccion p {
+                background-color: #1e1e1e !important;
+                color: #a0aec0 !important;
+            }
+
+            /* Adaptación de la barra de navegación (Header) en modo nocturno */
+            body.dark-mode header,
+            body.dark-mode nav,
+            body.dark-mode .navbar,
+            body.dark-mode .nav-menu,
+            body.dark-mode .nav-container {
+                background-color: #1a1a1a !important;
+                border-color: #2d2d2d !important;
+            }
+
+            /* Texto del logo o título principal en el menú */
+            body.dark-mode .logo,
+            body.dark-mode .nav-title,
+            body.dark-mode header span,
+            body.dark-mode header h1,
+            body.dark-mode header h2 {
+                color: #ffffff !important;
+            }
+
+            /* Icono del menú hamburguesa */
+            body.dark-mode .hamburger span,
+            body.dark-mode .menu-icon span,
+            body.dark-mode .navbar-toggler-icon {
+                background-color: #ffffff !important;
+                color: #ffffff !important;
+            }
+
+            /* Menú desplegable desplegado en móviles */
+            body.dark-mode .nav-links,
+            body.dark-mode .mobile-menu,
+            body.dark-mode .dropdown-menu {
+                background-color: #1e1e1e !important;
+                border-color: #333333 !important;
+            }
+
+            /* Botones y enlaces dentro del menú desplegable */
+            body.dark-mode .nav-links a,
+            body.dark-mode .mobile-menu a,
+            body.dark-mode .dropdown-item {
+                color: #e0e0e0 !important;
+            }
+
+            /* Icono del sol/luna (Toggle de modo nocturno) */
+            body.dark-mode #darkModeToggle,
+            body.dark-mode .theme-toggle {
+                color: #f6ad55 !important; /* Tono cálido para el sol/luna */
+            }
+
+            /* 1. Corregir el texto MMM en el logo para que sea visible */
+            body.dark-mode .logo,
+            body.dark-mode header a,
+            body.dark-mode header span {
+                color: #ffffff !important;
+            }
+
+            /* Si "MMM" está dentro de un tag específico o span dentro del logo */
+            body.dark-mode .logo span,
+            body.dark-mode .nav-brand {
+                color: #63b3ed !important; /* Azul claro brillante para resaltar */
+            }
+
+            /* 2. Corregir los botones del menú desplegable en modo oscuro */
+            /* Opción A: Mantener los botones oscuros con texto blanco */
+            body.dark-mode .mobile-menu a,
+            body.dark-mode .nav-links a,
+            body.dark-mode .dropdown-menu button,
+            body.dark-mode .nav-container button,
+            body.dark-mode header .btn {
+                background-color: #2d3748 !important; /* Fondo gris oscuro para la píldora */
+                color: #ffffff !important;           /* Texto blanco legíble */
+                border: 1px solid #4a5568 !important;
+            }
+
+            /* O texto oscuro si el botón se mantiene blanco */
+            body.dark-mode .mobile-menu a *,
+            body.dark-mode .nav-links a * {
+                color: #1a202c !important; /* En caso de que prefieras mantener la píldora blanca */
+            }
+
+            /* 3. Evitar que el título/subtítulo suba demasiado y se corte con el menú */
+            body.dark-mode .hero-content,
+            .hero-content {
+                padding-top: 2rem !important; /* Le da aire suficiente para no solaparse */
+                margin-top: 0 !important;     /* Corrige la elevación excesiva */
+            }
+
+            .carousel-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                transition: opacity 0.6s ease-in-out; /* Controla la suavidad del cambio */
+            }
+
+            .carousel-slide.active {
+                opacity: 1;
+            }
+
+            .nav-logo-img {
+                height: 20px; /* Ajusta la altura según tus necesidades */
+                width: auto;  /* Mantiene la proporción de la imagen */
+                display: block;
+            }
+
+
+    </style>
+
+        
+
+</head>
+
+
+<body>
+
+       
+
+    <nav class="sticky-nav">
+        <div class="nav-container">
+        <!-- Logo como imagen PNG -->
+        <a href="#" class="nav-brand-text">
+            <img src="Logowebmmmturquia.png" alt="MMM Turquía" class="nav-logo-img">
+        </a>
+        <!-- Botón Hamburguesa independiente -->
+        <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <!-- Menú de enlaces desplegable -->
+        <div class="nav-links" id="navLinks">
+            <a href="#video-seccion" class="nav-link"> <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle;">play_arrow</span> Video</a>
+            
+            <div class="dropdown">
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+                    <span class="material-symbols-outlined" style="font-size: 18px; vertical-align: middle;">list</span>Secciones ▾</a>
+                <div class="dropdown-menu">
+                    <a href="#seccion-1">Sección 1: Un Faro de Fe</a>
+                    <a href="#seccion-2">Sección 2: Consolidación de Vidas</a>
+                    <a href="#seccion-3">Sección 3: Unidad Misionera</a>
+                    <a href="#seccion-4">Sección 4: Preparación Integral</a>
+                    <a href="#seccion-5">Sección 5: Evangelismo Digital</a>
+                    <a href="#seccion-6">Sección 6: Cobertura y Respaldo</a>
+                    <a href="#seccion-7">Sección 7: Método O.D.I.H.</a>
+                </div>
+            </div>
+
+            <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+               target="_blank" 
+               rel="noopener" 
+               class="nav-link" 
+               style="display: inline-flex; align-items: center; gap: 4px; color: #25d366; font-weight: 700;">
+                <span class="material-symbols-outlined" style="font-size: 16px; vertical-align: middle; color: #25d366;">folded_hands</span>
+                Unirme a la Intercesión
+            </a>
+
+            <!-- DESPLEGABLE DE COMPARTIR -->
+            <div class="dropdown">
+                <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+                    <span class="material-symbols-outlined">share</span> Compartir ▾
+                </a>
+                <div class="dropdown-menu">
+                    <a href="https://api.whatsapp.com/send?text=Te%20invito%20a%20unirte%20a%20la%20Gu%C3%ADa%20de%20Oraci%C3%B3n%20por%20la%20Misi%C3%B3n%20en%20Turqu%C3%ADa:%20https://dcmhk.netlify.app/" 
+                    target="_blank" 
+                    class="share-item share-wa">
+                        <img src="whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://dcmhk.netlify.app/" 
+                    target="_blank" 
+                    class="share-item share-fb">
+                        <img src="facebookicon.png" alt="WhatsApp Icon" class="flaticon-icon"> Facebook
+                    </a>
+                </div>
+            </div>
+
+            <button type="button" id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar modo de lectura">
+                <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+            </button>
+
+        </div>
+    </div>
+</nav>
+
+<!-- HERO HEADER CON CARRUSEL DE IMÁGENES -->
+<section class="hero-header">
+    <!-- Contenedor del Carrusel -->
+    <div class="carousel-container" id="heroCarousel">
+
+        <!-- Imagen 1 con su propio texto -->
+        <div class="carousel-slide active">
+            <img src="imageweb0.1.jpg" alt="Estambul">
+            <div class="slide-caption">Estambul: Un puente de fe para el Medio Oriente</div>
+        </div>
+
+        <!-- Imagen 2 con texto distinto -->
+        <div class="carousel-slide">
+            <img src="imageweb0.2.jpg" alt="Oración">
+            <div class="slide-caption">Intercesión por el levantamiento de nuevos obreos</div>
+        </div>
+
+        <!-- Imagen 3 con texto distinto -->
+        <div class="carousel-slide">
+            <img src="imageweb0.3.jpg" alt="Evangelismo">
+            <div class="slide-caption">Llevando esperanza a las regiones de Anatolia</div>
+        </div>
+    </div>
+
+    <!-- Filtro oscuro para legibilidad del texto -->
+    <div class="hero-overlay"></div>
+
+    <!-- Contenido encima de las imágenes -->
+    <div class="hero-content">
+        <!-- Contenedor del texto animado -->
+        <div id="carouselTextContainer" class="carousel-text-fade">
+            <span class="hero-tag-top" id="carouselCategory"></span>
+            <h1 id="carouselTitle">Guía de Oración</h1>
+            <p id="carouselDescription">Turquía</p>
+            <div class="hero-tag" id="carouselSubtag"></div>
+            <!-- Botones de acción (quedan estables) -->
+        <div class="hero-buttons">
+            <!-- Botón 1: Guía de Oración -->
+           
+            
+            <!-- Botón 2: Ver Video -->
+            <a href="#" id="btnVideo" class="btn-hero btn-secondary">▶ Ver Video</a>
+            
+            <!-- Botón 3: Unirse a la Intercesión -->
+            <a href="#" id="btnIntercesion" class="btn-hero btn-secondary">🙏 Unirse a la Intercesión</a>
+            </div>
+        </div>
+
+       
+    </div>
+
+    <!-- Indicadores / Puntos de navegación -->
+    <div class="carousel-dots">
+        <span class="dot active" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+    </div>
+</section>
+
+
+    <div class="container">
+
+    <div class="container">
+
+        
+    
+       
+
+    
+
+     <!-- VERSÍCULO Y CONTEXTO -->
+        <div  id="contexto-general" class="intro-card">
+            <div class="verse-box">
+                «Pídeme, y te daré por herencia las naciones, y como posesión tuya los confines de la tierra.»
+                <br><strong>— Salmos 2:8</strong>
+            </div>
+
+            <h3 style="color: var(--primary-color); margin-top: 0; text-transform: uppercase; font-size: 1.1rem;">Contexto General de la Iglesia en Turquía</h3>
+            <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6;">
+                A pesar de la rica herencia bíblica que alberga la península de Anatolia —cuna de históricas comunidades del Nuevo Testamento como Éfeso, Antioquía o Galacia—, la actual Turquía representa hoy uno de los escenarios espiritualmente más desafiantes y menos evangelizados del planeta. Con una población cristiana que apenas alcanza el 0,5% del total nacional, esta nación forma parte de una región en Medio Oriente que comparte la misma sed de la Verdad y la urgente necesidad de obreros en la mies.
+            </p>
+
+            <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6;">
+                Cumplir con la Gran Comisión en este tiempo de la historia exige la movilización humilde, decidida y constante de toda la iglesia. Por ello, le invitamos a recorrer con fervor esta <strong>Guía de Oración por la misión a Turquía.</strong> Enmarcado por el compromiso global de la obra que cada 28 de septiembre, la iglesia del Movimiento Misionero Mundial en todo el mundo celebra el <strong>Día de las Misiones</strong>. Confiados en que al unir nuestros corazones e interceder por las naciones, el Señor colmará su vida de abundantes bendiciones espirituales.
+            </p>
+
+            
+        </div>
+
+        
+
+        <!-- BLOQUE DE VIDEO PANORÁMICO -->
+        <div id="video-seccion" class="video-full-bleed" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 30px; margin-bottom: 40px; background-color: #f8fafc; padding: 25px 0;">
+            <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+                <div style="background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+                    
+                    <!-- Encabezado con icono Google Material Symbols y texto en tamaño menor -->
+                    <div style="padding: 12px 20px; background-color: #ffffff; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-symbols-outlined" style="color: #2b6cb0; font-size: 1.2rem; vertical-align: middle;">play_arrow</span>
+                        <h3 style="margin: 0; font-size: 0.75rem; color: #2d3748; font-family: system-ui, -apple-system, sans-serif; font-weight: 500; letter-spacing: 0.2px;">
+                            Video Informativo: Misión en Turquía 2026
+                        </h3>
+                    </div>
+
+                    <!-- Reproductor Nativo MP4 en Alta Definición desde Netlify -->
+                    <video controls 
+                        preload="metadata" 
+                        playsinline style="width: 100%; height: auto; display: block; background-color: #000000;">
+                        <source src="videoturk2026cel.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video HTML5.
+                    </video>
+
+                    <!-- Pie de Video / Pie de foto -->
+                    <p style="text-align: center; font-size: 0.88rem; color: #4a5568; padding: 12px 20px; margin: 0; font-style: italic; background-color: #ffffff;">
+                        Te invitamos a ver este breve video antes de iniciar la guía de oración.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- BLOQUE DE LLAMADO A LA ACCIÓN A WHATSAPP (938204456) -->
+        <div class="cta-banner">
+            <h3>¿Deseas respaldar la obra en Turquía?</h3>
+            <p>Únete a nuestro grupo oficial de WhatsApp para recibir motivos de oración actualizados y avisos de intercesión.</p>
+            <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+            target="_blank" 
+            rel="noopener" 
+            class="btn-whatsapp-block">
+                <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">folded_hands</span>
+                <span>Unirme al Grupo de Intercesión</span>
+            </a>
+        </div>
+
+           
+
+
+   <!-- SECCIÓN 1 -->
+    <div id="seccion-1" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 1</span>
+            <span class="day-title">Un Faro de Fe en el Hogar y en el Campo</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb1.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+
+        <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p id="motivo-1" class="motivo-texto" >Corría el año <strong>2010</strong> cuando la región de Medio Oriente comenzaba a convulsionar bajo el peso de profundos cambios sociales, económicos y políticos, en las vísperas de la conocida <em>Primavera Árabe</em>. En medio de ese escenario convulso, la <strong>Hna. Sofía</strong> <em>(nombre cambiado por motivos de seguridad)</em> arribó a tierras turcas con el anhelo de edificar una nueva vida junto a su prometido, de origen turco y tradición musulmana.</p>
+            <p>Fueron años de una intensa lucha interna, donde las profundas raíces cristianas de su infancia confrontaban constantemente las dinámicas y exigencias del entorno islámico. No obstante, en la penumbra de esa búsqueda, la gracia de Dios se abrió paso: en el año <strong>2019</strong> —una época especialmente marcada por crecientes restricciones y presiones hacia la fe cristiana en Turquía— experimentó una conversión personal e irreversible.</p>
+            <p>Desde aquel encuentro transformador y tras sellar su compromiso mediante el bautismo en el año <strong>2022</strong>, su fe no ha cesado de florecer. Hoy se erige como un faro de luz en esa tierra: abraza y hospeda con amor a los misioneros que van llegando al país, al tiempo que desarrolla de forma valiente hermosas labores de evangelismo personal.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Resistir el continuo desgaste físico, emocional y espiritual que conlleva el servicio silencioso. La Hna. Sofía comparte su día a día en un hogar interreligioso, casada con un esposo musulmán y criando a sus hijos pequeños, con el anhelo ardiente de que el amor reflejado en su vida sea el testimonio vivo que transforme a su familia y alcance el corazón de sus amigas en Turquía.</p>
+
+            
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>Fortaleza Espiritual:</strong> Que Sofía tenga más experiencias íntimas con Dios aún en medio de su soledad, y que pueda tener el ánimo constante de leer la Palabra de Dios y desarrollar su fe en el terreno adverso en que se encuentra.
+                </li>
+                <li class="prayer-item">
+                    <strong>Evangelismo y Fortaleza Física:</strong> Que Dios llene de sabiduría, gracia y discernimiento a la Hna. Sofía para que pueda alcanzar a sus hijos y a sus amigas en Turquía con la luz del Evangelio. Asimismo, que Dios cuide su salud física para que le permita realizar la obra de Dios con vitalidad y gozo en la región.
+                </li>
+                <li class="prayer-item">
+                    <strong>Matrimonio y Conversión:</strong> Por la vida del esposo de la Hna. Sofía, para que pueda conocer a Cristo de forma personal y que, a través de él, muchos otros turcos lleguen al conocimiento de la fe. Que el Señor disponga su corazón para concederle a su esposa plena libertad para desarrollar la labor evangelística.
+                </li>
+            </ul>
+
+             
+
+        </div>
+    </div>
+        
+
+    <!-- SECCIÓN 2 -->
+    <div id="seccion-2" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 2</span>
+            <span class="day-title">Consolidación de Vidas y Nuevos Territorios</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb2.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+        
+               <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p>Dar el paso de fe en este entorno implica a menudo recorrer un camino de profundo aislamiento relacional. Sin el refugio de una comunidad cercana, la fe corre el riesgo de resentirse bajo la sombra de la <strong>orfandad espiritual</strong> <em>(aquel estado de soledad que experimenta quien es apartado de su entorno sin contar con un hogar espiritual de contención)</em>. Frente a esta realidad, el ministerio se ha propuesto tejer redes de acompañamiento constante y personalizado.</p>
+            <p>Con especial atención observamos la labor en <span class="location-badge">Bursa</span>, ciudad donde reside la Hna. Sofía y donde se ha formado un pequeño núcleo de familias con desafíos profundos en sus hogares. Entre ellas se encuentra <strong>Valeria</strong>, una recién convertida que vive junto a su esposo musulmán y su bebé; <strong>Elena</strong>, casada con un hombre musulmán y criando a su pequeña hija; y <strong>Camila</strong>, quien también sostiene su fe en un hogar interreligioso junto a su esposo musulmán y su hijo adolescente. Aunque existe la propuesta y la puerta abierta para utilizar las instalaciones de una iglesia local evangélica acondicionada dentro del marco legal, los cultos aún no han podido iniciar formalmente debido a la necesidad de afirmar y consolidar primero este grupo de vidas.</p>
+            <p>A la par de este trabajo, se brinda una atención atenta y continua a otras familias en la región: en <span class="location-badge">Balıkesir</span> se acompaña a <strong>Renata</strong>, quien vive con su esposo musulmán, sus tres hijos y su suegra; mientras que en <span class="location-badge">Capadocia</span> se atiende a <strong>Hannah</strong> y a su hija<em> (todos los nombres han sido modificados por razones de privacidad y seguridad)</em>. Asimismo, se coordinan exploraciones para visitar a personas interesadas en la fe en: <span class="location-badge">Tekirdağ</span>, <span class="location-badge">Sardis</span> y <span class="location-badge">Trabzon</span>.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Afirmar espiritualmente a cada una de estas mujeres y familias que sostienen su fe en medio de hogares interreligiosos, disipando la orfandad espiritual para que la obra en Bursa se consolide y pueda, a su tiempo, dar inicio a las reuniones en el espacio de la iglesia local evangélica, mientras se establecen contactos en las nuevas regiones.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>La Zona en Bursa y Consolidación:</strong> Que Dios afirme la fe de Sofía, Valeria, Elena y Camila en Bursa. Oremos para que sus hogares sean alcanzados por la luz del Evangelio y para que el Señor prepare los tiempos y las condiciones para afirmar este grupo e iniciar formalmente las reuniones en la iglesia local evangélica.
+                </li>
+                <li class="prayer-item">
+                    <strong>Las Zonas en Balıkesir y Capadocia:</strong> Por Renata, su esposo, sus tres hijos y su suegra en Balıkesir; y por Hannah y su hija en Capadocia. Que el Señor las rodee de su gracia, les dé discernimiento en la convivencia familiar cotidiana y las guarde de todo aislamiento espiritual.
+                </li>
+                <li class="prayer-item">
+                    <strong>Las Zonas Nuevas:</strong> Que el Señor bendiga los viajes de prospección e interceda por los nuevos contactos en Tekirdağ, Sardis y Trabzon, preparando los corazones de las personas interesadas en la fe y abriendo rutas seguras para la proclamación de la Palabra.
+                </li>
+            </ul>
+        </div>
+          </div>
+
+    
+
+    <!-- SECCIÓN 3 -->
+    <div id="seccion-3" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 3</span>
+            <span class="day-title">Unidad Misionera y Alianzas Estratégicas</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb3.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+
+        <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p>La extensión del Evangelio en regiones donde la presencia cristiana es sumamente escasa exige superar el aislamiento y tejer vínculos fraternos de auténtico respaldo mutuo. Frente a esta necesidad, el ministerio cultiva <strong>lazos estratégicos</strong> <em>(redes de colaboración y comunión entre iglesias, organizaciones y misioneros para unir esfuerzos en la edificación del Reino)</em>.</p>
+            <p>Por un lado, se mantienen firmes lazos fraternos con hermanos y congregaciones pertenecientes a nuestra misma iglesia y sana doctrina en América Latina, Europa y Estados Unidos, compartiendo una misma fe, visión y cobertura espiritual hacia los obreros en el terreno.</p>
+            <p>Por otro lado, reconociendo lo valioso del apoyo mutuo en una tierra de creyentes contados, se articulan esfuerzos de cooperación con iglesias locales de otras denominaciones en ciudades clave como <span class="location-badge">Estambul</span> y <span class="location-badge">Adana</span>. Este trabajo conjunto se traduce en iniciativas concretas, como la realización de talleres y estudios bíblicos compartidos donde la fe se nutre en las verdades esenciales que nos unen, así como la acogida fraternal de misioneros dentro de estas congregaciones locales, brindándoles el sostén y la logística indispensable durante sus estadías. Estas dinámicas abren espacios seguros de comunión donde hermanos de la misma fe pueden encontrarse, cuidarse y fortalecerse mutuamente.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Preservar la unidad del espíritu y el testimonio cristiano en Turquía, fortaleciendo la comunión doctrinal con la iglesia madre mientras se coordinan talleres, estudios bíblicos y la acogida de misioneros con congregaciones locales socias en Estambul y Adana.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>Por los Lazos Fraternos y la Visión Compartida:</strong> Que el Señor mantenga, guarde y fortalezca de manera viva la relación con las congregaciones y pastores que comparten nuestra misma sana doctrina. Oremos para que el Espíritu Santo siga inquietando corazones en América Latina, Europa y Estados Unidos, tendiendo e intensificando puentes de comunión con siervos e iglesias que sientan un ardor especial por Turquía y Medio Oriente, uniendo visión, oración y respaldo en favor de la obra.
+                </li>
+                <li class="prayer-item">
+                    <strong>Por los Esfuerzos Unificados y el Crecimiento Mutuo:</strong> Que Dios promueva un genuino espíritu de colaboración y sinergia entre las distintas iglesias para la edificación del Cuerpo de Cristo en la región. Intercedamos para que este trabajo conjunto se exprese en un servicio desinteresado, una sólida instrucción bíblica compartida, una cálida hospitalidad hacia los misioneros y una comunión sincera; abriendo las puertas para estrechar lazos con congregaciones amigas dispuestas a caminar en santa unidad.
+                </li>
+            </ul>
+            
+        </div>
+    </div>
+
+   
+    <!-- SECCIÓN 4 -->
+    <div id="seccion-4" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 4</span>
+            <span class="day-title">Preparación Integral y Viajes Misioneros</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb4.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+        
+
+        <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p>Realizar un viaje a Turquía para respaldar la obra de Dios es, sin duda, una profunda bendición y una oportunidad de crecimiento espiritual para cualquier creyente, sin distinción de edad o trasfondo. Sin embargo, dada la complejidad de la región, dar este paso exige una <strong>preparación integral</strong> <em>(la capacitación espiritual, logística, cultural y financiera indispensable antes de emprender un viaje misionero)</em>.</p>
+            <p>Para quienes sienten el llamado de realizar un viaje a corto plazo, el enfoque principal estará en dedicarse por completo a la labor misionera y al servicio en el campo.</p>
+            <p>Por otro lado, para quienes anhelan un servicio a largo plazo que les permita establecerse en el país, cobra especial valor la modalidad de <strong>misión bivocacional</strong> <em>(la integración del trabajo profesional, comercial o de los estudios técnicos o universitarios como medio legítimo de sostenimiento y residencia legal mientras se sirve en el Reino)</em>. Esta senda, que involucra tanto a profesionales como a estudiantes, requiere una preparación aún más rigurosa, adaptada a las exigencias legales y culturales del entorno.</p>
+            <p>En todo este proceso, la iglesia no camina a ciegas: los responsables de la obra en el campo, como los pastores <strong>Rodrigo y Berta</strong> <em>(nombres modificados por razones de protección)</em>, brindan un acompañamiento cercano para realizar todas las coordinaciones necesarias, garantizando que cada visita sea una experiencia segura, altamente edificante y de profunda trascendencia espiritual.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Concientizar y capacitar a la iglesia para responder con responsabilidad a los viajes misioneros, promoviendo la buena planificación de viajes de corto plazo y el desarrollo de vocaciones de largo plazo para profesionales y estudiantes bajo el consejo pastoral en Turquía.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>Por la Disposición y los Viajes de Corto Plazo:</strong> Que Dios despierte en el corazón de los hermanos el anhelo de viajar para conocer la obra en Turquía, sumergirse en la rica historia del cristianismo bíblico y servir activamente. Oremos para que el Señor provea la preparación espiritual, el discernimiento y la guía necesaria para cada siervo.
+                </li>
+                <li class="prayer-item">
+                    <strong>Por la Preparación de Largo Plazo y Visados:</strong> Que el Señor guíe y fortalezca a profesionales y estudiantes llamados a establecerse a largo plazo mediante el servicio bivocacional. Intercedamos por la obtención de visas preaprobadas, la apertura de puertas académicas, profesionales y legales, y por la sabiduría de los pastores Mateo y Priscila al coordinar y cuidar de cada nuevo obrero.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+      <!-- BLOQUE DE LLAMADO A LA ACCIÓN A WHATSAPP (938204456) -->
+        <div class="cta-banner">
+            <h3>¿Deseas respaldar la obra en Turquía?</h3>
+            <p>Únete a nuestro grupo oficial de WhatsApp para recibir motivos de oración actualizados y avisos de intercesión.</p>
+            <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+            target="_blank" 
+            rel="noopener" 
+            class="btn-whatsapp-block">
+                <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">folded_hands</span>
+                <span>Unirme al Grupo de Intercesión</span>
+            </a>
+        </div>
+
+    <!-- SECCIÓN 5 -->
+    <div id="seccion-5" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 5</span>
+            <span class="day-title">Evangelismo Digital y Conexión de Familias</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb5.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+
+        <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p>En un escenario donde las barreras geográficas y los resguardos de seguridad dificultan a menudo el contacto directo, los entornos virtuales se han transformado en una plataforma providencial. A través del <strong>evangelismo digital</strong> <em>(el uso estratégico de redes sociales, sitios web y medios tecnológicos para la proclamación de la fe)</em>, la Palabra de Dios trasciende fronteras para sembrar esperanza en corazones que buscan en privado.</p>
+            <p>Mediante estas plataformas, el ministerio está alcanzando a un número creciente de mujeres latinas que residen en Turquía, estableciendo puentes de confianza con familias enteras a quienes se les acompaña en su proceso espiritual. Esta vía de contacto permite entregarles valiosos recursos impresos y digitales para el fortalecimiento de su fe, entre los que destacan:</p>
+            <ul style="margin-left: 20px; margin-bottom: 15px; color: #4a5568; line-height: 1.6;">
+                <li>Biblias en español y turco.</li>
+                <li>Materiales y folletos de evangelismo.</li>
+                <li>Recursos de discipulado enriquecidos con talleres del Método Inductivo.</li>
+                <li>Materiales educativos y bíblicos para familias y niños turcos hispanohablantes.</li>
+            </ul>
+            <p>De esta forma, la tecnología no solo sirve como una primera puerta de entrada, sino como una herramienta efectiva para alimentar el hogar con la verdad bíblica y guiar a cada persona hacia una fe sólida e informada.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Optimizar el uso de las plataformas digitales para sostener una comunicación segura con las mujeres y familias alcanzadas, garantizando la provisión y correcta asimilación de los materiales de discipulado y estudio bíblico.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>Por el Alcance Digital y las Familias Latinas:</strong> Que Dios potencie los canales virtuales para que sigan siendo un refugio y punto de encuentro con mujeres latinas y sus hogares en Turquía, preparando sus corazones para recibir la Palabra de Dios sin reservas.
+                </li>
+                <li class="prayer-item">
+                    <strong>Por el Fruto del Material Entregado:</strong> Que el Señor unja la distribución de las Biblias, los materiales de evangelismo, los recursos infantiles y los talleres del Método Inductivo; para que cada lectura y estudio en el hogar rinda frutos duraderos de transformación y crecimiento en la fe.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 6 -->
+    <div id="seccion-6" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 6</span>
+            <span class="day-title">Cobertura, Autoridades y Respaldo Institucional</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb6.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+
+        <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p>Servir y desarrollar la obra de Dios en el extranjero implica un caminar en orden, prudencia y testimonio, tanto frente a las leyes civiles del país como bajo el cobijo de una sólida <strong>cobertura espiritual e institucional</strong> <em>(el respaldo pastoral, la guía ministerial y el acompañamiento que brindan los supervisores y el presbiterio a la labor misionera)</em>.</p>
+            <p>Por un lado, la Palabra de Dios nos exhorta a interceder por las autoridades civiles y gubernamentales de la nación, para que el Señor disponga sus corazones con justicia y paz, permitiendo que la iglesia y las familias misioneras vivan en tranquilidad, con las garantías legales para su libre permanencia.</p>
+            <p>Por otro lado, esta obra avanza respaldada por la visión y el cuidado continuo de nuestras autoridades eclesiásticas: la presidencia internacional de la obra, las supervisiones regionales encargadas de Europa, Italia y Medio Oriente, el cuerpo pastoral que sostiene esta visión y los pastores coordinadores en el campo, <strong>Rodrigo y Berta</strong> <em>(nombres resguardados por razones de seguridad)</em>. Esta estructura de acompañamiento vela por la salud espiritual de los obreros y la dirección estratégica del ministerio en la región.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Sostener en constante intercesión a los gobernantes de la nación para la preservación de la paz social, mientras se fortalece la unidad del liderazgo eclesiástico y se respalda la labor itinerante y logística de los pastores coordinadores en Turquía.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>Por las Autoridades del País:</strong> Que el Señor dirija con sabiduría el corazón de las autoridades gubernamentales y migratorias del país, concediendo tiempos de paz, orden civil y apertura legal para que la Palabra de Dios siga corriendo libremente.
+                </li>
+                <li class="prayer-item">
+                    <strong>Por el Liderazgo y Cobertura de la Iglesia:</strong> Oremos por la salud, gracia y dirección divina sobre el presidente internacional de la obra, los supervisores regionales de Italia, Europa y Medio Oriente, y el cuerpo de pastores que respalda esta labor; para que el Señor les llene de discernimiento en la conducción de la obra misionera.
+                </li>
+                <li class="prayer-item">
+                    <strong>Por los Pastores Rodrigo y Berta:</strong> Intercedamos por el ministerio de los pastores Rodrigo y Berta, y para que el Señor abra todas las puertas logísticas, financieras y espirituales para la realización fructífera de su próximo viaje.
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 7 -->
+    <div id="seccion-7" class="day-card">
+        <div class="day-header">
+            <span>SECCIÓN 7</span>
+            <span class="day-title">Compromiso Misionero: El Método O.D.I.H.</span>
+        </div>
+        
+        <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img 
+        class="lazy-img" 
+        data-src="imageweb7.jpg" 
+        alt="Fotografía representativa Turquía - Día 1" 
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+            >
+        </div>
+
+        <div class="day-content">
+            <div class="section-title">
+                <span class="material-symbols-outlined">menu_book</span>
+                Contexto e Historia
+            </div>
+            <p>Concluir la lectura de este boletín no representa el final de nuestra responsabilidad, sino el despertar de una iglesia consciente del llamado de Dios para las naciones. La extensión del Evangelio en tierras como Turquía no es la tarea aislada de unos pocos en el campo, sino la suma de la entrega y fidelidad de todo el Cuerpo de Cristo participando activamente.</p>
+
+            <p>Para encauzar esta respuesta de fe, se promueve el <strong>Método O.D.I.H.</strong> <em>(la ruta estratégica que moviliza a la congregación a involucrarse directamente en la obra misionera mediante cuatro acciones prácticas y fundamentales)</em>:</p>
+            <ul style="margin-left: 20px; margin-bottom: 15px; color: #4a5568; line-height: 1.6;">
+                <li><strong>O - Orar:</strong> Interceder con perseverancia y conocimiento por las almas, las familias y los obreros en el campo.</li>
+                <li><strong>D - Dar:</strong> Aportar con generosidad financiera y material para el sostenimiento y avance de los proyectos.</li>
+                <li><strong>I - Ir:</strong> Responder al llamado de viajar, sea a corto plazo en servicio directo o a largo plazo en misiones bivocacionales.</li>
+                <li><strong>H - Hablar:</strong> Convertirse en voz y testimonio de la obra, compartiendo la necesidad misionera y comunicando el Evangelio a quienes nos rodean.</li>
+            </ul>
+
+            <p>De este modo, culminamos este tiempo renovando la visión: que cada creyente, desde su lugar y según sus dones, se disponga a Orar, Dar, Ir y Hablar para que la luz de Cristo continúe transformando vidas en Turquía y hasta el último rincón de la tierra.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">upcoming</span>
+                El Desafío Actual
+            </div>
+            <p>Despertar a cada miembro de la congregación local para que adopte activamente el método O.D.I.H., asumiendo su rol en la gran comisión y respaldando con constancia el trabajo en Turquía y Medio Oriente.</p>
+
+            <div class="section-title">
+                <span class="material-symbols-outlined">folded_hands</span>
+                Motivos de Oración
+            </div>
+            <ul class="prayer-list">
+                <li class="prayer-item">
+                    <strong>Por la Movilización de la Iglesia en el Método O.D.I.H.:</strong> Que el Señor conmueva a nuestra iglesia para involucrarse de manera integral, multiplicando intercesores apasionados que <em>Oren</em>, dadores generosos que <em>Den</em>, siervos dispuestos a <em>Ir</em> al campo y mensajeros valientes que <em>Hablen</em> del amor de Dios.
+                </li>
+                <li class="prayer-item">
+                    <strong>Por el Fruto Permanente en Turquía:</strong> Que la combinación del trabajo en el terreno con el respaldo de la iglesia a través de la oración, el dar, el ir y el hablar, resulte en una cosecha abundante de almas y el fortalecimiento de la iglesia en la nación.
+                </li>
+            </ul>
+        </div>
+
+       <!-- BLOQUE DE LLAMADO A LA ACCIÓN A WHATSAPP (938204456) -->
+        <div class="cta-banner">
+            <h3>¿Deseas respaldar la obra en Turquía?</h3>
+            <p>Únete a nuestro grupo oficial de WhatsApp para recibir motivos de oración actualizados y avisos de intercesión.</p>
+            <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+            target="_blank" 
+            rel="noopener" 
+            class="btn-whatsapp-block">
+                <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">folded_hands</span>
+                <span>Unirme al Grupo de Intercesión</span>
+            </a>
+        </div>
+
+    <footer>
+        <p>© 2026 Ministerio Misionero — Boletín para la Movilización e Intercesión Transcultural.</p>
+    </footer>
+
+    </div>
+  
+  
+  
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        const navbar = document.querySelector('.sticky-nav');
+        let lastScrollTop = 0;
+
+        // 1. CONTROL DEL MENÚ HAMBURGUESA
+        if (navToggle && navLinks) {
+            // Abrir / Cerrar menú al presionar el botón hamburguesa
+            navToggle.addEventListener('click', (e) => {
+                e.stopPropagation(); // Evita que el clic se propague y active otros enlaces por error
+                navLinks.classList.toggle('nav-active');
+            });
+
+            // Cerrar el menú automáticamente al hacer clic en cualquier opción/enlace
+            document.querySelectorAll('.nav-link, .dropdown-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('nav-active');
+                });
+            });
+
+            // Cerrar el menú si se hace clic fuera de él en la pantalla
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+                    navLinks.classList.remove('nav-active');
+                }
+            });
+        }
+
+        // 2. OCULTAR Y MOSTRAR BARRA AL HACER SCROLL
+        window.addEventListener('scroll', () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Previene comportamiento errático en rebotes de pantalla (iOS)
+            if (scrollTop < 0) return;
+
+            // Solo oculta la barra si hemos bajado más de 80px
+            if (scrollTop > lastScrollTop && scrollTop > 80) {
+                // Deslizando hacia ABAJO: se oculta la barra
+                if (navbar) navbar.classList.add('nav-hidden');
+                
+                // Si el menú hamburguesa estaba abierto, se cierra al bajar
+                if (navLinks) navLinks.classList.remove('nav-active');
+            } else {
+                // Deslizando hacia ARRIBA: reaparece la barra
+                if (navbar) navbar.classList.remove('nav-hidden');
+            }
+
+            lastScrollTop = scrollTop;
+        });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const lazyImages = document.querySelectorAll('.lazy-img');
+
+                if ('IntersectionObserver' in window) {
+                    const imageObserver = new IntersectionObserver((entries, observer) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                const image = entry.target;
+                                // Asigna la ruta real a la imagen al estar cerca de la pantalla
+                                image.src = image.dataset.src;
+                                image.style.opacity = '1'; // Efecto de aparición suave
+                                imageObserver.unobserve(image); // Deja de observar la imagen cargada
+                            }
+                        });
+                    });
+
+                    lazyImages.forEach(image => imageObserver.observe(image));
+                        } else {
+                            // Carga directa si el navegador es muy antiguo
+                            lazyImages.forEach(image => {
+                                image.src = image.dataset.src;
+                                image.style.opacity = '1';
+                            });
+                        }
+            });
+
+      
+        // CONFIGURACIÓN DE CONTENIDOS POR CADA SLIDE
+      // CONFIGURACIÓN DE CONTENIDOS Y SU BOTÓN RESPECTIVO POR CADA SLIDE
+const slidesData = [
+  {
+    category: "",
+    title: "Guía de Oración Turquía 2026",
+    description: "Unidos en un solo clamor por el Día Mundial de las Misiones",
+    subtag: "",
+    button: {
+      text: "📖 Guía de Oración",
+      link: "#contexto-general" // Te desplaza a la guía
+    }
+  },
+   {
+    category: "",
+    title: "Involúcrate en las Misiones",
+    description: "Preparando a la próxima generación de obreros.",
+    subtag: "",
+    button: {
+      text: "🙏 Unirse a la Intercesión",
+      link: "https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" // Enlace a WhatsApp
+    }
+  },
+  {
+    category: "",
+    title: "Video Informativo Turquía 2026",
+    description: "La Obra de Dios avanza",
+    subtag: "",
+    button: {
+      text: "▶ Ver Video",
+      link: "#video-seccion" // Te desplaza al video
+    }
+  }
+ 
+];
+
+let currentSlide = 0;
+let carouselTimer = null;
+const SLIDE_INTERVAL = 10000; // 10 segundos
+
+function showSlide(index) {
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.dot');
+  const textContainer = document.getElementById('carouselTextContainer');
+  const buttonsContainer = document.querySelector('.hero-buttons');
+  const totalSlides = slides.length;
+
+  if (totalSlides === 0) return;
+
+  currentSlide = (index + totalSlides) % totalSlides;
+
+  // 1. Iniciar animación de salida (fade-out) para texto y botones
+  if (textContainer) textContainer.classList.add('fade-out');
+  if (buttonsContainer) buttonsContainer.classList.add('fade-out');
+
+  // 2. Transición de imágenes y puntos
+  slides.forEach(slide => slide.classList.remove('active'));
+  dots.forEach(dot => dot.classList.remove('active'));
+
+  slides[currentSlide].classList.add('active');
+  if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+
+  // 3. Cambiar contenido y hacer fade-in a los 400ms
+  setTimeout(() => {
+    const data = slidesData[currentSlide];
+    if (data) {
+      // Textos
+      const titleEl = document.getElementById('carouselTitle');
+      const descEl = document.getElementById('carouselDescription');
+      const catEl = document.getElementById('carouselCategory');
+
+      if (titleEl && data.title) titleEl.textContent = data.title;
+      if (descEl && data.description) descEl.textContent = data.description;
+      if (catEl && data.category) catEl.textContent = data.category;
+
+      // Actualización dinámica del botón activo según el slide
+      const btn1 = document.getElementById('btnGuia');
+      const btn2 = document.getElementById('btnVideo');
+      const btn3 = document.getElementById('btnIntercesion');
+
+      // Array con los 3 elementos del DOM para manipularlos según el índice
+      const buttons = [btn1, btn2, btn3];
+
+      // 1. Ocultar todos los botones primero
+      buttons.forEach(btn => {
+        if (btn) btn.style.display = 'none';
+      });
+
+      // 2. Mostrar y configurar únicamente el botón correspondiente al slide actual
+      const activeBtn = buttons[currentSlide];
+      if (activeBtn && data.button) {
+        activeBtn.textContent = data.button.text;
+        activeBtn.href = data.button.link;
+        activeBtn.style.display = 'inline-flex'; // Muestra solo este botón
+        
+        // Si es el botón de WhatsApp, abre en nueva pestaña
+        if (currentSlide === 2) {
+          activeBtn.target = "_blank";
+        } else {
+          activeBtn.removeAttribute("target");
+        }
+      }
+    }
+
+    // Reactivar la visibilidad suave
+    if (textContainer) textContainer.classList.remove('fade-out');
+    if (buttonsContainer) buttonsContainer.classList.remove('fade-out');
+  }, 400);
+}
+
+window.setSlide = function(index) {
+  showSlide(index);
+  resetCarouselTimer();
+};
+
+function startCarouselTimer() {
+  stopCarouselTimer(); // Detiene cualquier timer previo para evitar aceleraciones
+  carouselTimer = setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, SLIDE_INTERVAL);
+}
+
+function stopCarouselTimer() {
+  if (carouselTimer) {
+    clearInterval(carouselTimer);
+    carouselTimer = null;
+  }
+}
+
+function resetCarouselTimer() {
+  stopCarouselTimer();
+  startCarouselTimer();
+}
+
+// --- Soporte para Deslizar con el Dedo (Swipe Táctil) ---
+let touchStartX = 0;
+let touchEndX = 0;
+
+function initSwipeSupport() {
+  const heroHeader = document.querySelector('.hero-header');
+  if (!heroHeader) return;
+
+  heroHeader.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopCarouselTimer(); // Pausa el tiempo al tocar la pantalla
+  }, { passive: true });
+
+  heroHeader.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    startCarouselTimer(); // Reinicia el temporizador de 10 segundos al soltar
+  }, { passive: true });
+}
+
+function handleSwipe() {
+  const minSwipeDistance = 40; // Distancia mínima en píxeles para considerar un swipe
+  const swipeDistance = touchEndX - touchStartX;
+
+  if (swipeDistance < -minSwipeDistance) {
+    showSlide(currentSlide + 1); // Deslizar hacia la izquierda (Siguiente)
+  } else if (swipeDistance > minSwipeDistance) {
+    showSlide(currentSlide - 1); // Deslizar hacia la derecha (Anterior)
+  }
+}
+
+// Inicialización
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelectorAll('.carousel-slide').length > 0) {
+    showSlide(0);
+    startCarouselTimer();
+    initSwipeSupport();
+  }
+});
+
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        // 1. Verificar si el usuario ya tenía guardado el modo oscuro
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            if (themeIcon) themeIcon.textContent = 'light_mode';
+        }
+
+        // 2. Alternar entre modo claro y modo oscuro al hacer clic
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                if (document.body.classList.contains('dark-mode')) {
+                    themeIcon.textContent = 'light_mode'; // Cambia el ícono a Sol
+                    localStorage.setItem('theme', 'dark'); // Guarda la preferencia
+                } else {
+                    themeIcon.textContent = 'dark_mode'; // Cambia el ícono a Luna
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+
+
+       
+
+
+
+        
+
+</script>
+
+   
+
+</body>
+</html>
