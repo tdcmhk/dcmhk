@@ -1078,6 +1078,15 @@
                 transform: translateY(-2px);
             }
             
+            /* Asegura que tanto las imágenes como los videos ocupen todo el slide de forma uniforme */
+            .carousel-slide img,
+            .carousel-slide video,
+            .slide-video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; /* Recorta y llena el contenedor manteniendo la proporción */
+                display: block;
+            }
 
     </style>
 
@@ -1160,22 +1169,28 @@
     <!-- Contenedor del Carrusel -->
     <div class="carousel-container" id="heroCarousel">
 
-        <!-- Imagen 1 con su propio texto -->
         <div class="carousel-slide active">
-            <img src="imageweb0.1.jpg" alt="Estambul">
-            <div class="slide-caption">Estambul: Un puente de fe para el Medio Oriente</div>
+            <video autoplay loop muted playsinline class="slide-video">
+                <source src="videohead3.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+           
         </div>
 
-        <!-- Imagen 2 con texto distinto -->
-        <div class="carousel-slide">
-            <img src="imageweb0.2.jpg" alt="Oración">
-            <div class="slide-caption">Intercesión por el levantamiento de nuevos obreos</div>
+       <div class="carousel-slide active">
+            <video autoplay loop muted playsinline class="slide-video">
+                <source src="videohead6.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+           
         </div>
 
-        <!-- Imagen 3 con texto distinto -->
-        <div class="carousel-slide">
-            <img src="imageweb0.3.jpg" alt="Evangelismo">
-            <div class="slide-caption">Llevando esperanza a las regiones de Anatolia</div>
+        <div class="carousel-slide active">
+            <video autoplay loop muted playsinline class="slide-video">
+                <source src="videohead2.mp4" type="video/mp4">
+                Tu navegador no soporta la reproducción de video.
+            </video>
+           
         </div>
     </div>
 
@@ -1296,10 +1311,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb1.jpg" 
+        
+        src="imageweb1.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
 
@@ -1377,10 +1392,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb2.jpg" 
+        
+        src="imageweb2.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
         
@@ -1428,10 +1443,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb3.jpg" 
+        
+        src="imageweb3.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
 
@@ -1478,10 +1493,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb4.jpg" 
+        
+        src="imageweb4.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
         
@@ -1552,10 +1567,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb5.jpg" 
+        
+        src="imageweb5.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center;  transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
 
@@ -1604,10 +1619,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb6.jpg" 
+        
+        src="imageweb6.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center;  transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
 
@@ -1653,10 +1668,10 @@
         
         <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
         <img 
-        class="lazy-img" 
-        data-src="imageweb7.jpg" 
+        
+        src="imageweb7.jpg" 
         alt="Fotografía representativa Turquía - Día 1" 
-        style="width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 0.4s ease-in-out; display: block;"
+        style="width: 100%; height: 100%; object-fit: cover; object-position: center;  transition: opacity 0.4s ease-in-out; display: block;"
             >
         </div>
 
@@ -1770,31 +1785,7 @@
             lastScrollTop = scrollTop;
         });
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const lazyImages = document.querySelectorAll('.lazy-img');
-
-                if ('IntersectionObserver' in window) {
-                    const imageObserver = new IntersectionObserver((entries, observer) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const image = entry.target;
-                                // Asigna la ruta real a la imagen al estar cerca de la pantalla
-                                image.src = image.dataset.src;
-                                image.style.opacity = '1'; // Efecto de aparición suave
-                                imageObserver.unobserve(image); // Deja de observar la imagen cargada
-                            }
-                        });
-                    });
-
-                    lazyImages.forEach(image => imageObserver.observe(image));
-                        } else {
-                            // Carga directa si el navegador es muy antiguo
-                            lazyImages.forEach(image => {
-                                image.src = image.dataset.src;
-                                image.style.opacity = '1';
-                            });
-                        }
-            });
+           
 
       
         // CONFIGURACIÓN DE CONTENIDOS POR CADA SLIDE
@@ -2052,6 +2043,7 @@
         }
 
 
+        
         
 
 </script>
