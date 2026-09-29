@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Título y descripción básicos -->
+  <title>Boletín de Oración por la Movilización en Turquía</title>
+  <meta name="description" content="Únete a nosotros en clamor por la movilización en Turquía. Revisa nuestro boletín de intercesión actualizada.">
+
+  <!-- Vínculo al archivo Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Favicon para navegadores en PC/Laptop -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/faviconlarge.png">
+
+  <!-- Icono exclusivo para Pantalla de Inicio en iPhone / iPad (iOS) -->
+  <link rel="apple-touch-icon" href="images/faviconmini.png">
+
+  <!-- Color de la barra de estado del navegador en teléfonos -->
+  <meta name="theme-color" content="#1a365d">
+
+  <!-- Configuración Open Graph para WhatsApp y redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.misionturquia.site/">
+  <meta property="og:title" content="Boletín de Oración por la Movilización en Turquía">
+  <meta property="og:description" content="Únete a nosotros en clamor por la movilización en Turquía. Revisa nuestro boletín de intercesión actualizada.">
+
+  <!-- Imagen que aparecerá en la vista previa de WhatsApp -->
+  <meta property="og:image" content="https://tdcmhk.b-cdn.net/coverlinkredes.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Carga universal de Google Material Symbols (Soporta todos los iconos) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="css/estilosmt.css">
+  <script src="js/funcionesmt.js" defer></script>
+</head>
+
+<body>
+
+<!-- PANTALLA DE CARGA (PRELOADER) -->
+  <div id="pageLoader" class="page-loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p class="loader-text">Cargando Boletín...</p>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       BARRA DE NAVEGACIÓN
+       ======================================================================== -->
+  <nav class="sticky-nav">
+    <div class="nav-container">
+
+      <!-- Logo como imagen PNG -->
+      <a href="#" class="nav-brand-text">
+        <img src="images/Logowebmt1.png" alt="MMM Turquía" class="nav-logo-img">
+      </a>
+
+      <!-- Botón Hamburguesa independiente -->
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+
+      <!-- Menú de enlaces desplegable -->
+      <div class="nav-links" id="navLinks">
+
+        <!-- Enlace a Video -->
+        <a href="#video-seccion" class="nav-link">
+          <span class="material-symbols-outlined" >play_arrow</span> Video
+        </a>
+
+        <!-- Menú Secciones -->
+        <div class="dropdown">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+            <span class="material-symbols-outlined" >list</span>Secciones ▾
+          </a>
+          <div class="dropdown-menu">
+            <a href="#seccion-1">Sección 1: Un Faro de Fe</a>
+            <a href="#seccion-2">Sección 2: Consolidación de Vidas</a>
+            <a href="#seccion-3">Sección 3: Unidad Movilizadora</a>
+            <a href="#seccion-4">Sección 4: Preparación Integral</a>
+            <a href="#seccion-5">Sección 5: Evangelismo Digital</a>
+            <a href="#seccion-6">Sección 6: Cobertura y Respaldo</a>
+            <a href="#seccion-7">Sección 7: Método O.D.I.H.</a>
+          </div>
+        </div>
+
+        <!-- WhatsApp Unirme a la Intercesión -->
+        <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+           target="_blank" 
+           rel="noopener" 
+           class="nav-link">
+          <span class="material-symbols-outlined" >folded_hands</span>
+          Unirme a la Intercesión
+        </a>
+
+        <!-- Botón de instalación adaptado con iconos de Google Material Symbols -->
+       <button type="button" class="nav-link pwa-install-trigger" style="border: none !important">
+          <span class="material-symbols-outlined">download_for_offline</span>
+          <span>Instalar App</span>
+        </button>
+
+        <!-- Desplegable de Compartir -->
+        <div class="dropdown">
+          <a href="javascript:void(0)" class="nav-link dropdown-toggle">
+            <span class="material-symbols-outlined">share</span> Compartir ▾
+          </a>
+          <div class="dropdown-menu">
+            <a href="https://api.whatsapp.com/send?text=Te%20invito%20a%20unirte%20a%20la%20Gu%C3%ADa%20de%20Oraci%C3%B3n%20por%20la%20Movilización%20en%20Turqu%C3%ADa:%20https://misionturquia.site/" 
+               target="_blank" 
+               class="share-item share-wa">
+              <img src="images/whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://misionturquia.site/" 
+               target="_blank" 
+               class="share-item share-fb">
+              <img src="images/facebookicon.png" alt="WhatsApp Icon" class="flaticon-icon"> Facebook
+            </a>
+          </div>
+        </div>
+
+        <!-- Botón Modo Oscuro -->
+        <button type="button" id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar modo de lectura">
+          <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       HERO HEADER CON CARRUSEL DE IMÁGENES / VIDEOS
+       ======================================================================== -->
+  <section class="hero-header">
+    <!-- Contenedor del Carrusel -->
+    <div class="carousel-container" id="heroCarousel">
+
+      <!-- Slide 1 -->
+      <div class="carousel-slide active">
+        <video autoplay loop muted playsinline preload="metadata" class="slide-video-bg">
+          <source src="videohead3.mp4" type="video/mp4">
+          Tu navegador no soporta reproducción de video.
+        </video>
+        <div class="slide-overlay"></div>
+        <div class="slide-caption">
+          </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-slide active">
+        <video autoplay loop muted playsinline preload="metadata" class="slide-video-bg">
+          <source src="videohead6.mp4" type="video/mp4">
+          Tu navegador no soporta reproducción de video.
+        </video>
+        <div class="slide-overlay"></div>
+        <div class="slide-caption">
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-slide active">
+        <video autoplay loop muted playsinline preload="metadata" class="slide-video-bg">
+          <source src="videohead5.mp4" type="video/mp4">
+          Tu navegador no soporta reproducción de video.
+        </video>
+        <div class="slide-overlay"></div>
+        <div class="slide-caption">
+        </div>
+      </div>
+
+        <!-- Slide 4: Descarga de la App -->
+        <div class="carousel-slide active">
+            <video autoplay loop muted playsinline preload="metadata" class="slide-video-bg">
+            <source src="videohead2.mp4" type="video/mp4">
+            </video>
+                <div class="slide-overlay"></div>
+                <div class="slide-caption">
+                </div>
+        </div>
+
+    </div>
+
+    <!-- Filtro oscuro para legibilidad del texto -->
+    <div class="hero-overlay"></div>
+
+    <!-- Contenido encima de las imágenes -->
+    <div class="hero-content">
+      <!-- Contenedor del texto animado -->
+      <div id="carouselTextContainer" class="carousel-text-fade">
+        <h1 id="carouselTitle">BOLETÍN DE ORACIÓN</h1>
+        <p id="carouselDescription">Por la Movilización en Turquía</p>
+
+        <!-- Botones de acción (quedan estables) -->
+        <div class="hero-buttons">
+          <!-- Botón 1: Boletín de Oración -->
+          <a href="#" id="btnGuia" class="btn-hero btn-secondary">🙏 Unirse a la Intercesión</a>
+
+          <!-- Botón 2: Ver Video -->
+          <a href="#" id="btnVideo" class="btn-hero btn-secondary" style="display: none;">▶ Ver Video</a>
+
+          <!-- Botón 3: Unirse a la Intercesión -->
+          <a href="#" id="btnIntercesion" class="btn-hero btn-secondary" style="display: none;">🙏 Unirse a la Intercesión</a>
+
+          <button type="button" id="btnDescargar" class="btn-hero btn-secondary pwa-install-trigger" style="display: none;">
+            📲 Instalar Aplicación
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Indicadores / Puntos de navegación -->
+    <div class="carousel-dots">
+      <span class="dot active" onclick="setSlide(0)"></span>
+      <span class="dot" onclick="setSlide(1)"></span>
+      <span class="dot" onclick="setSlide(2)"></span>
+      <span class="dot" onclick="setSlide(3)"></span>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTENIDO PRINCIPAL
+       ======================================================================== -->
+  <div class="container">
+
+    <!-- VERSÍCULO Y CONTEXTO -->
+    <div id="contexto-general" class="intro-card">
+      <div class="verse-box">
+        «Pídeme, y te daré por herencia las naciones, y como posesión tuya los confines de la tierra.»
+        <br><strong>— Salmos 2:8</strong>
+      </div>
+      <h3 style="color: var(--primary-color); margin-top: 0; text-transform: uppercase; font-size: 1.1rem;">Contexto General de la Iglesia en Turquía</h3>
+      <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6;">
+        A pesar de la rica herencia bíblica que alberga la península de Anatolia —cuna de históricas comunidades del Nuevo Testamento como Éfeso, Antioquía o Galacia—, la actual Turquía representa hoy uno de los escenarios espiritualmente más desafiantes y menos evangelizados del planeta. Con una población cristiana que apenas alcanza el 0,5% del total nacional, esta nación forma parte de una región en Medio Oriente que comparte la misma sed de la Verdad y la urgente necesidad de obreros en la mies.
+      </p>
+      <p style="margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6;">
+        Cumplir con la Gran Comisión en este tiempo de la historia exige la movilización humilde, decidida y constante de toda la iglesia. Por ello, le invitamos a recorrer con fervor esta <strong>Boletín de Oración por la movilización a Turquía.</strong> Enmarcado por el compromiso global de la obra que cada 28 de septiembre, la iglesia del Movimiento Misionero Mundial en todo el mundo celebra el <strong>Día de las Misiones</strong>. Confiados en que al unir nuestros corazones e interceder por las naciones, el Señor colmará su vida de abundantes bendiciones espirituales.
+      </p>
+    </div>
+
+    <!-- BLOQUE DE VIDEO PANORÁMICO -->
+    <div id="video-seccion" class="video-full-bleed" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; margin-top: 30px; margin-bottom: 40px; background-color: #f8fafc; padding: 25px 0;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+        <div style="background-color: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);">
+
+          <!-- Reproductor Nativo MP4 en Alta Definición desde bunnynet -->
+          <div style="position:relative;padding-top:56.25%;">
+            <iframe src="https://player.mediadelivery.net/embed/763408/55ff2b4c-8cb8-410d-bb23-b6d7128f71e2?autoplay=false&loop=false&muted=false&preload=true&responsive=true" 
+                    loading="lazy" 
+                    style="border:0;position:absolute;top:0;height:100%;width:100%;" 
+                    allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" 
+                    allowfullscreen="true"></iframe>
+          </div>
+
+          <!-- Pie de Video / Pie de foto -->
+          <p style="text-align: center; font-size: 0.88rem; color: #4a5568; padding: 12px 20px; margin: 0; font-style: italic; background-color: #ffffff;">
+            Te invitamos a ver este breve video antes de iniciar el boletín de oración.
+          </p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE DE LLAMADO A LA ACCIÓN A WHATSAPP
+    <div class="cta-banner">
+      <h3>¿Deseas respaldar la obra en Turquía?</h3>
+      <p>Únete a nuestro grupo oficial de WhatsApp para recibir motivos de oración actualizados y avisos de intercesión.</p>
+      <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+         target="_blank" 
+         rel="noopener" 
+         class="btn-whatsapp-block">
+        <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">folded_hands</span>
+        <span>Unirme al Grupo de Intercesión</span>
+      </a>
+    </div> -->
+
+    <!-- SECCIÓN 1 -->
+    <div id="seccion-1" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 1</span>
+        <span class="day-title">Un Faro de Fe en el Hogar y en el Campo</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb2.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p id="motivo-1" class="motivo-texto">Corría el año <strong>2010</strong> cuando la región de Medio Oriente comenzaba a convulsionar bajo el peso de profundos cambios sociales, económicos y políticos, en las vísperas de la conocida <em>Primavera Árabe</em>. En medio de ese escenario convulso, la <strong>Hna. Sofía</strong> <em>(nombre cambiado por motivos de seguridad)</em> arribó a tierras turcas con el anhelo de edificar una nueva vida junto a su prometido, de origen turco y tradición musulmana.</p>
+        <p>Fueron años de una intensa lucha interna, donde las profundas raíces cristianas de su infancia confrontaban constantemente las dinámicas y exigencias del entorno islámico. No obstante, en la penumbra de esa búsqueda, la gracia de Dios se abrió paso: en el año <strong>2019</strong> —una época especialmente marcada por crecientes restricciones y presiones hacia la fe cristiana en Turquía— experimentó una conversión personal e irreversible.</p>
+        <p>Desde aquel encuentro transformador y tras sellar su compromiso mediante el bautismo en el año <strong>2022</strong>, su fe no ha cesado de florecer. Hoy se erige como un faro de luz en esa tierra: abraza y hospeda con amor a los movilizadores que van llegando al país, al tiempo que desarrolla de forma valiente hermosas labores de evangelismo personal.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Resistir el continuo desgaste físico, emocional y espiritual que conlleva el servicio silencioso. La Hna. Sofía comparte su día a día en un hogar interreligioso, casada con un esposo musulmán y criando a sus hijos pequeños, con el anhelo ardiente de que el amor reflejado en su vida sea el testimonio vivo que transforme a su familia y alcance el corazón de sus amigas en Turquía.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>Fortaleza Espiritual:</strong> Que Sofía tenga más experiencias íntimas con Dios aún en medio de su soledad, y que pueda tener el ánimo constante de leer la Palabra de Dios y desarrollar su fe en el terreno adverso en que se encuentra.
+          </li>
+          <li class="prayer-item">
+            <strong>Evangelismo y Fortaleza Física:</strong> Que Dios llene de sabiduría, gracia y discernimiento a la Hna. Sofía para que pueda alcanzar a sus hijos y a sus amigas en Turquía con la luz del Evangelio. Asimismo, que Dios cuide su salud física para que le permita realizar la obra de Dios con vitalidad y gozo en la región.
+          </li>
+          <li class="prayer-item">
+            <strong>Matrimonio y Conversión:</strong> Por la vida del esposo de la Hna. Sofía, para que pueda conocer a Cristo de forma personal y que, a través de él, muchos otros turcos lleguen al conocimiento de la fe. Que el Señor disponga su corazón para concederle a su esposa plena libertad para desarrollar la labor evangelística.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BANNER O SECCIÓN DE COMPARTIR 
+    <div class="cta-banner-share">
+      <h3>¡Ayúdanos a difundir la Movilización Turquía!</h3>
+      <p>Comparte este boletín de intercesión con tus amigos, iglesia o grupos.</p>
+
+       CONTENEDOR DESPLEGABLE 
+      <div class="share-dropdown">
+        <button type="button" class="btn-share-trigger" onclick="toggleShareMenu(this, event)">
+          <span class="material-symbols-outlined" style="color: #ffffff;">share</span>
+          <span>Compartir este Boletín</span>
+          <span class="material-symbols-outlined arrow-icon" style="color: #ffffff;">expand_more</span>
+        </button>
+
+        <div class="share-menu">
+          <a href="javascript:void(0)" onclick="shareToWhatsApp()" class="share-item wa">
+            <img src="images/whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
+          </a>
+          <a href="javascript:void(0)" onclick="shareToFacebook()" class="share-item fb">
+            <img src="images/facebookicon.png" alt="WhatsApp Icon" class="flaticon-icon"> Facebook
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- SECCIÓN 2 -->
+    <div id="seccion-2" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 2</span>
+        <span class="day-title">Consolidación de Vidas y Nuevos Territorios</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb1.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p>Dar el paso de fe en este entorno implica a menudo recorrer un camino de profundo aislamiento relacional. Sin el refugio de una comunidad cercana, la fe corre el riesgo de resentirse bajo la sombra de la <strong>orfandad espiritual</strong> <em>(aquel estado de soledad que experimenta quien es apartado de su entorno sin contar con un hogar espiritual de contención)</em>. Frente a esta realidad, el ministerio se ha propuesto tejer redes de acompañamiento constante y personalizado.</p>
+        <p>Con especial atención observamos la labor en <span class="location-badge">Bursa</span>, ciudad donde reside la Hna. Sofía y donde se ha formado un pequeño núcleo de familias con desafíos profundos en sus hogares. Entre ellas se encuentra <strong>Valeria</strong>, una recién convertida que vive junto a su esposo musulmán y su bebé; <strong>Elena</strong>, casada con un hombre musulmán y criando a su pequeña hija; y <strong>Camila</strong>, quien también sostiene su fe en un hogar interreligioso junto a su esposo musulmán y su hijo adolescente. Aunque existe la propuesta y la puerta abierta para utilizar las instalaciones de una iglesia local evangélica acondicionada dentro del marco legal, los cultos aún no han podido iniciar formalmente debido a la necesidad de afirmar y consolidar primero este grupo de vidas.</p>
+        <p>A la par de este trabajo, se brinda una atención atenta y continua a otras familias en la región: en <span class="location-badge">Balıkesir</span> se acompaña a <strong>Renata</strong>, quien vive con su esposo musulmán, sus tres hijos y su suegra; mientras que en <span class="location-badge">Capadocia</span> se atiende a <strong>Hannah</strong> y a su hija<em> (todos los nombres han sido modificados por razones de privacidad y seguridad)</em>. Asimismo, se coordinan exploraciones para visitar a personas interesadas en la fe en: <span class="location-badge">Tekirdağ</span>, <span class="location-badge">Sardis</span> y <span class="location-badge">Trabzon</span>.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Afirmar espiritualmente a cada una de estas mujeres y familias que sostienen su fe en medio de hogares interreligiosos, disipando la orfandad espiritual para que la obra en Bursa se consolide y pueda, a su tiempo, dar inicio a las reuniones en el espacio de la iglesia local evangélica, mientras se establecen contactos en las nuevas regiones.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>La Zona en Bursa y Consolidación:</strong> Que Dios afirme la fe de Sofía, Valeria, Elena y Camila en Bursa. Oremos para que sus hogares sean alcanzados por la luz del Evangelio y para que el Señor prepare los tiempos y las condiciones para afirmar este grupo e iniciar formalmente las reuniones en la iglesia local evangélica.
+          </li>
+          <li class="prayer-item">
+            <strong>Las Zonas en Balıkesir y Capadocia:</strong> Por Renata, su esposo, sus tres hijos y su suegra en Balıkesir; y por Hannah y su hija en Capadocia. Que el Señor las rodee de su gracia, les dé discernimiento en la convivencia familiar cotidiana y las guarde de todo aislamiento espiritual.
+          </li>
+          <li class="prayer-item">
+            <strong>Las Zonas Nuevas:</strong> Que el Señor bendiga los viajes de prospección e interceda por los nuevos contactos en Tekirdağ, Sardis y Trabzon, preparando los corazones de las personas interesadas en la fe y abriendo rutas seguras para la proclamación de la Palabra.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3 -->
+    <div id="seccion-3" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 3</span>
+        <span class="day-title">Unidad Movilizadora y Alianzas Estratégicas</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb3.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p>La extensión del Evangelio en regiones donde la presencia cristiana es sumamente escasa exige superar el aislamiento y tejer vínculos fraternos de auténtico respaldo mutuo. Frente a esta necesidad, el ministerio cultiva <strong>lazos estratégicos</strong> <em>(redes de colaboración y comunión entre iglesias, organizaciones y movilizadores para unir esfuerzos en la edificación del Reino)</em>.</p>
+        <p>Por un lado, se mantienen firmes lazos fraternos con hermanos y congregaciones pertenecientes a nuestra misma iglesia y sana doctrina en América Latina, Europa y Estados Unidos, compartiendo una misma fe, visión y cobertura espiritual hacia los obreros en el terreno.</p>
+        <p>Por otro lado, reconociendo lo valioso del apoyo mutuo en una tierra de creyentes contados, se articulan esfuerzos de cooperación con iglesias locales de otras denominaciones en ciudades clave como <span class="location-badge">Estambul</span> y <span class="location-badge">Adana</span>. Este trabajo conjunto se traduce en iniciativas concretas, como la realización de talleres y estudios bíblicos compartidos donde la fe se nutre en las verdades esenciales que nos unen, así como la acogida fraternal de movilizadores dentro de estas congregaciones locales, brindándoles el sostén y la logística indispensable durante sus estadías. Estas dinámicas abren espacios seguros de comunión donde hermanos de la misma fe pueden encontrarse, cuidarse y fortalecerse mutuamente.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Preservar la unidad del espíritu y el testimonio cristiano en Turquía, fortaleciendo la comunión doctrinal con la iglesia madre mientras se coordinan talleres, estudios bíblicos y la acogida de movilizadores con congregaciones locales socias en Estambul y Adana.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>Por los Lazos Fraternos y la Visión Compartida:</strong> Que el Señor mantenga, guarde y fortalezca de manera viva la relación con las congregaciones y pastores que comparten nuestra misma sana doctrina. Oremos para que el Espíritu Santo siga inquietando corazones en América Latina, Europa y Estados Unidos, tendiendo e intensificando puentes de comunión con siervos e iglesias que sientan un ardor especial por Turquía y Medio Oriente, uniendo visión, oración y respaldo en favor de la obra.
+          </li>
+          <li class="prayer-item">
+            <strong>Por los Esfuerzos Unificados y el Crecimiento Mutuo:</strong> Que Dios promueva un genuino espíritu de colaboración y sinergia entre las distintas iglesias para la edificación del Cuerpo de Cristo en la región. Intercedamos para que este trabajo conjunto se exprese en un servicio desinteresado, una sólida instrucción bíblica compartida, una cálida hospitalidad hacia los movilizadores y una comunión sincera; abriendo las puertas para estrechar lazos con congregaciones amigas dispuestas a caminar en santa unidad.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4 -->
+    <div id="seccion-4" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 4</span>
+        <span class="day-title">Preparación Integral y Viajes Movilizadores</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb4.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p>Realizar un viaje a Turquía para respaldar la obra de Dios es, sin duda, una profunda bendición y una oportunidad de crecimiento espiritual para cualquier creyente, sin distinción de edad o trasfondo. Sin embargo, dada la complejidad de la región, dar este paso exige una <strong>preparación integral</strong> <em>(la capacitación espiritual, logística, cultural y financiera indispensable antes de emprender un viaje movilizador)</em>.</p>
+        <p>Para quienes sienten el llamado de realizar un viaje a corto plazo, el enfoque principal estará en dedicarse por completo a la labor movilizadora y al servicio en el campo.</p>
+        <p>Por otro lado, para quienes anhelan un servicio a largo plazo que les permita establecerse en el país, cobra especial valor la modalidad de <strong>movilización bivocacional</strong> <em>(la integración del trabajo profesional, comercial o de los estudios técnicos o universitarios como medio legítimo de sostenimiento y residencia legal mientras se sirve en el Reino)</em>. Esta senda, que involucra tanto a profesionales como a estudiantes, requiere una preparación aún más rigurosa, adaptada a las exigencias legales y culturales del entorno.</p>
+        <p>En todo este proceso, la iglesia no camina a ciegas: los responsables de la obra en el campo, como los pastores <strong>Rodrigo y Berta</strong> <em>(nombres modificados por razones de protección)</em>, brindan un acompañamiento cercano para realizar todas las coordinaciones necesarias, garantizando que cada visita sea una experiencia segura, altamente edificante y de profunda trascendencia espiritual.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Concientizar y capacitar a la iglesia para responder con responsabilidad a los viajes movilizadores, promoviendo la buena planificación de viajes de corto plazo y el desarrollo de vocaciones de largo plazo para profesionales y estudiantes bajo el consejo pastoral en Turquía.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>Por la Disposición y los Viajes de Corto Plazo:</strong> Que Dios despierte en el corazón de los hermanos el anhelo de viajar para conocer la obra en Turquía, sumergirse en la rica historia del cristianismo bíblico y servir activamente. Oremos para que el Señor provea la preparación espiritual, el discernimiento y la guía necesaria para cada siervo.
+          </li>
+          <li class="prayer-item">
+            <strong>Por la Preparación de Largo Plazo y Visados:</strong> Que el Señor guíe y fortalezca a profesionales y estudiantes llamados a establecerse a largo plazo mediante el servicio bivocacional. Intercedamos por la obtención de visas preaprobadas, la apertura de puertas académicas, profesionales y legales, y por la sabiduría de los pastores Rodrigo y Berta al coordinar y cuidar de cada nuevo obrero.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5 -->
+    <div id="seccion-5" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 5</span>
+        <span class="day-title">Evangelismo Digital y Conexión de Familias</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb5.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p>En un escenario donde las barreras geográficas y los resguardos de seguridad dificultan a menudo el contacto directo, los entornos virtuales se han transformado en una plataforma providencial. A través del <strong>evangelismo digital</strong> <em>(el uso estratégico de redes sociales, sitios web y medios tecnológicos para la proclamación de la fe)</em>, la Palabra de Dios trasciende fronteras para sembrar esperanza en corazones que buscan en privado.</p>
+        <p>Mediante estas plataformas, el ministerio está alcanzando a un número creciente de mujeres latinas que residen en Turquía, estableciendo puentes de confianza con familias enteras a quienes se les acompaña en su proceso espiritual. Esta vía de contacto permite entregarles valiosos recursos impresos y digitales para el fortalecimiento de su fe, entre los que destacan:</p>
+        <ul style="margin-left: 20px; margin-bottom: 15px; color: #4a5568; line-height: 1.6;">
+          <li>Biblias en español y turco.</li>
+          <li>Materiales y folletos de evangelismo.</li>
+          <li>Recursos de discipulado enriquecidos con talleres del Método Inductivo.</li>
+          <li>Materiales educativos y bíblicos para familias y niños turcos hispanohablantes.</li>
+        </ul>
+        <p>De esta forma, la tecnología no solo sirve como una primera puerta de entrada, sino como una herramienta efectiva para alimentar el hogar con la verdad bíblica y guiar a cada persona hacia una fe sólida e informada.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Optimizar el uso de las plataformas digitales para sostener una comunicación segura con las mujeres y familias alcanzadas, garantizando la provisión y correcta asimilación de los materiales de discipulado y estudio bíblico.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>Por el Alcance Digital y las Familias Latinas:</strong> Que Dios potencie los canales virtuales para que sigan siendo un refugio y punto de encuentro con mujeres latinas y sus hogares en Turquía, preparando sus corazones para recibir la Palabra de Dios sin reservas.
+          </li>
+          <li class="prayer-item">
+            <strong>Por el Fruto del Material Entregado:</strong> Que el Señor unja la distribución de las Biblias, los materiales de evangelismo, los recursos infantiles y los talleres del Método Inductivo; para que cada lectura y estudio en el hogar rinda frutos duraderos de transformación y crecimiento en la fe.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 6 -->
+    <div id="seccion-6" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 6</span>
+        <span class="day-title">Cobertura, Autoridades y Respaldo Institucional</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb6.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p>Servir y desarrollar la obra de Dios en el extranjero implica un caminar en orden, prudencia y testimonio, tanto frente a las leyes civiles del país como bajo el cobijo de una sólida <strong>cobertura espiritual e institucional</strong> <em>(el respaldo pastoral, la guía ministerial y el acompañamiento que brindan los supervisores y el presbiterio a la labor movilizadora)</em>.</p>
+        <p>Por un lado, la Palabra de Dios nos exhorta a interceder por las autoridades civiles y gubernamentales de la nación, para que el Señor disponga sus corazones con justicia y paz, permitiendo que la iglesia y las familias movilizadoras vivan en tranquilidad, con las garantías legales para su libre permanencia.</p>
+        <p>Por otro lado, esta obra avanza respaldada por la visión y el cuidado continuo de nuestras autoridades eclesiásticas: la presidencia internacional de la obra, las supervisiones regionales encargadas de Europa, Italia y Medio Oriente, el cuerpo pastoral que sostiene esta visión y los pastores coordinadores en el campo, <strong>Rodrigo y Berta</strong> <em>(nombres resguardados por razones de seguridad)</em>. Esta estructura de acompañamiento vela por la salud espiritual de los obreros y la dirección estratégica del ministerio en la región.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Sostener en constante intercesión a los gobernantes de la nación para la preservación de la paz social, mientras se fortalece la unidad del liderazgo eclesiástico y se respalda la labor itinerante y logística de los pastores coordinadores en Turquía.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>Por las Autoridades del País:</strong> Que el Señor dirija con sabiduría el corazón de las autoridades gubernamentales y migratorias del país, concediendo tiempos de paz, orden civil y apertura legal para que la Palabra de Dios siga corriendo libremente.
+          </li>
+          <li class="prayer-item">
+            <strong>Por el Liderazgo y Cobertura de la Iglesia:</strong> Oremos por la salud, gracia y dirección divina sobre el presidente internacional de la obra, los supervisores regionales de Italia, Europa y Medio Oriente, y el cuerpo de pastores que respalda esta labor; para que el Señor les llene de discernimiento en la conducción de la movilización.
+          </li>
+          <li class="prayer-item">
+            <strong>Por los Pastores Rodrigo y Berta:</strong> Intercedamos por el ministerio de los pastores Rodrigo y Berta, y para que el Señor abra todas las puertas logísticas, financieras y espirituales para la realización fructífera de su próximo viaje.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 7 -->
+    <div id="seccion-7" class="day-card">
+      <div class="day-header">
+        <span>SECCIÓN 7</span>
+        <span class="day-title">Compromiso Movilizador: El Método O.D.I.H.</span>
+      </div>
+      <div class="photo-container" style="width: 100%; height: 300px; overflow: hidden;">
+        <img src="images/imageweb7.webp" alt="Fotografía representativa Turquía - Día 1" style="width: 100%; height: 100%; object-fit: cover; object-position: center; transition: opacity 0.4s ease-in-out; display: block;">
+      </div>
+      <div class="day-content">
+        <div class="section-title">
+          <span class="material-symbols-outlined">menu_book</span>
+          Contexto e Historia
+        </div>
+        <p>Concluir la lectura de este boletín no representa el final de nuestra responsabilidad, sino el despertar de una iglesia consciente del llamado de Dios para las naciones. La extensión del Evangelio en tierras como Turquía no es la tarea aislada de unos pocos en el campo, sino la suma de la entrega y fidelidad de todo el Cuerpo de Cristo participando activamente.</p>
+        <p>Para encauzar esta respuesta de fe, se promueve el <strong>Método O.D.I.H.</strong> <em>(la ruta estratégica que moviliza a la congregación a involucrarse directamente en la movilización mediante cuatro acciones prácticas y fundamentales)</em>:</p>
+        <ul style="margin-left: 20px; margin-bottom: 15px; color: #4a5568; line-height: 1.6;">
+          <li><strong>O - Orar:</strong> Interceder con perseverancia y conocimiento por las almas, las familias y los obreros en el campo.</li>
+          <li><strong>D - Dar:</strong> Aportar con generosidad financiera y material para el sostenimiento y avance de los proyectos.</li>
+          <li><strong>I - Ir:</strong> Responder al llamado de viajar, sea a corto plazo en servicio directo o a largo plazo en movilizaciones bivocacionales.</li>
+          <li><strong>H - Hablar:</strong> Convertirse en voz y testimonio de la obra, compartiendo la necesidad movilizadora y comunicando el Evangelio a quienes nos rodean.</li>
+        </ul>
+        <p>De este modo, culminamos este tiempo renovando la visión: que cada creyente, desde su lugar y según sus dones, se disponga a Orar, Dar, Ir y Hablar para que la luz de Cristo continúe transformando vidas en Turquía y hasta el último rincón de la tierra.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">upcoming</span>
+          El Desafío Actual
+        </div>
+        <p>Despertar a cada miembro de la congregación local para que adopte activamente el método O.D.I.H., asumiendo su rol en la gran comisión y respaldando con constancia el trabajo en Turquía y Medio Oriente.</p>
+
+        <div class="section-title">
+          <span class="material-symbols-outlined">folded_hands</span>
+          Motivos de Oración
+        </div>
+        <ul class="prayer-list">
+          <li class="prayer-item">
+            <strong>Por la Movilización de la Iglesia en el Método O.D.I.H.:</strong> Que el Señor conmueva a nuestra iglesia para involucrarse de manera integral, multiplicando intercesores apasionados que <em>Oren</em>, dadores generosos que <em>Den</em>, siervos dispuestos a <em>Ir</em> al campo y mensajeros valientes que <em>Hablen</em> del amor de Dios.
+          </li>
+          <li class="prayer-item">
+            <strong>Por el Fruto Permanente en Turquía:</strong> Que la combinación del trabajo en el terreno con el respaldo de la iglesia a través de la oración, el dar, el ir y el hablar, resulte en una cosecha abundante de almas y el fortalecimiento de la iglesia en la nación.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div> <!-- Fin .container -->
+
+  <!-- ========================================================================
+       FOOTER OFICIAL COMPLETO
+       ======================================================================== -->
+  <footer class="main-footer">
+    <div class="footer-container">
+
+      <!-- SECCIÓN 1: LOGO E INFORMACIÓN GENERAL -->
+      <div class="footer-brand">
+        <img src="images/Logowebmt2.png" alt="Logo Ministerio" class="footer-logo">
+        <p>Ministerio para la Movilización Transcultural en Turquía.</p>
+      </div>
+
+      <!-- SECCIÓN 2: ACCIONES RÁPIDAS (INTERCESIÓN Y COMPARTIR) -->
+      <div class="footer-actions">
+        <h5>Unirse e Interceder</h5>
+        <p>Súmate al grupo oficial de oración en WhatsApp o comparte este boletín con tu iglesia.</p>
+        <div class="footer-buttons">
+
+          <!-- Botón de Unirse al Grupo -->
+          <a href="https://wa.me/51938204456?text=Hola,%20deseo%20unirme%20al%20grupo%20de%20intercesión%20por%20Turquía" 
+             target="_blank" 
+             rel="noopener" 
+             class="footer-btn btn-wa-group">
+            <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">folded_hands</span>
+            <span>Grupo de Intercesión</span>
+          </a>
+
+          <!-- Desplegable / Botón para Compartir -->
+          <div class="share-dropdown">
+            <button type="button" class="footer-btn btn-share-trigger" onclick="toggleShareMenu(this, event)">
+              <span class="material-symbols-outlined">share</span>
+              <span>Compartir Boletín</span>
+              <span class="material-symbols-outlined arrow-icon">expand_more</span>
+            </button>
+            <div class="share-menu">
+              <a href="javascript:void(0)" onclick="shareToWhatsApp()" class="share-item wa">
+                <img src="images/whatsappicon.png" alt="WhatsApp Icon" class="flaticon-icon"> WhatsApp
+              </a>
+              <a href="javascript:void(0)" onclick="shareToFacebook()" class="share-item fb">
+                <img src="images/facebookicon.png" alt="Facebook Icon" class="flaticon-icon"> Facebook
+              </a>
+            </div>
+          </div>
+
+          <!-- Botón de Instalación -->
+          <button type="button" class="footer-btn btn-install-pwa pwa-install-trigger">
+            <span class="material-symbols-outlined" style="font-size: 22px; color: #ffffff;">download_for_offline</span>
+            <span>Instalar App en tu Celular</span>
+          </button>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN 3: DERECHOS DE AUTOR Y NOTA LEGAL -->
+    <div class="footer-bottom">
+      <p>© 2026 Movilización Turquía — Todos los derechos reservados.</p>
+      <p class="footer-legal">Contenido de uso exclusivo para la movilización de la iglesia.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
