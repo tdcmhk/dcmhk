@@ -108,7 +108,7 @@ const slidesData = [
     subtag: "",
     button: {
       text: "↪ Comparte",
-      link: "https://api.whatsapp.com/send?text=Te%20invito%20a%20unirte%20a%20la%20Gu%C3%ADa%20de%20Oraci%C3%B3n%20por%20la%20Movilización%20en%20Turqu%C3%ADa:%20https://misionturquia.site/" // Enlace a WhatsApp
+      link: "https://api.whatsapp.com/send?text=Te%20invito%20a%20unirte%20a%20la%20Gu%C3%ADa%20de%20Oraci%C3%B3n%20por%20la%20Movilización%20en%20Turqu%C3%ADa:%20https://mmmturquia/boletin-de-oracion/" // Enlace a WhatsApp
     }
   },
     {
