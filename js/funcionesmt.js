@@ -1,3 +1,27 @@
+/* ==========================================================================
+   OCULTAR PANTALLA DE CARGA CUANDO LA PÁGINA ESTÉ LISTA
+   ========================================================================== */
+
+window.addEventListener('load', () => {
+  const loader = document.getElementById('pageLoader');
+  if (loader) {
+    // Breve pausa de 200ms para asegurar una transición visual agradable
+    setTimeout(() => {
+      loader.classList.add('loader-hidden');
+    }, 200);
+  }
+});
+
+// Respaldo de seguridad: si alguna imagen o recurso tarda demasiado,
+// el loader se ocultará automáticamente a los 4 segundos para no bloquear al usuario.
+setTimeout(() => {
+  const loader = document.getElementById('pageLoader');
+  if (loader && !loader.classList.contains('loader-hidden')) {
+    loader.classList.add('loader-hidden');
+  }
+}, 4000); 
+ 
+ 
  /* ==========================================================================
    1. CONTROL DE NAVEGACIÓN Y MENÚ HAMBURGUESA
    ========================================================================== */
