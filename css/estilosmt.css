@@ -1,1289 +1,1264 @@
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y CONFIGURACIÓN BASE
+   ========================================================================== */
+
 :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-color: #c53030;
-            --bg-color: #f7fafc;
-            --card-bg: #ffffff;
-            --text-color: #2d3748;
-            --light-gray: #e2e8f0;
-            --dark-border: #cbd5e0;
-        }
-
-        /* Smooth Scroll y reajuste de caja para evitar desbordamientos */
-        html { scroll-behavior: smooth; }
-        * { box-sizing: border-box; }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* BARRA DE NAVEGACIÓN STICKY */
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--light-gray);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            padding: 10px 0;
-            margin-bottom: 0px;
-        }
-
-        .nav-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 0 10px;
-            gap: 10px;
-        }
-
-        .nav-brand-text {
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .nav-brand-text span.brand-accent { color: var(--secondary-color); }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .nav-link {
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 6px 10px;
-            border-radius: 20px;
-            transition: all 0.2s ease;
-        }
-
-        .nav-link:hover {
-            background-color: #ebf8ff;
-            color: var(--primary-color);
-        }
-
-        /* MENÚ DESPLEGABLE */
-        .dropdown { position: relative; display: inline-block; }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #ffffff;
-            min-width: 240px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            padding: 8px 0;
-            z-index: 1100;
-            margin-top: 5px;
-        }
-
-        .dropdown-menu a {
-            color: var(--text-color);
-            padding: 10px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #ebf8ff;
-            color: var(--secondary-color);
-        }
-
-        .dropdown:hover .dropdown-menu { display: block; }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 25px 20px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.08);
-            border-bottom: 4px solid var(--accent-color);
-        }
-
-        header h1 {
-            margin: 0 0 10px 0;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.3;
-        }
-
-        header p { margin: 4px 0; font-size: 0.95rem; opacity: 0.95; }
-
-        .verse-box {
-            background-color: #ebf8ff;
-            border-left: 5px solid var(--secondary-color);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 0 6px 6px 0;
-            font-style: italic;
-        }
-
-        /* Oculta por defecto los botones secundarios del carrusel para evitar el parpadeo inicial */
-        #btnVideo, 
-        #btnIntercesion {
-            display: none;
-        }
-
-        /* Asegura que solo el primer botón sea visible al cargar la página */
-        #btnGuia {
-            display: inline-flex;
-        }
-
-        .intro-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border: 1px solid var(--light-gray);
-        }
-
-        .day-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            border: 1px solid var(--light-gray);
-        }
-
-        .day-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 14px 20px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .day-header span.day-title {
-            color: #e2e8f0;
-            font-size: 0.9rem;
-            font-weight: normal;
-            text-transform: uppercase;
-        }
-
-        .day-content { padding: 20px; }
-
-        /* FOTOS ADAPTABLES SIN ALTURA FIJA */
-        .photo-container {
-            width: 100%;
-            height: auto;
-            max-height: 350px;
-            overflow: hidden;
-            background-color: #edf2f7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .photo-container img {
-            width: 100%;
-            height: 100%;
-            max-height: 350px;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        .section-title {
-            color: var(--primary-color);
-            font-size: 1rem;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #edf2f7;
-            padding-bottom: 6px;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .material-symbols-outlined {
-            color: var(--secondary-color);
-            font-size: 20px;
-            vertical-align: middle;
-        }
-
-        .prayer-list { list-style: none; padding: 0; margin-top: 15px; }
-
-        .prayer-item {
-            background-color: #f8fafc;
-            border-left: 4px solid var(--secondary-color);
-            padding: 14px 16px;
-            margin-bottom: 14px;
-            border-radius: 0 6px 6px 0;
-            border-top: 1px solid #edf2f7;
-            border-right: 1px solid #edf2f7;
-            border-bottom: 1px solid #edf2f7;
-        }
-
-        .prayer-item strong {
-            color: var(--primary-color);
-            display: block;
-            margin-bottom: 4px;
-            font-size: 0.95rem;
-        }
-
-        .location-badge {
-            display: inline-block;
-            background-color: #e2e8f0;
-            color: var(--primary-color);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-right: 4px;
-            margin-bottom: 4px;
-        }
-
-        /* BANNER WHATSAPP ADAPTABLE */
-        .cta-banner {
-            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 20px 15px;
-            text-align: center;
-            margin: 30px 0;
-            border: 1px solid var(--secondary-color);
-        }
-
-        .cta-banner h3 { margin: 0 0 8px 0; font-size: 1.1rem; color: #ffffff; }
-        .cta-banner p { margin: 0 0 16px 0; font-size: 0.9rem; color: #e2e8f0; }
-
-        .btn-whatsapp-block {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: #25d366;
-            color: #ffffff !important;
-            padding: 12px 20px;
-            border-radius: 30px;
-            text-decoration: none !important;
-            font-weight: 700;
-            font-size: 0.9rem;
-            max-width: 100%;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 15px;
-            color: #718096;
-            font-size: 0.85rem;
-            margin-top: 30px;
-            border-top: 1px solid var(--light-gray);
-        }
-
-        /* AJUSTES ESPECÍFICOS PARA CELULARES (PANTALLAS MENORES A 600PX) */
-        @media (max-width: 600px) {
-            .nav-container {
-                justify-content: center;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .nav-links { justify-content: center; width: 100%; }
-            header h1 { font-size: 1.25rem; }
-            .day-header { flex-direction: column; align-items: flex-start; }
-            .day-content { padding: 15px; }
-            .photo-container, .photo-container img { max-height: 220px; }
-            .dropdown-menu { position: fixed; left: 5%; right: 5%; width: 90%; }
-        }
-
-        /* Botón hamburguesa oculto por defecto en computadoras */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            cursor: pointer;
-            padding: 5px;
-        }
-
-        .nav-toggle span {
-            font-size: 28px;
-        }
-
-        /* REGLAS RESPONSIVE PARA EL MENÚ EN CELULARES */
-        @media (max-width: 600px) {
-            .nav-container {
-                flex-direction: row; /* Mantiene logo y botón en la misma línea */
-                justify-content: space-between;
-                align-items: center;
-          }
-
-            .nav-toggle {
-                display: block; /* Muestra el botón hamburguesa */
-            }
-
-           /* Estilos del menú desplegado en celular */
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: #ffffff;
-                box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-                padding: 15px;
-                flex-direction: column;
-                z-index: 2001;
-            }
-
-                    /* Clase activa que expande el menú al hacer clic */
-                .nav-links.nav-active {
-                display: flex !important;
-            }
-
-            .nav-link {
-                text-align: center;
-                padding: 10px;
-                background-color: #f8fafc;
-            }
-
-            .dropdown-menu {
-                position: static; /* Ajusta el desplegable dentro del menú colapsado */
-                box-shadow: none;
-                border: none;
-                background-color: #edf2f7;
-                width: 100%;
-            }
-             }
-            /* Transición suave para ocultar y mostrar la barra */
-            .sticky-nav {
-                position: sticky;
-                top: 0;
-                z-index: 2000;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            /* Oculta la barra hacia arriba */
-            .sticky-nav.nav-hidden {
-                transform: translateY(-100%);
-            }
-
-            /* Estilos para los enlaces dentro del desplegable de compartir */
-            .share-item {
-                display: flex !important;
-                align-items: center;
-                gap: 10px;
-                padding: 10px 16px;
-                font-size: 0.9rem;
-                font-weight: 600;
-                text-decoration: none;
-                transition: background-color 0.2s ease;
-            }
-
-            /* Color distintivo suave para WhatsApp al pasar el mouse */
-            .share-wa {
-                color: #2d3748;
-            }
-            .share-wa:hover {
-                background-color: #e8fadf !important;
-                color: #25D366 !important;
-            }
-
-            /* Color distintivo suave para Facebook al pasar el mouse */
-            .share-fb {
-                color: #2d3748;
-            }
-            .share-fb:hover {
-                background-color: #e7f1ff !important;
-                color: #1877F2 !important;
-            }
-
-            /* Compatibilidad con Modo Nocturno */
-            body.dark-mode .share-item {
-                color: #e0e0e0 !important;
-            }
-            body.dark-mode .share-wa:hover {
-                background-color: #1b3823 !important;
-                color: #25D366 !important;
-            }
-            body.dark-mode .share-fb:hover {
-                background-color: #102a45 !important;
-                color: #1877F2 !important;
-            }
-
-            /* Ajuste de tamaño para iconos de Flaticon en el menú */
-            .flaticon-icon {
-                width: 20px;
-                height: 20px;
-                object-fit: contain;
-                vertical-align: middle;
-            }
-
-            /* Mantener el contenedor flex perfectamente alineado */
-            .share-item {
-                display: flex !important;
-                align-items: center;
-                gap: 10px;
-                padding: 10px 16px;
-                font-size: 0.9rem;
-                font-weight: 600;
-                text-decoration: none;
-            }
-
-            /* Layout del Hero Header */
-            .hero-header {
-                position: relative;
-                width: 100%;
-                min-height: 80vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                text-align: center;
-                overflow: hidden;
-                padding: 60px 20px;
-                box-sizing: border-box;
-            }
-
-            /* Contenedor de las imágenes de fondo */
-            .carousel-container {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 0;
-            }
-
-            .carousel-slide {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                z-index: 0; /* Por defecto atrás */
-                transition: opacity 1.2s ease-in-out; /* Transición suave de 1.2 segundos */
-            }
-
-            .carousel-slide.active {
-                opacity: 1;
-                z-index: 1; /* Pasa al frente al activarse */
-            }
-            .carousel-slide img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-
-            /* Overlay para oscurecer el fondo y resaltar el texto */
-            .hero-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(15, 23, 42, 0.9) 100%);
-                z-index: 1;
-            }
-
-    
-
-        .hero-content {
-            position: relative;
-            z-index: 2; /* Mantiene el texto y botones por encima de la capa */
-            text-align: center;
-            color: #ffffff;
-            padding: 2rem 1rem;
-        }
-
-        /* 2. Jerarquía de Textos */
-        .hero-content h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: #f0f0f0;
-        }
-
-                /* 3. Estilo de Botones (Visibilidad y Contraste Mejorados) */
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 25px;
-        }
-
-            /* Botón Principal (Destacado en Blanco/Sólido) */
-            .btn-primary {
-                background-color: #ffffff;
-                color: #1a1a1a;
-                padding: 12px 24px;
-                border-radius: 30px;
-                font-weight: 600;
-                text-decoration: none;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            }
-
-            .btn-primary:hover {
-                background-color: #f0f0f0;
-                transform: translateY(-2px);
-            }
-
-            /* Botón Secundario (Borde Blanco Transparente) */
-            .btn-secondary {
-                background-color: rgba(255, 255, 255, 0.15);
-                color: #ffffff;
-                border: 2px solid #ffffff;
-                padding: 10px 22px;
-                border-radius: 30px;
-                font-weight: 600;
-                text-decoration: none;
-                backdrop-filter: blur(5px);
-                transition: all 0.3s ease;
-            }
-
-            .btn-secondary:hover {
-                background-color: #ffffff;
-                color: #1a1a1a;
-                transform: translateY(-2px);
-            }
-
-           /* 5. Indicadores del Carrusel (Dots) */
-            .carousel-dots {
-                position: absolute;
-                bottom: 15px; /* Controla qué tan abajo se posicionan los puntos */
-                left: 50%;
-                transform: translateX(-50%); /* Centra los puntos horizontalmente */
-                display: flex;
-                gap: 10px; /* Espacio entre los puntos */
-                z-index: 10; /* Asegura que queden sobre las imágenes o diapositivas */
-            }
-
-            .dot {
-                width: 12px;
-                height: 12px;
-                background-color: rgba(255, 255, 255, 0.5);
-                border-radius: 50%;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-
-            .dot.active {
-                background-color: #e20a17; /* Naranja destacado para el activo */
-                transform: scale(1.2);
-            }
-
-           /* ==========================================
-   REGLAS RESPONSIVE PARA EL HEADER / HERO
-   ========================================== */
-
-        /* Pantallas medianas (Tabletas / Laptops pequeñas) */
-        @media screen and (max-width: 768px) {
-            .hero-content {
-                padding: 1.5rem 1rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem; /* Reduce el tamaño del título */
-                line-height: 1.2;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-buttons {
-        flex-direction: column; /* Apila los botones si hay más de uno */
-        align-items: center; /* Centra el botón en la pantalla */
-        gap: 12px;
-        margin-top: 2rem; /* Mayor espacio de separación con el subtítulo en móviles */
-    }
-
-            .btn-primary, .btn-secondary, .btn-hero {
-        width: 100%;
-        max-width: 280px;
-        text-align: center; /* Centra el texto del botón en móviles */
-        display: inline-flex;
-        justify-content: center; /* Centra el icono y el texto horizontalmente */
-        align-items: center;
-    }
-        }
-
-
-        
-      /* Pantallas pequeñas (Móviles) - CENTRADO PERFECTO */
-        @media screen and (max-width: 480px) {
-            /* 1. La sección principal ocupa todo el ancho y centra su contenido */
-            .hero-header {
-                min-height: 75vh;
-                padding: 40px 15px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: center !important;
-                align-items: center !important;
-                box-sizing: border-box !important;
-            }
-
-            /* 2. El contenedor azul punteado ocupa el 100% y se centra de borde a borde */
-            .hero-content {
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 !important;
-                margin: 0 auto !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                text-align: center !important;
-            }
-
-            /* 3. Textos centrados y ajustados al ancho del teléfono */
-            #carouselTextContainer {
-                width: 100% !important;
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: center !important;
-                justify-content: center !important;
-                color: #ffffff 
-            }
-
-            .hero-content h1 {
-                font-size: 1.6rem !important;
-                line-height: 1.25 !important;
-                text-align: center !important;
-                margin: 0 0 10px 0 !important;
-                width: 100% !important;
-            }
-
-            .hero-content p {
-                font-size: 0.95rem !important;
-                text-align: center !important;
-                margin: 0 0 15px 0 !important;
-                width: 100% !important;
-            }
-
-            /* 4. Corrección de botones: quita el margen grande de 4rem que desalineaba */
-            .hero-buttons {
-                width: 100% !important;
-                display: flex !important;
-                justify-content: center !important;
-                align-items: center !important;
-                margin-top: 15px !important;
-                gap: 0 !important;
-               
-            }
-
-            .btn-hero, .btn-secondary, .btn-primary {
-                width: 100% !important;
-                max-width: 250px !important;
-                margin: 0 auto !important;
-                text-align: center !important;
-                 
-            }
-
-            /* 5. Puntos de navegación abajo al centro */
-            .carousel-dots {
-                position: absolute !important;
-                bottom: 15px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                margin: 0 !important;
-                color: #b03030 
-            }
-        }
-
-            /* Transición suave para los textos del carrusel */
-            .carousel-text-fade {
-                opacity: 1;
-                transform: translateY(0);
-                transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-            }
-
-            /* Clase que se activa temporalmente durante el cambio */
-            .carousel-text-fade.fade-out {
-                opacity: 0;
-                transform: translateY(-8px); /* Pequeño desplazamiento hacia arriba al ocultar */
-            }
-
-            /* Estilos del botón de conmutación */
-            .theme-toggle-btn {
-                background: none;
-                border: none;
-                cursor: pointer;
-                color: #4a5568;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 6px;
-                border-radius: 50%;
-                transition: color 0.3s ease, background-color 0.3s ease;
-            }
-
-            .theme-toggle-btn:hover {
-                background-color: rgba(0, 0, 0, 0.05);
-            }
-
-            /* ==========================================
-            ESTILOS GENERALES DEL MODO NOCTURNO
-            ========================================== */
-           /* Estilos para activar el Modo Nocturno */
-            body.dark-mode {
-                background-color: #121212 !important;
-                color: #e0e0e0 !important;
-            }
-
-            /* Tarjetas e Intro */
-            body.dark-mode .intro-card,
-            body.dark-mode .day-card {
-                background-color: #1e1e1e !important;
-                border-color: #2d2d2d !important;
-            }
-
-            /* Caja del Versículo (Verse Box) */
-            body.dark-mode .verse-box {
-                background-color: #2a2a2a !important;
-                border-left-color: #4299e1 !important;
-                color: #f0f0f0 !important;
-            }
-
-            /* Textos, títulos y párrafos */
-            body.dark-mode p, 
-            body.dark-mode h3, 
-            body.dark-mode li,
-            body.dark-mode .motivo-texto {
-                color: #e0e0e0 !important;
-            }
-
-            /* Títulos con color azul en modo claro */
-            body.dark-mode h3[style*="color: var(--primary-color)"],
-            body.dark-mode .section-title {
-                color: #63b3ed !important; /* Azul más claro para buen contraste en fondo oscuro */
-            }
-
-            /* Elementos de listas de oración */
-            body.dark-mode .prayer-item {
-                background-color: #262626 !important;
-                border-color: #333333 !important;
-                border-left-color: #4299e1 !important;
-            }
-
-            body.dark-mode .prayer-item strong {
-                color: #90cdf4 !important;
-            }
-
-            /* Corrección de Modo Nocturno para la Sección de Video */
-            body.dark-mode #video-seccion {
-                background-color: #121212 !important;
-            }
-
-            /* Contenedor de la tarjeta del video */
-            body.dark-mode #video-seccion > div > div {
-                background-color: #1e1e1e !important;
-                border-color: #2d2d2d !important;
-            }
-
-            /* Encabezado del video */
-            body.dark-mode #video-seccion div[style*="background-color: #ffffff"] {
-                background-color: #1e1e1e !important;
-                border-bottom-color: #2d2d2d !important;
-            }
-
-            /* Título del video */
-            body.dark-mode #video-seccion h3 {
-                color: #e0e0e0 !important;
-            }
-
-            /* Icono del video */
-            body.dark-mode #video-seccion .material-symbols-outlined {
-                color: #63b3ed !important;
-            }
-
-            /* Pie de video (texto inferior) */
-            body.dark-mode #video-seccion p {
-                background-color: #1e1e1e !important;
-                color: #a0aec0 !important;
-            }
-
-            /* Adaptación de la barra de navegación (Header) en modo nocturno */
-            body.dark-mode header,
-            body.dark-mode nav,
-            body.dark-mode .navbar,
-            body.dark-mode .nav-menu,
-            body.dark-mode .nav-container {
-                background-color: #1a1a1a !important;
-                border-color: #2d2d2d !important;
-            }
-
-            /* Texto del logo o título principal en el menú */
-            body.dark-mode .logo,
-            body.dark-mode .nav-title,
-            body.dark-mode header span,
-            body.dark-mode header h1,
-            body.dark-mode header h2 {
-                color: #ffffff !important;
-            }
-
-            /* Icono del menú hamburguesa */
-            body.dark-mode .hamburger span,
-            body.dark-mode .menu-icon span,
-            body.dark-mode .navbar-toggler-icon {
-                background-color: #ffffff !important;
-                color: #ffffff !important;
-            }
-
-            /* Menú desplegable desplegado en móviles */
-            body.dark-mode .nav-links,
-            body.dark-mode .mobile-menu,
-            body.dark-mode .dropdown-menu {
-                background-color: #1e1e1e !important;
-                border-color: #333333 !important;
-            }
-
-            /* Botones y enlaces dentro del menú desplegable */
-            body.dark-mode .nav-links a,
-            body.dark-mode .mobile-menu a,
-            body.dark-mode .dropdown-item {
-                color: #e0e0e0 !important;
-            }
-
-            /* Icono del sol/luna (Toggle de modo nocturno) */
-            body.dark-mode #darkModeToggle,
-            body.dark-mode .theme-toggle {
-                color: #f6ad55 !important; /* Tono cálido para el sol/luna */
-            }
-
-            /* 1. Corregir el texto MMM en el logo para que sea visible */
-            body.dark-mode .logo,
-            body.dark-mode header a,
-            body.dark-mode header span {
-                color: #ffffff !important;
-            }
-
-            /* Si "MMM" está dentro de un tag específico o span dentro del logo */
-            body.dark-mode .logo span,
-            body.dark-mode .nav-brand {
-                color: #63b3ed !important; /* Azul claro brillante para resaltar */
-            }
-
-            /* 2. Corregir los botones del menú desplegable en modo oscuro */
-            /* Opción A: Mantener los botones oscuros con texto blanco */
-            body.dark-mode .mobile-menu a,
-            body.dark-mode .nav-links a,
-            body.dark-mode .dropdown-menu button,
-            body.dark-mode .nav-container button,
-            body.dark-mode header .btn {
-                background-color: #2d3748 !important; /* Fondo gris oscuro para la píldora */
-                color: #ffffff !important;           /* Texto blanco legíble */
-                border: 1px solid #4a5568 !important;
-            }
-
-            /* O texto oscuro si el botón se mantiene blanco */
-            body.dark-mode .mobile-menu a *,
-            body.dark-mode .nav-links a * {
-                color: #1a202c !important; /* En caso de que prefieras mantener la píldora blanca */
-            }
-
-            /* 3. Evitar que el título/subtítulo suba demasiado y se corte con el menú */
-            body.dark-mode .hero-content,
-            .hero-content {
-                padding-top: 2rem !important; /* Le da aire suficiente para no solaparse */
-                margin-top: 0 !important;     /* Corrige la elevación excesiva */
-            }
-
-            .carousel-slide {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                opacity: 0;
-                transition: opacity 0.6s ease-in-out; /* Controla la suavidad del cambio */
-            }
-
-            .carousel-slide.active {
-                opacity: 1;
-            }
-
-            .nav-logo-img {
-                height: 20px; /* Ajusta la altura según tus necesidades */
-                width: auto;  /* Mantiene la proporción de la imagen */
-                display: block;
-            }
-
-
-        
-
-            
-
-    /* BANNER DE COMPARTIR */
-            .cta-banner-share {
-                background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
-                color: #ffffff;
-                border-radius: 12px;
-                padding: 20px 15px;
-                text-align: center;
-                margin: 30px 0;
-                border: 1px solid var(--secondary-color, #cbd5e0);
-            }
-
-            .cta-banner-share h3 { margin: 0 0 8px 0; font-size: 1.1rem; color: #ffffff; }
-            .cta-banner-share p { margin: 0 0 16px 0; font-size: 0.9rem; color: #e2e8f0; }
-
-            /* CONTENEDOR DEL DESPLEGABLE */
-            .share-dropdown {
-                position: relative;
-                display: inline-block;
-            }
-
-            /* BOTÓN PRINCIPAL */
-            .btn-share-trigger {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                background-color: #3182ce;
-                color: #ffffff;
-                padding: 12px 20px;
-                border-radius: 30px;
-                font-weight: 700;
-                font-size: 0.9rem;
-                border: none;
-                cursor: pointer;
-                transition: background-color 0.3s ease, transform 0.2s ease;
-            }
-
-            .btn-share-trigger:hover {
-                background-color: #2b6cb0;
-            }
-
-            /* Asegura que el texto y los iconos dentro del botón sean blancos */
-            .btn-share-trigger, 
-            .btn-share-trigger .material-symbols-outlined {
-                color: #ffffff !important;
-            }
-
-            /* MENÚ OCULTO/DESPLEGABLE */
-            .share-menu {
-                display: none; /* Oculto por defecto */
-                position: absolute;
-                bottom: 110%; /* Se despliega hacia arriba (o usa top: 110% si prefieres abajo) */
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: #ffffff;
-                min-width: 180px;
-                box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-                border-radius: 10px;
-                overflow: hidden;
-                z-index: 100;
-            }
-
-            .share-menu.show {
-                display: block; /* Muestra el menú cuando se activa */
-            }
-
-            /* OPCIONES DEL MENÚ */
-            .share-item {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                width: 100%;
-                padding: 10px 16px;
-                color: #2d3748 !important;
-                text-decoration: none !important;
-                font-size: 0.9rem;
-                font-weight: 600;
-                border: none;
-                background: none;
-                cursor: pointer;
-                text-align: left;
-                transition: background-color 0.2s ease;
-            }
-
-            .share-item:hover {
-                background-color: #f7fafc;
-            }
-
-            .share-item.wa i { color: #25d366; }
-            .share-item.fb i { color: #1877f2; }
-            .share-item.copy span { color: #4a5568; font-size: 18px; }
-
-            .btn-share-block {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                gap: 8px;
-                background-color: #3182ce; /* Azul para destacar el botón de compartir */
-                color: #ffffff !important;
-                padding: 12px 20px;
-                border-radius: 30px;
-                text-decoration: none !important;
-                font-weight: 700;
-                font-size: 0.9rem;
-                max-width: 100%;
-                border: none;
-                cursor: pointer;
-                transition: background-color 0.3s ease, transform 0.2s ease;
-            }
-
-            .btn-share-block:hover {
-                background-color: #2b6cb0;
-                transform: translateY(-2px);
-            }
-            
-            
-            /* Asegura que tanto las imágenes como los videos ocupen todo el slide de forma uniforme */
-            .carousel-slide img,
-            .carousel-slide video,
-            .slide-video {
-                width: 100%;
-                height: 100%;
-                object-fit: cover; /* Recorta y llena el contenedor manteniendo la proporción */
-                display: block;
-            }
-
-            /* Asegura que la diapositiva iframe responda al tamaño del carrusel */
-            .carousel-slide.iframe-slide {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-
-            /* Fuerza al iframe a cubrir todo el contenedor */
-            .slide-iframe {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 100vw;
-                height: 100vh;
-                min-width: 100%;
-                min-height: 100%;
-                transform: translate(-50%, -50%);
-                border: none;
-                pointer-events: none; /* Desactiva la interacción directa con el player para que el carrusel responda bien */
-            }
-
-            /* Capa transparente por encima para proteger la navegación del carrusel */
-            .iframe-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1;
-            }
-
-            /* Los textos y botones deben quedar por encima de la capa transparente */
-            .slide-caption, .hero-content {
-                z-index: 2;
-            }
-
-
-
-            /* ESTILOS GENERALES DEL FOOTER */
-.main-footer {
-    /* Rompe los márgenes del contenedor principal para llenar toda la pantalla */
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    
-    background-color: #1a202c; /* Tono oscuro elegante */
-    color: #e2e8f0;
-    padding: 40px 0 20px 0; /* Padding vertical */
-    margin-top: 50px;
-    border-top: 4px solid #2b6cb0;
-    box-sizing: border-box;
+  /* Colores Principales Inspirados en Turquía */
+  --primary-color: #1a365d;    /* Azul Bósforo profundo */
+  --secondary-color: #0e9594;  /* Turquesa tradicional de İznik */
+  --accent-color: #c1272d;     /* Rojo Carmesí de la bandera */
+  --warm-gold: #e5a93b;        /* Dorado Azafrán / Bazar */
+  
+  /* Fondos y Estructura */
+  --bg-color: #f8fafc;         /* Blanco suave (Travertino Pamukkale) */
+  --card-bg: #ffffff;          /* Blanco mármol para tarjetas */
+  --text-color: #2d3748;       /* Texto oscuro de alta legibilidad */
+  --light-gray: #e2e8f0;       /* Bordes y separadores sutiles */
+  --dark-border: #cbd5e0;
+
+  /* Variables de Tipografía */
+  --font-title: 'RiyadhusSholihin', serif;
+  --font-subtitle: 'Marcellus', Georgia, serif;
+  --font-button: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Mantiene el contenido interno alineado y centrado */
-.footer-container {
-    max-width: 1100px; /* Ancho máximo de lectura para el contenido */
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    align-items: start;
-    box-sizing: border-box;
-}
-/* LOGO E INFORMACIÓN */
-.footer-brand {
-    text-align: left;
+/* Smooth Scroll y reajuste de caja para evitar desbordamientos */
+html {
+  scroll-behavior: smooth;
 }
 
-.footer-logo {
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 12px;
+* {
+  box-sizing: border-box;
 }
 
-.footer-brand h4 {
-    color: #ffffff;
-    font-size: 1.2rem;
-    margin: 0 0 8px 0;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-.footer-brand p {
-    font-size: 0.88rem;
-    color: #a0aec0;
-    line-height: 1.5;
-    margin: 0;
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-/* ACCIONES DE UNIRSE Y COMPARTIR */
-.footer-actions h5 {
-    color: #ffffff;
-    font-size: 1.05rem;
-    margin: 0 0 8px 0;
+/* Declarar la fuente OpenType (.otf) */
+@font-face {
+  font-family: 'RiyadhusSholihin';
+  src: url('../fonts/RiyadhusSholihin.woff2') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-.footer-actions p {
-    font-size: 0.88rem;
-    color: #a0aec0;
-    margin-bottom: 15px;
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+
+/* ==========================================================================
+   2. BARRA DE NAVEGACIÓN STICKY
+   ========================================================================== */
+
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--accent-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 10px 0;
+  margin-bottom: 0px;
+  transition: transform 0.3s ease-in-out;
 }
 
-.footer-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: center;
+/* Oculta la barra hacia arriba */
+.sticky-nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
-.footer-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 18px;
-    border-radius: 25px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    text-decoration: none !important;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+.nav-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 10px;
+  gap: 10px;
 }
 
-.footer-btn:hover {
-    transform: translateY(-2px);
-    opacity: 0.95;
+.nav-brand-text {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.btn-wa-group {
-    background-color: #25d366;
-    color: #ffffff !important;
-    
+.nav-brand-text span.brand-accent {
+  color: var(--secondary-color);
+}
+
+.nav-logo-img {
+  height: 24px;
+  width: auto;
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-align: center;
+    padding: 10px;
+    background-color: #f8fafc;
+}
+
+.nav-link:hover {
+  background-color: #ebf8ff;
+  color: var(--primary-color);
+}
+
+/* Botón hamburguesa oculto por defecto en computadoras */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav-toggle span {
+  font-size: 28px;
+}
+
+
+/* ==========================================================================
+   3. MENÚ DESPLEGABLE
+   ========================================================================== */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 240px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--light-gray);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1100;
+  margin-top: 5px;
+}
+
+.dropdown-menu a {
+  color: var(--text-color);
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ebf8ff;
+  color: var(--secondary-color);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+/* ==========================================================================
+   4. ELEMENTOS DE COMPARTIR Y REDES SOCIALES
+   ========================================================================== */
+
+.share-item {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  color: #2d3748 !important;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.share-item:hover {
+  background-color: #f7fafc;
+}
+
+/* Color distintivo suave para WhatsApp al pasar el mouse */
+.share-wa {
+  color: #2d3748;
+}
+
+.share-wa:hover {
+  background-color: #e8fadf !important;
+  color: #25D366 !important;
+}
+
+/* Color distintivo suave para Facebook al pasar el mouse */
+.share-fb {
+  color: #2d3748;
+}
+
+.share-fb:hover {
+  background-color: #e7f1ff !important;
+  color: #1877F2 !important;
+}
+
+.share-item.wa i {
+  color: #25d366;
+}
+
+.share-item.fb i {
+  color: #1877f2;
+}
+
+/* Ajuste de tamaño para iconos de Flaticon en el menú */
+.flaticon-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
+/* ==========================================================================
+   5. ENCABEZADO TRADICIONAL
+   ========================================================================== */
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 25px 20px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  border-bottom: 4px solid var(--accent-color);
+}
+
+header h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+header p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.verse-box {
+  background-color: #ebf8ff;
+  border-left: 5px solid var(--secondary-color);
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+}
+
+
+/* ==========================================================================
+   6. HERO HEADER Y CARRUSEL
+   ========================================================================== */
+
+.hero-header {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.carousel-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-slide img,
+.carousel-slide video,
+.slide-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Filtro de doble capa: oscurece arriba (navbar) y abajo (botones), dejando el foco al medio */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 25, 47, 0.40) 0%,
+    rgba(10, 25, 47, 0.50) 40%,
+    rgba(10, 25, 47, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: var(--font-subtitle) !important;
+  font-size: 1.05rem;
+  letter-spacing: 0.8px;
+  color: #f7fafc;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 5.8rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  font-family: var(--font-title) !important;
+  letter-spacing: 1.5px;
+  font-weight: normal;
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.hero-content p {
+  
+  font-family: 'Marcellus', Georgia, serif !important;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: 0.8px;
+  margin-bottom: 25px;
+  color: #f7fafc;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.slide-caption {
+  z-index: 2;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  
+}
+
+.btn-primary {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 11px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.92rem;
+
+  
+  
+  letter-spacing: 0.3px;
+}
+
+.btn-primary:hover {
+  background-color: #f0f0f0;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  padding: 11px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.92rem;
+}
+
+.btn-secondary:hover {
+  background-color: #ffffff;
+  color: #1a1a1a;
+  transform: translateY(-2px);
+}
+
+/* Indicadores del Carrusel (Dots) */
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #E5A93B;
+  transform: scale(1.2);
+}
+
+/* Transición suave para textos del carrusel */
+.carousel-text-fade {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.carousel-text-fade.fade-out {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* Visibilidad de botones del carrusel */
+#btnVideo,
+#btnIntercesion
+#btnDescargar {
+  display: none;
+}
+
+#btnGuia {
+  display: inline-flex;
+}
+
+
+/* ==========================================================================
+   7. TARJETAS DE CONTENIDO Y DÍAS
+   ========================================================================== */
+
+.intro-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  border: 1px solid var(--light-gray);
+}
+
+.day-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  border: 1px solid var(--light-gray);
+}
+
+.day-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 14px 20px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.day-header span.day-title {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.day-content {
+  padding: 20px;
+}
+
+/* Fotos adaptables sin altura fija */
+.photo-container {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  overflow: hidden;
+  background-color: #edf2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.photo-container img {
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.section-title {
+  color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #C1272D;
+  padding-bottom: 6px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.material-symbols-outlined {
+  color: var(--secondary-color);
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.prayer-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.prayer-item {
+  background-color: #f8fafc;
+  border-left: 4px solid var(--secondary-color);
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border-radius: 0 6px 6px 0;
+  border-top: 1px solid #edf2f7;
+  border-right: 1px solid #edf2f7;
+  border-bottom: 1px solid #C1272D;
+}
+
+.prayer-item strong {
+  color: var(--primary-color);
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.location-badge {
+  display: inline-block;
+  background-color: #e2e8f0;
+  color: var(--primary-color);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+
+/* ==========================================================================
+   8. BANNERS Y BOTONES DE ACCIÓN (CTA)
+   ========================================================================== */
+
+/* Banner WhatsApp */
+.cta-banner {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: center;
+  margin: 30px 0;
+  border: 1px solid var(--secondary-color);
+}
+
+.cta-banner h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.cta-banner p {
+  margin: 0 0 16px 0;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+.btn-whatsapp-block {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #25d366;
+  color: #ffffff !important;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none !important;
+  font-weight: 700;
+  font-size: 0.9rem;
+  max-width: 100%;
+}
+
+/* Banner Compartir */
+.cta-banner-share {
+  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 20px 15px;
+  text-align: center;
+  margin: 30px 0;
+  border: 1px solid var(--secondary-color, #cbd5e0);
+}
+
+.cta-banner-share h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.cta-banner-share p {
+  margin: 0 0 16px 0;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+/* Contenedor del desplegable de compartir */
+.share-dropdown {
+  position: relative;
+  display: inline-block;
 }
 
 .btn-share-trigger {
-    background-color: #3182ce;
-    color: #ffffff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: #3182ce;
+  color: #ffffff !important;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* DERECHOS Y CRÉDITOS */
-.footer-bottom {
-    max-width: 1100px;
-    margin: 30px auto 0 auto;
-    padding: 20px 20px 0 20px;
-    border-top: 1px solid #2d3748;
-    text-align: center;
-    font-size: 0.82rem;
-    color: #718096;
-    box-sizing: border-box;
+.btn-share-trigger:hover {
+  background-color: #2b6cb0;
 }
 
-.footer-bottom p {
-    margin: 4px 0;
+.btn-share-trigger .material-symbols-outlined {
+  color: #ffffff !important;
 }
 
-.footer-legal {
-    font-style: italic;
+.share-menu {
+  display: none;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 100;
 }
 
-/* PREVENIR SCROLL HORIZONTAL EN LA PÁGINA */
-body {
-    overflow-x: hidden;
+.share-menu.show {
+  display: block;
 }
 
-/* ADAPTACIÓN EN MÓVILES */
-@media (max-width: 600px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .footer-brand {
-        text-align: center;
-    }
-
-    .footer-buttons {
-        justify-content: center;
-    }
-}
-
-/* Botón de instalación PWA */
 .btn-install-pwa {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #2b6cb0; /* Azul principal de tu web */
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease, background-color 0.2s ease;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  background-color: #2b6cb0;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-install-pwa:hover {
-    background-color: #1a365d;
-    transform: translateY(-2px);
+  background-color: #1a365d;
+  transform: translateY(-2px);
 }
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4a5568;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================================================
+   9. FOOTER
+   ========================================================================== */
+
+footer {
+  text-align: center;
+  padding: 20px 15px;
+  color: #718096;
+  font-size: 0.85rem;
+  margin-top: 30px;
+  border-top: 1px solid var(--light-gray);
+}
+
+.main-footer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  background-color: #1a202c;
+  color: #e2e8f0;
+  padding: 40px 0 20px 0;
+  margin-top: 50px;
+  border-top: 4px solid #2b6cb0;
+  box-sizing: border-box;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.footer-brand {
+  text-align: left;
+}
+
+.footer-logo {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.footer-brand h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 0 8px 0;
+}
+
+.footer-brand p {
+  font-size: 0.88rem;
+  color: #a0aec0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.footer-actions h5 {
+  color: #ffffff;
+  font-size: 1.05rem;
+  margin: 0 0 8px 0;
+}
+
+.footer-actions p {
+  font-size: 0.88rem;
+  color: #a0aec0;
+  margin-bottom: 15px;
+}
+
+.footer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.btn-wa-group {
+  background-color: #25d366;
+  color: #ffffff !important;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 30px auto 0 auto;
+  padding: 20px 20px 0 20px;
+  border-top: 1px solid #2d3748;
+  text-align: center;
+  font-size: 0.82rem;
+  color: #718096;
+  box-sizing: border-box;
+}
+
+.footer-bottom p {
+  margin: 4px 0;
+}
+
+.footer-legal {
+  font-style: italic;
+}
+
+
+/* ==========================================================================
+   10. MODO NOCTURNO (DARK MODE)
+   ========================================================================== */
+
+body.dark-mode {
+  background-color: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .intro-card,
+body.dark-mode .day-card {
+  background-color: #1e1e1e !important;
+  border-color: #2d2d2d !important;
+}
+
+body.dark-mode .verse-box {
+  background-color: #2a2a2a !important;
+  border-left-color: #4299e1 !important;
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode p,
+body.dark-mode h3,
+body.dark-mode li,
+body.dark-mode .motivo-texto {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode h3[style*="color: var(--primary-color)"],
+body.dark-mode .section-title {
+  color: #63b3ed !important;
+}
+
+body.dark-mode .prayer-item {
+  background-color: #262626 !important;
+  border-color: #333333 !important;
+  border-left-color: #4299e1 !important;
+}
+
+body.dark-mode .prayer-item strong {
+  color: #90cdf4 !important;
+}
+
+body.dark-mode .share-item {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .share-wa:hover {
+  background-color: #1b3823 !important;
+  color: #25D366 !important;
+}
+
+body.dark-mode .share-fb:hover {
+  background-color: #102a45 !important;
+  color: #1877F2 !important;
+}
+
+/* Modo Nocturno - Sección de Video */
+body.dark-mode #video-seccion {
+  background-color: #121212 !important;
+}
+
+body.dark-mode #video-seccion > div > div {
+  background-color: #1e1e1e !important;
+  border-color: #2d2d2d !important;
+}
+
+body.dark-mode #video-seccion div[style*="background-color: #ffffff"] {
+  background-color: #1e1e1e !important;
+  border-bottom-color: #2d2d2d !important;
+}
+
+body.dark-mode #video-seccion h3 {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode #video-seccion .material-symbols-outlined {
+  color: #63b3ed !important;
+}
+
+body.dark-mode #video-seccion p {
+  background-color: #1e1e1e !important;
+  color: #a0aec0 !important;
+}
+
+/* Modo Nocturno - Header y Navegación */
+body.dark-mode .nav-links,
+body.dark-mode .mobile-menu,
+body.dark-mode .dropdown-menu {
+  background-color: #1e1e1e !important;
+  border-color: #333333 !important;
+}
+
+body.dark-mode #darkModeToggle,
+body.dark-mode .theme-toggle {
+  color: #f6ad55 !important;
+}
+
+body.dark-mode header a {
+  color: #ffffff !important;
+}
+
+body.dark-mode .hero-content,
+.hero-content {
+  padding-top: 2rem !important;
+  margin-top: 0 !important;
+}
+
+
+/* ==========================================================================
+   11. DISEÑO RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+
+/* Pantallas medianas (Tabletas / Laptops pequeñas) */
+@media screen and (max-width: 768px) {
+ .hero-header {
+    min-height: 75vh;
+    padding: 50px 20px;
+  }
+ 
+    .hero-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.6rem !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+    line-height: 1.45 !important;
+    margin-bottom: 18px !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-title,
+  .hero-content h1,
+  header h1 {
+    font-family: 'RiyadhusSholihin', serif !important;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-hero 
+  #btnGuia,
+    #btnVideo,
+    #btnIntercesion,
+    #btnDescargar {
+  font-family: var(--font-button) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.4px;  
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    width: auto !important;          /* Ya no ocupa todo el ancho de la pantalla */
+    border-radius: 20px !important;   /* Píldora suave y delgada */
+    font-size: 0.88rem !important;
+    padding: 9px 20px !important;
+  }
+}
+
+/* Pantallas intermedias (Móviles / Menos de 600px) */
+@media (max-width: 600px) {
+  .nav-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    flex-direction: column;
+    z-index: 2001;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px !important;
+    padding: 15px 0 !important;
+  }
+
+  .nav-link {
+    text-align: center;
+    padding: 10px;
+    background-color: #f8fafc;
+  }
+
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background-color: #edf2f7;
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 2.25rem;
+  }
+
+  .day-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .day-content {
+    padding: 15px;
+  }
+
+  .photo-container,
+  .photo-container img {
+    max-height: 220px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-buttons {
+    justify-content: center;
+  }
+}
+
+/* Pantallas pequeñas (Móviles - Centrado) */
+@media screen and (max-width: 480px) {
+  .hero-header {
+    min-height: 70vh;
+    padding: 35px 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  #carouselTextContainer {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem !important;
+    line-height: 1.25 !important;
+    text-align: center !important;
+    margin: 0 0 8px 0 !important;
+    letter-spacing: 1px !important;
+    width: 100% !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  }
+
+  .hero-content p {
+    font-size: 1rem !important;
+    text-align: center !important;
+    margin: 0 0 15px 0 !important;
+    width: 100% !important;
+    font-family: 'Playfair Display' !important;
+    line-height: 1.4 !important;
+    letter-spacing: 0.4px !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+    
+
+  }
+
+  .hero-buttons {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+    gap: 0 !important;
+    font-family: 'Playfair Display' !important;
+    margin-bottom: 15px !important;
+  }
+
+  .btn-hero,
+  .btn-secondary,
+  .btn-primary
+    #btnGuia,
+    #btnVideo,
+    #btnIntercesion,
+    #btnDescargar {
+  font-family: var(--font-button) !important;   
+    margin: 0 auto !important;
+    text-align: center !important;   
+    width: auto !important;
+    max-width: none !important;
+    padding: 7px 16px !important;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px;
+    border-radius: 20px !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+
+  .carousel-dots {
+    position: absolute !important;
+    bottom: 15px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    color: #b03030;
+  }
+}
+
+
