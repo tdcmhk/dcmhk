@@ -377,79 +377,363 @@ function shareToFacebook() {
 
 
 /* ==========================================================================
-   SISTEMA UNIVERSAL DE INSTALACIÓN PWA (3 BOTONES)
+   @instalación SISTEMA UNIVERSAL DE INSTALACIÓN PWA (DIRECTO A ANDROID)
    ========================================================================== */
 
 let deferredPrompt = null;
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 const installButtons = document.querySelectorAll('.pwa-install-trigger');
 
-// Función que ejecuta el proceso de instalación al pulsar CUALQUIERA de los 3 botones
-async function ejecutarInstalacionPWA() {
-  // Caso iPhone / iPad
-  if (isIOS) {
-    alert("Para instalar en tu iPhone / iPad:\n1. Toca el botón 'Compartir' (el icono con el cuadrado y la flecha hacia arriba en Safari).\n2. Selecciona 'Agregar al inicio'.");
-    return;
-  }
-
-  // Caso Android / Chrome / Edge con evento nativo listo
-  if (deferredPrompt) {
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`Respuesta del usuario: ${outcome}`);
-
-    deferredPrompt = null;
-
-    if (outcome === 'accepted') {
-      // Ocultar todos los botones si el usuario aceptó instalar
-      installButtons.forEach(btn => btn.style.display = 'none');
-    }
-    return;
-  }
-
-  // Respaldo informativo
-  alert("Para instalar esta App:\n• En Android / Chrome: Toca los 3 puntos arriba a la derecha y selecciona 'Instalar aplicación' o 'Agregar a la pantalla principal'.\n• En PC: Busca el icono (+) en la barra de direcciones.");
+// Inicialmente nos aseguramos de que no se muestren hasta que el sistema esté listo
+// (Salvo en iOS donde el flujo es manual)
+if (!isIOS) {
+  installButtons.forEach(btn => {
+    if (btn.id !== 'btnDescargar') btn.style.display = 'none';
+  });
 }
 
-// Conectar el evento click a todos los botones que tengan la clase .pwa-install-trigger
-installButtons.forEach(btn => {
-  btn.addEventListener('click', ejecutarInstalacionPWA);
-});
-
-// 1. Cuando Chrome / Android detecte que es instalable
+// 1. Chrome / Android detecta que cumple los requisitos y está lista para instalar
 window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevenir que Chrome muestre el banner predeterminado en la parte inferior
   e.preventDefault();
+  
+  // Guardamos el evento para usarlo en el click
   deferredPrompt = e;
+  console.log("✅ PWA lista para instalarse directamente");
 
-  // Mostramos el botón del navbar y el del footer
+  // AHORA SÍ: Mostramos los botones porque sabemos que el click abrirá la instalación
   installButtons.forEach(btn => {
-    // Si no es el botón del carrusel (que se controla con los slides), mostrarlo
     if (btn.id !== 'btnDescargar') {
       btn.style.display = 'inline-flex';
     }
   });
 });
 
-// 2. Si el usuario está en iOS (Safari no lanza beforeinstallprompt)
-if (isIOS) {
-  window.addEventListener('DOMContentLoaded', () => {
-    installButtons.forEach(btn => {
-      if (btn.id !== 'btnDescargar') {
-        btn.style.display = 'inline-flex';
-      }
-    });
-  });
+// 2. Función que ejecuta la instalación DIRECTA
+async function ejecutarInstalacionPWA(e) {
+  if (e) e.preventDefault();
+
+  // Caso iPhone / iPad (Safari no tiene API directa, requiere compartir)
+  if (isIOS) {
+    alert("Para instalar en iPhone/iPad:\n1. Toca 'Compartir' en Safari (icono de la flecha hacia arriba).\n2. Elige 'Agregar al inicio'.");
+    return;
+  }
+
+  // Caso Android / Chrome / Edge: LANZAR VENTANA OFICIAL DIRECTA
+  if (deferredPrompt) {
+    // Abre directamente el diálogo nativo de instalación de Android
+    deferredPrompt.prompt();
+
+    // Esperar la decisión del usuario
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`Elección del usuario: ${outcome}`);
+
+    // Limpiamos la variable
+    deferredPrompt = null;
+
+    if (outcome === 'accepted') {
+      // Ocultar botones si aceptó
+      installButtons.forEach(btn => btn.style.display = 'none');
+    }
+    return;
+  }
+
+  // Si llega aquí en Android, es porque Chrome aún no disparó beforeinstallprompt
+  console.warn("El evento deferredPrompt no está disponible todavía.");
+  alert("Android aún está verificando la aplicación. Espera unos segundos o recarga la página para instalar directamente.");
 }
 
-// 3. Si la app ya se instaló, ocultar los 3 botones automáticamente
+// Conectar el evento a los botones
+installButtons.forEach(btn => {
+  btn.addEventListener('click', ejecutarInstalacionPWA);
+});
+
+// 3. Confirmación cuando la instalación se completó con éxito
 window.addEventListener('appinstalled', () => {
+  console.log('🎉 PWA instalada exitosamente en el dispositivo');
   deferredPrompt = null;
   installButtons.forEach(btn => btn.style.display = 'none');
 });
 
-// 4. Si la app ya se está ejecutando instalada (Modo Pantalla Completa / Standalone)
+// 4. Si la app ya está abierta como App instalada (Standalone)
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  window.addEventListener('DOMContentLoaded', () => {
-    installButtons.forEach(btn => btn.style.display = 'none');
+  installButtons.forEach(btn => btn.style.display = 'none');
+}
+
+/* ==========================================================================
+   MOSTRAR FECHA DE ÚLTIMA MODIFICACIÓN
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', async () => {
+  const elementoFecha = document.getElementById('fechaModificacion');
+  if (!elementoFecha) return;
+
+  try {
+    // Reemplaza "tu-usuario" y "tu-repositorio" con tus datos de GitHub
+    const res = await fetch('https://api.github.com/repos/tdcmhk/guiadeoracion/commits?per_page=1');
+    const data = await res.json();
+    
+    if (data && data[0]) {
+      const fechaCommit = new Date(data[0].commit.committer.date);
+      const opciones = { day: 'numeric', month: 'long', year: 'numeric' };
+      elementoFecha.textContent = fechaCommit.toLocaleDateString('es-ES', opciones);
+    }
+  } catch (error) {
+    // Si falla la API, usa la fecha del archivo
+    elementoFecha.textContent = new Date(document.lastModified).toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+});
+
+/* ==========================================================================
+   CONTROL DEL BOTÓN FLOTANTE "VOLVER ARRIBA"
+   ========================================================================== */
+
+const btnScrollTop = document.getElementById('btnScrollTop');
+
+if (btnScrollTop) {
+  // Mostrar u ocultar el botón según la posición del scroll
+  window.addEventListener('scroll', () => {
+    // Aparece cuando el usuario ha bajado más de 350px
+    if (window.pageYOffset > 350) {
+      btnScrollTop.classList.add('show');
+    } else {
+      btnScrollTop.classList.remove('show');
+    }
+  }, { passive: true });
+
+  // Desplazamiento suave al inicio al presionar el botón
+  btnScrollTop.addEventListener('click', () => {
+    // Quita el enfoque (focus) para que no se quede de color turquesa
+    btnScrollTop.blur();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+}
+
+/* ==========================================================================
+   ACORDEÓN PARA .day-card
+   ========================================================================== */
+const btnToggleMotivos = document.getElementById('btnToggleMotivos');
+const textoToggle = document.getElementById('textoToggleMotivos');
+const iconoToggle = document.getElementById('iconoToggleMotivos');
+const diasExtras = document.querySelectorAll('.day-card.motivo-extra');
+
+let diasDesplegados = false;
+
+if (btnToggleMotivos && diasExtras.length > 0) {
+  btnToggleMotivos.addEventListener('click', () => {
+    diasDesplegados = !diasDesplegados;
+
+    diasExtras.forEach(card => {
+      if (diasDesplegados) {
+        card.classList.add('visible');
+      } else {
+        card.classList.remove('visible');
+      }
+    });
+
+    if (diasDesplegados) {
+      textoToggle.textContent = 'Ver menos motivos';
+      iconoToggle.textContent = 'expand_less';
+    } else {
+      textoToggle.textContent = `Ver más motivos`;
+      iconoToggle.textContent = 'expand_more';
+    }
+  });
+}
+
+/* ==========================================================================
+   CONECTAR MENÚ DE SECCIONES CON EL BOTÓN "VER MÁS MOTIVOS"
+   ========================================================================== */
+document.querySelectorAll('.dropdown-menu a[href^="#seccion-"]').forEach(enlace => {
+  enlace.addEventListener('click', function (e) {
+    const destinoId = this.getAttribute('href'); // ej: "#seccion-7"
+    const tarjetaDestino = document.querySelector(destinoId);
+
+    if (tarjetaDestino) {
+      // Si la sección es un 'motivo-extra' y todavía está oculta (no tiene .visible)
+      if (tarjetaDestino.classList.contains('motivo-extra') && !tarjetaDestino.classList.contains('visible')) {
+        // Hacemos clic automático en el botón "Ver más motivos" para desplegarlas todas
+        if (btnToggleMotivos) {
+          btnToggleMotivos.click();
+        } else {
+          // O forzamos la clase .visible a todas las tarjetas extra
+          diasExtras.forEach(card => card.classList.add('visible'));
+        }
+      }
+
+      // Cerrar el menú móvil si estaba abierto
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks) navLinks.classList.remove('nav-active');
+
+      // Esperar un instante a que se despliegue y hacer scroll suave hasta la sección
+      setTimeout(() => {
+        tarjetaDestino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  });
+});
+
+/* ==========================================================================
+   CONTADOR DE ORACIONES CON REINICIO AUTOMÁTICO CADA SEMANA
+   ========================================================================== */
+
+// 1. Función para calcular el año y número de semana actual (ej: "2026-W40")
+function obtenerIdentificadorSemana() {
+  const ahora = new Date();
+  // Ajuste al jueves más cercano para calcular la semana ISO
+  const d = new Date(Date.UTC(ahora.getFullYear(), ahora.getMonth(), ahora.getDate()));
+  const diaSemana = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - diaSemana);
+  const inicioAno = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const numeroSemana = Math.ceil((((d - inicioAno) / 86400000) + 1) / 7);
+  return `${d.getUTCFullYear()}-sem${numeroSemana}`;
+}
+
+const SEMANA_ACTUAL = obtenerIdentificadorSemana(); // Ej: "2026-sem40"
+const NAMESPACE = 'mmmturquia_boletin';
+// La clave cambia automáticamente cada semana: en la nueva semana arranca en 0
+const KEY = `oraciones_${SEMANA_ACTUAL}`;
+const API_URL = `https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}`;
+
+const btnOrar = document.getElementById('btnOrarYa');
+const totalOracionesEl = document.getElementById('totalOraciones');
+const txtBtnOrar = document.getElementById('txtBtnOrar');
+const msgConfirmacion = document.getElementById('msgConfirmacionOracion');
+
+// 2. Obtener conteo de la semana actual
+async function obtenerConteoOraciones() {
+  try {
+    const res = await fetch(API_URL);
+    if (!res.ok) {
+      // Si es una nueva semana y aún no hay votos, inicia en 0
+      totalOracionesEl.textContent = "0";
+      return;
+    }
+    const data = await res.json();
+    const count = parseInt(data.count, 10);
+    totalOracionesEl.textContent = isNaN(count) ? "0" : count.toLocaleString('es-ES');
+  } catch (error) {
+    totalOracionesEl.textContent = "0";
+  }
+}
+
+// 3. Verificar si el usuario ya oró en ESTA semana
+function verificarEstadoUsuario() {
+  // Compara la semana guardada con la semana en curso
+  const ultimaSemanaQueOro = localStorage.getItem('ultima_semana_oracion_turquia');
+  if (ultimaSemanaQueOro === SEMANA_ACTUAL) {
+    marcarBotonComoCompletado();
+  } else {
+    // Si cambió de semana, el botón se habilita de nuevo
+    habilitarBoton();
+  }
+}
+
+function habilitarBoton() {
+  if (!btnOrar) return;
+  btnOrar.disabled = false;
+  btnOrar.classList.remove('ya-oro');
+  if (txtBtnOrar) txtBtnOrar.textContent = 'He orado por esta causa';
+  if (msgConfirmacion) msgConfirmacion.style.display = 'none';
+}
+
+function marcarBotonComoCompletado() {
+  if (!btnOrar) return;
+  btnOrar.disabled = true;
+  btnOrar.classList.add('ya-oro');
+  if (txtBtnOrar) txtBtnOrar.textContent = '¡Ya te has unido en oración!';
+  if (msgConfirmacion) {
+    msgConfirmacion.textContent = '✨ ¡Amén! Tu oración ha sido sumada al clamor por Turquía.';
+    msgConfirmacion.style.display = 'block';
+  }
+}
+
+// 4. Registrar la oración de la semana
+async function registrarOracion() {
+  if (localStorage.getItem('ultima_semana_oracion_turquia') === SEMANA_ACTUAL) return;
+
+  btnOrar.disabled = true;
+  if (txtBtnOrar) txtBtnOrar.textContent = 'Sumando clamor...';
+
+  const textoActual = totalOracionesEl.textContent || "0";
+  const numeroLimpio = parseInt(textoActual.replace(/\D/g, ''), 10);
+  const conteoActual = isNaN(numeroLimpio) ? 0 : numeroLimpio;
+
+  try {
+    const res = await fetch(`${API_URL}/up`);
+    if (res.ok) {
+      const data = await res.json();
+      const count = parseInt(data.count, 10);
+      totalOracionesEl.textContent = isNaN(count) ? (conteoActual + 1).toLocaleString('es-ES') : count.toLocaleString('es-ES');
+    } else {
+      totalOracionesEl.textContent = (conteoActual + 1).toLocaleString('es-ES');
+    }
+  } catch (err) {
+    totalOracionesEl.textContent = (conteoActual + 1).toLocaleString('es-ES');
+  }
+
+  // Guardamos la semana en que oró
+  localStorage.setItem('ultima_semana_oracion_turquia', SEMANA_ACTUAL);
+  marcarBotonComoCompletado();
+}
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', () => {
+  if (btnOrar && totalOracionesEl) {
+    obtenerConteoOraciones();
+    verificarEstadoUsuario();
+    btnOrar.addEventListener('click', registrarOracion);
+  }
+});
+
+/* ==========================================================================
+   INTERACCIÓN DEL CHAT HACIA WHATSAPP
+   ========================================================================== */
+const chatWidget = document.querySelector('.chat-widget-container');
+const btnTrigger = document.getElementById('chatTriggerBtn');
+const btnClose = document.getElementById('btnChatClose');
+const formWsp = document.getElementById('chatWhatsappForm');
+
+if (btnTrigger && chatWidget) {
+  btnTrigger.addEventListener('click', () => {
+    chatWidget.classList.toggle('is-open');
+  });
+}
+
+if (btnClose && chatWidget) {
+  btnClose.addEventListener('click', () => {
+    chatWidget.classList.remove('is-open');
+  });
+}
+
+if (formWsp) {
+  formWsp.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const nombre = document.getElementById('chatNombre').value.trim();
+    const motivo = document.getElementById('chatMotivo').value;
+    const mensaje = document.getElementById('chatMensaje').value.trim();
+
+    // Mensaje estructurado con saltos de línea para WhatsApp
+    const textoMensaje = `*Petición desde el Boletín de Oración*\n\n` +
+                         `👤 *Nombre:* ${nombre}\n` +
+                         `📌 *Motivo:* ${motivo}\n\n` +
+                         `💬 *Mensaje:* ${mensaje}`;
+
+    // Número de teléfono configurado
+    const numeroTelefono = "51983204456";
+
+    // Enlace seguro con codificación de texto
+    const enlaceWsp = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(textoMensaje)}`;
+
+    // Abrir WhatsApp en pestaña nueva
+    window.open(enlaceWsp, '_blank');
+
+    // Cerrar el popup y limpiar el formulario
+    chatWidget.classList.remove('is-open');
+    formWsp.reset();
   });
 }
