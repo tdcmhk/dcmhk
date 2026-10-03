@@ -377,87 +377,81 @@ function shareToFacebook() {
 
 
 /* ==========================================================================
-   @instalación SISTEMA UNIVERSAL DE INSTALACIÓN PWA (DIRECTO A ANDROID)
+   SISTEMA UNIVERSAL DE INSTALACIÓN PWA (3 BOTONES)
    ========================================================================== */
 
 let deferredPrompt = null;
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 const installButtons = document.querySelectorAll('.pwa-install-trigger');
 
-// Inicialmente nos aseguramos de que no se muestren hasta que el sistema esté listo
-// (Salvo en iOS donde el flujo es manual)
-if (!isIOS) {
-  installButtons.forEach(btn => {
-    if (btn.id !== 'btnDescargar') btn.style.display = 'none';
-  });
+// Función que ejecuta el proceso de instalación al pulsar CUALQUIERA de los 3 botones
+async function ejecutarInstalacionPWA() {
+  // Caso iPhone / iPad
+  if (isIOS) {
+    alert("Para instalar en tu iPhone / iPad:\n1. Toca el botón 'Compartir' (el icono con el cuadrado y la flecha hacia arriba en Safari).\n2. Selecciona 'Agregar al inicio'.");
+    return;
+  }
+
+  // Caso Android / Chrome / Edge con evento nativo listo
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`Respuesta del usuario: ${outcome}`);
+
+    deferredPrompt = null;
+
+    if (outcome === 'accepted') {
+      // Ocultar todos los botones si el usuario aceptó instalar
+      installButtons.forEach(btn => btn.style.display = 'none');
+    }
+    return;
+  }
+
+  // Respaldo informativo
+  alert("Para instalar esta App:\n• En Android / Chrome: Toca los 3 puntos arriba a la derecha y selecciona 'Instalar aplicación' o 'Agregar a la pantalla principal'.\n• En PC: Busca el icono (+) en la barra de direcciones.");
 }
 
-// 1. Chrome / Android detecta que cumple los requisitos y está lista para instalar
-window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevenir que Chrome muestre el banner predeterminado en la parte inferior
-  e.preventDefault();
-  
-  // Guardamos el evento para usarlo en el click
-  deferredPrompt = e;
-  console.log("✅ PWA lista para instalarse directamente");
+// Conectar el evento click a todos los botones que tengan la clase .pwa-install-trigger
+installButtons.forEach(btn => {
+  btn.addEventListener('click', ejecutarInstalacionPWA);
+});
 
-  // AHORA SÍ: Mostramos los botones porque sabemos que el click abrirá la instalación
+// 1. Cuando Chrome / Android detecte que es instalable
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+
+  // Mostramos el botón del navbar y el del footer
   installButtons.forEach(btn => {
+    // Si no es el botón del carrusel (que se controla con los slides), mostrarlo
     if (btn.id !== 'btnDescargar') {
       btn.style.display = 'inline-flex';
     }
   });
 });
 
-// 2. Función que ejecuta la instalación DIRECTA
-async function ejecutarInstalacionPWA(e) {
-  if (e) e.preventDefault();
-
-  // Caso iPhone / iPad (Safari no tiene API directa, requiere compartir)
-  if (isIOS) {
-    alert("Para instalar en iPhone/iPad:\n1. Toca 'Compartir' en Safari (icono de la flecha hacia arriba).\n2. Elige 'Agregar al inicio'.");
-    return;
-  }
-
-  // Caso Android / Chrome / Edge: LANZAR VENTANA OFICIAL DIRECTA
-  if (deferredPrompt) {
-    // Abre directamente el diálogo nativo de instalación de Android
-    deferredPrompt.prompt();
-
-    // Esperar la decisión del usuario
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`Elección del usuario: ${outcome}`);
-
-    // Limpiamos la variable
-    deferredPrompt = null;
-
-    if (outcome === 'accepted') {
-      // Ocultar botones si aceptó
-      installButtons.forEach(btn => btn.style.display = 'none');
-    }
-    return;
-  }
-
-  // Si llega aquí en Android, es porque Chrome aún no disparó beforeinstallprompt
-  console.warn("El evento deferredPrompt no está disponible todavía.");
-  alert("Android aún está verificando la aplicación. Espera unos segundos o recarga la página para instalar directamente.");
+// 2. Si el usuario está en iOS (Safari no lanza beforeinstallprompt)
+if (isIOS) {
+  window.addEventListener('DOMContentLoaded', () => {
+    installButtons.forEach(btn => {
+      if (btn.id !== 'btnDescargar') {
+        btn.style.display = 'inline-flex';
+      }
+    });
+  });
 }
 
-// Conectar el evento a los botones
-installButtons.forEach(btn => {
-  btn.addEventListener('click', ejecutarInstalacionPWA);
-});
-
-// 3. Confirmación cuando la instalación se completó con éxito
+// 3. Si la app ya se instaló, ocultar los 3 botones automáticamente
 window.addEventListener('appinstalled', () => {
-  console.log('🎉 PWA instalada exitosamente en el dispositivo');
   deferredPrompt = null;
   installButtons.forEach(btn => btn.style.display = 'none');
 });
 
-// 4. Si la app ya está abierta como App instalada (Standalone)
+// 4. Si la app ya se está ejecutando instalada (Modo Pantalla Completa / Standalone)
 if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) {
-  installButtons.forEach(btn => btn.style.display = 'none');
+  window.addEventListener('DOMContentLoaded', () => {
+    installButtons.forEach(btn => btn.style.display = 'none');
+  });
 }
 
 /* ==========================================================================
@@ -646,7 +640,7 @@ function marcarBotonComoCompletado() {
   btnOrar.classList.add('ya-oro');
   if (txtBtnOrar) txtBtnOrar.textContent = '¡Ya te has unido en oración!';
   if (msgConfirmacion) {
-    msgConfirmacion.textContent = '✨ ¡Amén! Tu oración ha sido sumada al clamor por Turquía.';
+    msgConfirmacion.textContent = '✨¡Amén! Tu oración ha sido sumada al clamor por Turquía.';
     msgConfirmacion.style.display = 'block';
   }
 }

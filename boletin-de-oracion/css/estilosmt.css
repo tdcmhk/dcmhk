@@ -575,25 +575,127 @@ header p {
   display: inline-flex;
 }
 
+/* ==========================================================================
+   CABECERA DE ENTRADA AL BOLETÍN
+   ========================================================================== */
+.boletin-hero-header {
+  text-align: center;
+  margin: 35px auto 25px auto;
+  padding: 0 15px;
+  max-width: 700px;
+}
 
+/* Título principal del Boletín */
+.boletin-main-title {
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--primary-color, #1a365d);
+  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+/* Subtítulo inspirador */
+.boletin-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+
+/* Modo Nocturno */
+body.dark-mode .boletin-main-title {
+  color: #f1f5f9;
+}
+
+body.dark-mode .boletin-subtitle {
+  color: #94a3b8;
+}
+
+body.dark-mode .boletin-tag {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.25);
+}
 /* ==========================================================================
    7. TARJETAS DE CONTENIDO Y DÍAS
    ========================================================================== */
 
-.intro-card {
+.fecha-actualizacion {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #edf2f7;
+  color: #4a5568;
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  
+}
+
+body.dark-mode .fecha-actualizacion {
+  background-color: #2d3748;
+  color: #cbd5e0;
+}
+
+.intro-card
+{
   background: var(--card-bg);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
   border: 1px solid var(--light-gray);
+  position: relative;
+  overflow: hidden;
 }
 
+/* El arabesco geométrico en la esquina superior derecha */
+.intro-adorno-arabesco {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  color: #0e9594;          /* Color turquesa del arabesco */
+  opacity: 0.12;           /* Sutil para que no estorbe la lectura */
+  pointer-events: none;    /* Permite seleccionar texto por debajo sin bloquear el ratón */
+  z-index: 0;
+  stroke: #ffffff;
+  stroke-width: 140px; 
+}
+
+/* Tu regla original se mantiene exactamente igual */
 .day-card {
   background: var(--card-bg);
   border-radius: 8px;
   overflow: hidden;
   margin-bottom: 30px;
   border: 1px solid var(--light-gray);
+}
+
+/* Regla para el acordeón: SOLO oculta las que tienen la clase motivo-extra */
+.day-card.motivo-extra {
+  display: none;
+}
+
+/* Cuando se presiona "Ver más", se vuelven a mostrar respetando su diseño de bloque */
+.day-card.motivo-extra.visible {
+  display: block !important;
+  animation: fadeInCard 0.35s ease;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .day-header {
@@ -662,12 +764,60 @@ header p {
   vertical-align: middle;
 }
 
+.material-icon .material-icono-svg {
+  color: var(--secondary-color);
+  width: 18px;
+  height: 18px;
+  vertical-align: -15%;
+}
+
+.day-section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;                  /* Distancia entre la flecha y el texto */
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+/* Control del tamaño y color del icono de la flecha */
+.day-header .material-icono-svg {
+  width: 15px;               /* Ajusta el tamaño deseado */
+  height: 15px;
+  fill: currentColor;        /* Adopta el color del texto automáticamente */
+  flex-shrink: 0;            /* Evita que se aplaste en pantallas angostas */
+  display: inline-block;
+  transition: transform 0.25s ease; /* Permite rotar suavemente */
+  vertical-align: -50%;
+}
+
+.material-icon .material-icono-svg-app {
+  color: var(--secondary-color);
+  width: 45px;
+  height: 45px;
+  vertical-align: -15%;
+}
+
+.material-icon .material-icono-svg-share {
+  color: #ffffff;
+  width: 45px;
+  height: 45px;
+  vertical-align: -15%;
+}
+.material-icon .material-icono-svg-install {
+  color: #ffffff;
+  width: 15px;
+  height: 15px;
+  vertical-align: -15%;
+}
+
+.day-list,
 .prayer-list {
   list-style: none;
   padding: 0;
   margin-top: 15px;
 }
 
+.day-item,
 .prayer-item {
   background-color: #f8fafc;
   border-left: 4px solid var(--secondary-color);
@@ -676,10 +826,12 @@ header p {
   border-radius: 0 6px 6px 0;
   border-top: 1px solid #edf2f7;
   border-right: 1px solid #edf2f7;
-  border-bottom: 1px solid #C1272D;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.prayer-item strong {
+ 
+
+.day-item strong {
   color: var(--primary-color);
   display: block;
   margin-bottom: 4px;
@@ -700,18 +852,32 @@ header p {
 
 
 /* ==========================================================================
-   8. BANNERS Y BOTONES DE ACCIÓN (CTA)
+   8. @LLamados a la ACCIÓN
    ========================================================================== */
 
 /* Banner WhatsApp */
 .cta-banner {
-  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  /*background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
   color: #ffffff;
-  border-radius: 12px;
+  border-radius: 12px;*/
   padding: 20px 15px;
   text-align: center;
   margin: 30px 0;
   border: 1px solid var(--secondary-color);
+
+  /*estilo fondo blanco*/
+          background-color: #ffffff;
+        border: 1px solid var(--light-gray, #e2e8f0);
+        border-left: 4px solid var(--secondary-color, #2b6cb0);
+        border-radius: 12px;
+      /* padding: 16px 20px;
+        margin: 20px auto;*/
+        max-width: 900px;
+        /*display: flex;*/
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .cta-banner h3 {
@@ -721,17 +887,30 @@ header p {
 }
 
 .cta-banner p {
-  margin: 0 0 16px 0;
+  /*margin: 0 0 16px 0;
   font-size: 0.9rem;
-  color: #e2e8f0;
+  color: #e2e8f0;*/
+
+ /* estilo fondo blanco*/
+   
+    font-size: 0.82rem;
+    color: #64748b;
 }
+
+.cta-banner h4 {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--primary-color, #1a365d);
+}
+
+
 
 .btn-whatsapp-block {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: #25d366;
+  background-color: #2b6cb0;
   color: #ffffff !important;
   padding: 12px 20px;
   border-radius: 30px;
@@ -741,15 +920,31 @@ header p {
   max-width: 100%;
 }
 
+/* =========================================================================================
+   @compartir
+   ========================================================================================= */
+
 /* Banner Compartir */
 .cta-banner-share {
-  background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+  /*background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
   color: #ffffff;
-  border-radius: 12px;
+  border-radius: 12px;*/
   padding: 20px 15px;
   text-align: center;
   margin: 30px 0;
   border: 1px solid var(--secondary-color, #cbd5e0);
+    background-color: #ffffff;
+    border: 1px solid var(--light-gray, #e2e8f0);
+    border-left: 4px solid var(--secondary-color, #2b6cb0);
+    border-radius: 12px;
+    /*padding: 16px 20px;
+    margin: 20px auto;*/
+    max-width: 900px;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .cta-banner-share h3 {
@@ -759,9 +954,20 @@ header p {
 }
 
 .cta-banner-share p {
-  margin: 0 0 16px 0;
+ /* margin: 0 0 16px 0;
   font-size: 0.9rem;
   color: #e2e8f0;
+  estilo blanco
+    margin: 2px 0 0 0;*/
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+/*estilo blanco*/
+.pwa-info h4 {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--primary-color, #1a365d);
 }
 
 /* Contenedor del desplegable de compartir */
@@ -937,23 +1143,117 @@ footer {
   align-items: center;
 }
 
+/* ==========================================================================
+   BOTONES DEL FOOTER (3 BOTONES DE ACCIÓN)
+   ========================================================================== */
+
+/* Contenedor de botones en el footer */
+.footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: 25px auto 15px auto;
+  max-width: 850px;
+}
+
+/* Estilo Base Común */
 .footer-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 18px;
-  border-radius: 25px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 600;
   text-decoration: none !important;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
 .footer-btn:hover {
   transform: translateY(-2px);
-  opacity: 0.95;
+}
+
+.footer-btn:active {
+  transform: scale(0.97);
+}
+
+.footer-btn span.material-symbols-outlined {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   1. BOTÓN: GRUPO DE INTERCESIÓN (Verde Esmeralda WhatsApp Oficial)
+   -------------------------------------------------------------------------- */
+.footer-btn.btn-wa-group {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.25);
+}
+
+.footer-btn.btn-wa-group:hover {
+  background: linear-gradient(135deg, #22bf5b 0%, #0e7266 100%);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   2. BOTÓN: INSTALAR APP (Turquesa de İznik)
+   -------------------------------------------------------------------------- */
+.footer-btn.btn-install-pwa {
+  background: linear-gradient(135deg, #0e9594 0%, #1a365d 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(14, 149, 148, 0.25);
+}
+
+.footer-btn.btn-install-pwa:hover {
+  background: linear-gradient(135deg, #0c8281 0%, #132742 100%);
+  box-shadow: 0 6px 18px rgba(14, 149, 148, 0.4);
+}
+
+.btn-install-pwa .material-symbols-outlined{
+  color: #ffffff !important;
+}
+/* --------------------------------------------------------------------------
+   3. BOTÓN: COMPARTIR (Efecto Vidrio Translúcido / Acompañante)
+   -------------------------------------------------------------------------- */
+.footer-btn.btn-share-trigger {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.footer-btn.btn-share-trigger:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 16px rgba(255, 255, 255, 0.1);
+}
+
+
+/* ==========================================================================
+   ADAPTACIÓN PARA CELULARES (≤ 520px)
+   ========================================================================== */
+@media screen and (max-width: 520px) {
+  .footer-actions {
+    flex-direction: column; /* Se colocan uno debajo del otro con orden limpio */
+    gap: 10px;
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  .footer-btn {
+    width: 100%;
+    max-width: 280px; /* Tamaño perfecto para pulsar con el pulgar */
+    padding: 10px 16px;
+    font-size: 0.84rem;
+  }
 }
 
 .btn-wa-group {
@@ -1014,13 +1314,13 @@ body.dark-mode .section-title {
   color: #63b3ed !important;
 }
 
-body.dark-mode .prayer-item {
+body.dark-mode .day-item {
   background-color: #262626 !important;
   border-color: #333333 !important;
   border-left-color: #4299e1 !important;
 }
 
-body.dark-mode .prayer-item strong {
+body.dark-mode .day-item strong {
   color: #90cdf4 !important;
 }
 
@@ -1211,6 +1511,8 @@ body.dark-mode .hero-content,
 
   .day-content {
     padding: 15px;
+    position: relative;
+  overflow: hidden;
   }
 
   .photo-container,
@@ -1329,6 +1631,746 @@ body.dark-mode .hero-content,
     margin: 0 !important;
     color: #b03030;
   }
+}
+
+/* ==========================================================================
+   BOTÓN FLOTANTE "VOLVER ARRIBA" (SCROLL TO TOP)
+   ========================================================================== */
+
+.btn-scroll-top {
+  position: fixed;
+  bottom: 70px;
+  right: 15px;
+  width: 46px;
+  height: 46px;
+  background-color: var(--primary-color, #1a365d);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1500;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  
+  /* Inicialmente oculto con transición suave */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease, visibility 0.3s;
+}
+
+/* Estado visible al hacer scroll hacia abajo */
+.btn-scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Quita el marco azul/turquesa del navegador al hacer clic */
+.btn-scroll-top:focus,
+.btn-scroll-top:focus-visible {
+  outline: none;
+  background-color: var(--primary-color, #1a365d);
+}
+
+/* Solo se vuelve turquesa si se pasa el ratón por encima (no se queda pegado en celular) */
+@media (hover: hover) {
+  .btn-scroll-top:hover {
+    background-color: var(--secondary-color, #0e9594);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(14, 149, 148, 0.35);
+  }
+}
+
+/* Al tocarlo en pantalla táctil */
+.btn-scroll-top:active {
+  background-color: var(--secondary-color, #0e9594);
+  transform: scale(0.95);
+}
+
+.btn-scroll-top:active {
+  transform: scale(0.95);
+}
+
+.btn-scroll-top span {
+  font-size: 24px;
+}
+
+/* Ajuste sutil para celulares */
+@media screen and (max-width: 480px) {
+  .btn-scroll-top {
+    bottom: 70px;
+    right: 18px;
+    width: 42px;
+    height: 42px;
+  }
+  .btn-scroll-top span {
+    font-size: 22px;
+  }
+}
+
+/* Compatibilidad con Modo Nocturno */
+body.dark-mode .btn-scroll-top {
+  background-color: #2b6cb0;
+  border-color: #4a5568;
+}
+
+body.dark-mode .btn-scroll-top:hover {
+  background-color: #0e9594;
+}
+
+/* ==========================================================================
+   ACORDEÓN DE MOTIVOS DE ORACIÓN
+   ========================================================================== */
+
+/* Contenedor del botón */
+.acordeon-wrapper {
+  text-align: center;
+  margin: 25px 0 40px 0;
+}
+
+/* Botón Ver Más / Ver Menos */
+.btn-toggle-motivos {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--primary-color, #1a365d);
+  border: 1.5px solid var(--secondary-color, #0e9594);
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-toggle-motivos span.material-symbols-outlined {
+  transition: transform 0.3s ease;
+  font-size: 20px;
+}
+
+.btn-toggle-motivos:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(14, 149, 148, 0.25);
+}
+
+/* Modo Nocturno */
+body.dark-mode .btn-toggle-motivos {
+  color: #e2e8f0;
+  border-color: #0e9594;
+}
+
+body.dark-mode .btn-toggle-motivos:hover {
+  background-color: #0e9594;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   ESTILOS DE LA LISTA DE MOTIVOS DE ORACIÓN (RECUPERADOS)
+   ========================================================================== */
+
+/* Quita los puntos negros (viñetas) y limpia el margen */
+
+
+/* Tarjeta individual de cada motivo con su barra lateral azul/turquesa */
+
+
+/* Efecto suave al pasar el cursor */
+.prayer-item:hover {
+  transform: translateX(3px);
+  border-left-color: var(--primary-color, #1a365d);
+}
+
+/* Modo Nocturno (Dark Mode) */
+body.dark-mode .prayer-item {
+  background-color: #1e293b;
+  border-top-color: #334155;
+  border-right-color: #334155;
+  border-bottom-color: #334155;
+  border-left-color: #38bdf8;
+  color: #e2e8f0;
+}
+
+/* ==========================================================================
+   TARJETA DEL CONTADOR DE ORACIONES (RESPONSIVE)
+   ========================================================================== */
+
+.prayer-counter-card {
+  background: linear-gradient(135deg, #1a365d 0%, #0e9594 100%);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 35px 24px;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 650px;
+  width: calc(100% - 30px);     /* Evita que toque los bordes del móvil */
+  box-sizing: border-box;
+  box-shadow: 0 10px 25px rgba(26, 54, 93, 0.2);
+}
+
+/* Contenedor del icono */
+.prayer-counter-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Icono SVG en la tarjeta del contador */
+.prayer-counter-card .icono-svg,
+.prayer-counter-icon .icono-svg {
+  color: #e5a93b !important;   /* Oro cálido */
+  fill: #e5a93b !important;
+  width: 84px;
+  height: 84px;
+  display: block;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.prayer-counter-card h3 {
+  font-size: clamp(1.15rem, 4vw, 1.45rem); /* Tamaño fluido que escala solo */
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.prayer-counter-card p {
+  font-size: clamp(0.88rem, 2.5vw, 0.98rem);
+  color: #e2e8f0;
+  margin: 0 0 22px 0;
+  line-height: 1.5;
+}
+
+/* Botón de acción */
+.btn-prayer-action {
+  background-color: #ffffff;
+  color: #1a365d;
+  border: none;
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  max-width: 100%;
+}
+
+.btn-prayer-action span.material-symbols-outlined {
+  color: #c1272d; /* Corazón rojo */
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.btn-prayer-action:hover {
+  transform: translateY(-2px);
+  background-color: #f7fafc;
+}
+
+.btn-prayer-action.ya-oro {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  cursor: default;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-prayer-action.ya-oro span.material-symbols-outlined {
+  color: #e5a93b;
+}
+
+/* Contador de números */
+.prayer-count-display {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count-number {
+  font-size: clamp(1.8rem, 6vw, 2.3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.count-label {
+  font-size: 0.8rem;
+  color: #cbd5e0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 5px;
+}
+
+.prayer-thanks-msg {
+  margin-top: 15px !important;
+  color: #fef08a !important; /* Amarillo suave */
+  font-weight: 600;
+  font-size: 0.88rem !important;
+  line-height: 1.4;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ==========================================================================
+   AJUSTES RESPONSIVE ESPECÍFICOS PARA MÓVILES (< 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+  .prayer-counter-card {
+    padding: 26px 16px;
+    margin: 28px auto;
+    border-radius: 14px;
+  }
+
+  /* Reducir ligeramente el icono para no copar toda la pantalla del móvil */
+  .prayer-counter-card .icono-svg,
+  .prayer-counter-icon .icono-svg {
+    width: 70px;
+    height: 70px;
+  }
+
+  .btn-prayer-action {
+    width: 100%;              /* Botón full width para facilitar el toque táctil */
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==========================================================================
+   Tamaño base para tus iconos SVG
+   ========================================================================== */
+
+.icono-svg {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor; /* Hereda el color del texto donde se encuentra */
+}
+
+/* En el botón del footer: blanco */
+.footer-btn .icono-svg {
+  fill: #ffffff;
+}
+
+.icon-footer-btn .icono-svg {
+  color: #ffffff;
+  fill: #ffffff ;
+  width: 20px;
+  height: 20px;
+  
+}
+
+.cta-banner .material-icono-svg{
+  color: #ffffff;  
+}
+
+
+
+/* Evita que la barra de navegación tape las secciones al hacer scroll */
+.day-card,
+#seccion-1,
+#seccion-2,
+#seccion-3,
+#seccion-4,
+#seccion-5,
+#seccion-6,
+#seccion-7 {
+  scroll-margin-top: 85px !important;
+}
+
+/* ==========================================================================
+   METADATOS EDITORIALES MINIMALISTAS (SIN NEGRITAS Y MONOCROMÁTICOS)
+   ========================================================================== */
+.meta-editorial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 30px 0 22px 0;      /* Espaciado generoso y elegante */
+  font-size: 0.88rem;
+  font-weight: 400;           /* Tipografía normal, sin negrita */
+  letter-spacing: 0.02em;
+  color: #64748b;             /* Tono gris suave uniforme */
+}
+
+.meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+}
+
+/* Forzar que ningún texto interno tenga negrita */
+.meta-editorial span,
+.meta-editorial strong {
+  font-weight: 400 !important;
+  color: inherit !important;
+}
+
+/* Iconos adoptan el mismo color y suavidad del texto */
+.meta-editorial .meta-icon {
+  font-size: 17px !important;
+  color: currentColor !important;
+  opacity: 0.85;
+}
+
+.meta-separator {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  opacity: 0.6;
+  user-select: none;
+}
+
+/* Modo Nocturno */
+body.dark-mode .meta-editorial {
+  color: #94a3b8;
+}
+
+body.dark-mode .meta-separator {
+  color: #64748b;
+}
+
+/* Adaptación móvil */
+@media (max-width: 600px) {
+  .meta-editorial {
+    gap: 8px;
+    font-size: 0.82rem;
+    margin: 22px 0 16px 0;
+  }
+}
+
+/* =========================================================================================
+   @instalación
+   ========================================================================================= */
+
+.pwa-install-card {
+    background-color: #ffffff;
+    border: 1px solid var(--light-gray, #e2e8f0);
+    border-left: 4px solid var(--secondary-color, #2b6cb0);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.pwa-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pwa-icon {
+    font-size: 32px;
+    color: var(--secondary-color, #2b6cb0);
+}
+
+.pwa-info h4 {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--primary-color, #1a365d);
+}
+
+.pwa-info p {
+    margin: 2px 0 0 0;
+    font-size: 0.82rem;
+    color: #64748b;
+}
+
+@media (max-width: 600px) {
+    .pwa-install-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .pwa-info {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   ESTILOS DEL CHAT FLOTANTE
+   ========================================================================== */
+
+/* Posicionamiento en la esquina inferior derecha, POR ENCIMA del botón de subir */
+.chat-widget-container {
+  position: fixed;
+  bottom: 20px;               /* 92px de elevación para dejar espacio libre al botón de subir */
+  right: 18px;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+/* Botón disparador */
+.chat-trigger-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a365d 0%, #0e9594 100%);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(14, 149, 148, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.chat-trigger-btn:hover {
+  transform: scale(1.08);
+}
+
+.chat-trigger-btn .chat-icon-close {
+  display: none;
+}
+
+.chat-widget-container.is-open .chat-trigger-btn .chat-icon-open {
+  display: none;
+}
+
+.chat-widget-container.is-open .chat-trigger-btn .chat-icon-close {
+  display: block;
+}
+
+/* Ventana Emergente del Chat */
+.chat-popup {
+  position: absolute;
+  bottom: 75px;
+  right: 0;
+  width: 280px;
+  max-width: calc(100vw - 40px);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  transform: translateY(15px);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.chat-widget-container.is-open .chat-popup {
+  display: flex;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Cabecera */
+.chat-header {
+  background: linear-gradient(135deg, #1a365d 0%, #0e9594 100%);
+  color: #ffffff;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chat-avatar span {
+  font-size: 22px;
+  color: #ffffff;
+}
+
+.chat-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.chat-status {
+  font-size: 0.75rem;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.btn-chat-close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+.btn-chat-close:hover {
+  opacity: 1;
+}
+
+/* Cuerpo */
+.chat-body {
+  padding: 16px;
+  background: #f8fafc;
+  max-height: 460px;
+  overflow-y: auto;
+}
+
+.chat-bubble-welcome {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px 12px 12px 2px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.chat-bubble-welcome p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.45;
+}
+
+.chat-time {
+  display: block;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* Formulario */
+.chat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group-chat input,
+.form-group-chat select,
+.form-group-chat textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-family: inherit;
+  background-color: #ffffff;
+  color: #1e293b;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group-chat input:focus,
+.form-group-chat select:focus,
+.form-group-chat textarea:focus {
+  border-color: #0e9594;
+  box-shadow: 0 0 0 3px rgba(14, 149, 148, 0.15);
+}
+
+.form-group-chat textarea {
+  resize: none;
+}
+
+.btn-chat-send {
+  background: #0e9594;
+  color: #ffffff;
+  border: none;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-chat-send:hover {
+  background: #0b7a79;
+}
+
+.btn-chat-send span.material-symbols-outlined {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.chat-success-msg {
+  padding: 12px;
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 6px;
+}
+
+/* Modo Nocturno */
+body.dark-mode .chat-popup {
+  background: #1e1e1e;
+  border-color: #333333;
+}
+
+body.dark-mode .chat-body {
+  background: #121212;
+}
+
+body.dark-mode .chat-bubble-welcome {
+  background: #252525;
+  border-color: #383838;
+}
+
+body.dark-mode .chat-bubble-welcome p {
+  color: #e2e8f0;
+}
+
+body.dark-mode .form-group-chat input,
+body.dark-mode .form-group-chat select,
+body.dark-mode .form-group-chat textarea {
+  background-color: #1e1e1e;
+  border-color: #404040;
+  color: #f1f5f9;
 }
 
 
