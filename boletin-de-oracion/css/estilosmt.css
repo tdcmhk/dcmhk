@@ -860,7 +860,7 @@ body.dark-mode .fecha-actualizacion {
   /*background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
   color: #ffffff;
   border-radius: 12px;*/
-  padding: 20px 15px;
+  padding: 40px 15px;
   text-align: center;
   margin: 30px 0;
   border: 1px solid var(--secondary-color);
@@ -929,7 +929,7 @@ body.dark-mode .fecha-actualizacion {
   /*background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
   color: #ffffff;
   border-radius: 12px;*/
-  padding: 20px 15px;
+  padding: 40px 15px;
   text-align: center;
   margin: 30px 0;
   border: 1px solid var(--secondary-color, #cbd5e0);
@@ -2060,18 +2060,19 @@ body.dark-mode .meta-separator {
     border: 1px solid var(--light-gray, #e2e8f0);
     border-left: 4px solid var(--secondary-color, #2b6cb0);
     border-radius: 12px;
-    padding: 16px 20px;
+    padding: 40px 15px;
     margin: 20px auto;
     max-width: 900px;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     justify-content: space-between;
     gap: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-align: center;
 }
 
 .pwa-info {
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     gap: 12px;
 }
@@ -2088,10 +2089,12 @@ body.dark-mode .meta-separator {
 }
 
 .pwa-info p {
-    margin: 2px 0 0 0;
+ /*   margin: 12px 0 0 0;*/
     font-size: 0.82rem;
     color: #64748b;
 }
+
+
 
 @media (max-width: 600px) {
     .pwa-install-card {
